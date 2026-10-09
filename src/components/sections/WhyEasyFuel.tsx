@@ -40,7 +40,7 @@ export function WhyEasyFuel() {
             {/* Legacy Card */}
             <div className="p-6 rounded-2xl bg-surface-container flex flex-col gap-5">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-error text-[24px]">cancel</span>
+                <span className="material-symbols-outlined text-error text-[24px] shrink-0">cancel</span>
                 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">
                   {whyEasyFuel.comparison.legacy.title}
                 </span>
@@ -61,7 +61,7 @@ export function WhyEasyFuel() {
             {/* EasyFuel Pro Smart Card */}
             <div className="p-6 rounded-2xl bg-primary text-on-primary shadow-lg flex flex-col gap-5">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-tertiary-fixed text-[24px]">check_circle</span>
+                <span className="material-symbols-outlined text-tertiary-fixed text-[24px] shrink-0">check_circle</span>
                 <span className="font-headline-sm text-headline-sm font-bold">
                   {whyEasyFuel.comparison.modern.title}
                 </span>

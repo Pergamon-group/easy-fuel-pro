@@ -21,7 +21,7 @@ export function ComplianceSpotlight() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {compliance.features.map((feature, idx) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary text-[22px] mt-0.5">{feature.icon}</span>
+                  <span className="material-symbols-outlined text-primary text-[22px] mt-0.5 shrink-0">{feature.icon}</span>
                   <div>
                     <span className="font-headline-sm text-[15px] font-bold text-on-surface block">{feature.title}</span>
                     <span className="font-body-sm text-body-sm text-on-surface-variant">{feature.description}</span>

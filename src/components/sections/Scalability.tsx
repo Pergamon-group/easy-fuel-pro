@@ -27,15 +27,15 @@ export function Scalability() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {scalability.modes.map((mode, idx) => (
             <div key={idx} className="p-8 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-6">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary text-[28px]">{mode.icon}</span>
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div className="flex items-start lg:items-center gap-3">
+                  <span className="material-symbols-outlined text-primary text-[28px] mt-1 lg:mt-0">{mode.icon}</span>
                   <div>
-                    <h3 className="font-headline-md text-headline-md text-on-surface font-bold">{mode.title}</h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">{mode.subtitle}</p>
+                    <h3 className="font-headline-md text-[18px] md:text-headline-md text-on-surface font-bold leading-tight">{mode.title}</h3>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 lg:mt-0">{mode.subtitle}</p>
                   </div>
                 </div>
-                <span className={`px-3 py-1 rounded font-label-mono text-label-mono font-semibold ${mode.badge.type === 'primary' ? 'bg-surface-container text-primary' : 'bg-secondary-container text-on-secondary-container'}`}>
+                <span className={`self-start lg:self-auto px-3 py-1 rounded font-label-mono text-[11px] md:text-label-mono font-semibold whitespace-nowrap ${mode.badge.type === 'primary' ? 'bg-surface-container text-primary' : 'bg-secondary-container text-on-secondary-container'}`}>
                   {mode.badge.label}
                 </span>
               </div>

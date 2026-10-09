@@ -35,7 +35,7 @@ export function FeatureGrid() {
               {/* Feature specific visual component */}
               {feature.visual.type === "flow" && (
                 <div className="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-2">
-                  <div className="flex items-center justify-between font-label-mono text-label-mono">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between font-label-mono text-[11px] sm:text-label-mono gap-1 sm:gap-0">
                     <span className="text-on-surface-variant">Active Nozzle Pulse</span>
                     <span className="text-primary font-bold">Flow: 41.8 L/min</span>
                   </div>
@@ -62,12 +62,12 @@ export function FeatureGrid() {
               )}
 
               {feature.visual.type === "badge" && (
-                <div className="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+                <div className="p-3.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary text-[20px]">qr_code_2</span>
-                    <span className="font-label-mono text-label-mono text-on-surface font-bold">{feature.visual.label}</span>
+                    <span className="font-label-mono text-[11px] sm:text-label-mono text-on-surface font-bold leading-tight">{feature.visual.label}</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-surface-container font-label-mono text-[10px] text-primary font-bold">AUTO-FISCAL</span>
+                  <span className="self-start sm:self-auto px-2 py-0.5 rounded bg-surface-container font-label-mono text-[10px] text-primary font-bold whitespace-nowrap">AUTO-FISCAL</span>
                 </div>
               )}
 
@@ -89,8 +89,8 @@ export function FeatureGrid() {
               )}
 
               {feature.visual.type === "audit" && (
-                <div className="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
-                  <span className="font-label-mono text-label-mono text-on-surface-variant">{feature.visual.label}</span>
+                <div className="p-3.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
+                  <span className="font-label-mono text-[11px] sm:text-label-mono text-on-surface-variant leading-tight">{feature.visual.label}</span>
                   <span className="font-label-mono text-label-mono font-bold text-primary">Variance: 0.00 L</span>
                 </div>
               )}

@@ -77,24 +77,24 @@ export function Hero() {
                 </div>
               </div>
               <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-200/80 flex flex-col gap-4">
-                <div className="flex items-center justify-between pb-3 border-b border-surface-container">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 pb-3 border-b border-surface-container">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <div className="w-8 h-8 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                       <span className="material-symbols-outlined text-[20px]">local_gas_station</span>
                     </div>
-                    <div>
-                      <h4 className="font-headline-sm text-[15px] font-bold text-on-surface">{siteConfig.hero.liveMetrics.stationName}</h4>
-                      <span className="font-label-mono text-[11px] text-on-surface-variant">{siteConfig.hero.liveMetrics.controllerId}</span>
+                    <div className="flex flex-col">
+                      <h4 className="font-headline-sm text-[14px] sm:text-[15px] font-bold text-on-surface leading-tight">{siteConfig.hero.liveMetrics.stationName}</h4>
+                      <span className="font-label-mono text-[10px] sm:text-[11px] text-on-surface-variant leading-tight">{siteConfig.hero.liveMetrics.controllerId}</span>
                     </div>
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-mono text-[11px] font-bold">
+                  <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-mono text-[10px] sm:text-[11px] font-bold">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
                     <span>{siteConfig.hero.liveMetrics.status}</span>
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
-                    <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium">{siteConfig.hero.liveMetrics.metrics[0].label}</span>
+                    <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium ">{siteConfig.hero.liveMetrics.metrics[0].label}</span>
                     <span className="font-headline-sm text-headline-sm font-bold text-on-surface">{siteConfig.hero.liveMetrics.metrics[0].value}</span>
                   </div>
                   <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
