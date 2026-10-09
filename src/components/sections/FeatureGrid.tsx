@@ -4,7 +4,7 @@ export function FeatureGrid() {
   const { featuresGrid } = siteConfig;
 
   return (
-    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface-container-low" data-testid="feature-grid-section" id="solutions">
+    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface-container-low scroll-mt-24" data-testid="feature-grid-section" id="solutions">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-12">
         <div className="flex flex-col gap-3 max-w-3xl">
           <span className="font-label-mono text-label-mono uppercase tracking-wider text-primary font-bold">

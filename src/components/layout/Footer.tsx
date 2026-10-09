@@ -4,7 +4,7 @@ export function Footer() {
   const { footer } = siteConfig;
 
   return (
-    <footer className="w-full bg-surface-container-low text-on-surface" data-testid="footer-section">
+    <footer id="contact" className="w-full bg-surface-container-low text-on-surface" data-testid="footer-section">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-space-2xl pb-space-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-space-xl">
           <div className="lg:col-span-4 flex flex-col gap-4">

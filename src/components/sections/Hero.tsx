@@ -93,17 +93,17 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3 text-center">
-                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5">
+                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
                     <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium">{siteConfig.hero.liveMetrics.metrics[0].label}</span>
                     <span className="font-headline-sm text-headline-sm font-bold text-on-surface">{siteConfig.hero.liveMetrics.metrics[0].value}</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5">
+                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
                     <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium">{siteConfig.hero.liveMetrics.metrics[1].label}</span>
-                    <span className="font-headline-sm text-[15px] font-bold text-primary flex items-center justify-center gap-1">
-                      <span className="material-symbols-outlined text-[16px]">{siteConfig.hero.liveMetrics.metrics[1].icon}</span>{siteConfig.hero.liveMetrics.metrics[1].value}
+                    <span className="font-headline-sm text-[12px] md:text-[15px] font-bold text-primary flex items-center justify-center gap-1">
+                      <span className="material-symbols-outlined text-[10px] md:text-[16px]">{siteConfig.hero.liveMetrics.metrics[1].icon}</span>{siteConfig.hero.liveMetrics.metrics[1].value}
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5">
+                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
                     <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium">{siteConfig.hero.liveMetrics.metrics[2].label}</span>
                     <span className="font-headline-sm text-headline-sm font-bold text-on-surface">{siteConfig.hero.liveMetrics.metrics[2].value}</span>
                   </div>

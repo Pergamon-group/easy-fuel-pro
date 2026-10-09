@@ -4,7 +4,7 @@ export function WhyEasyFuel() {
   const { whyEasyFuel } = siteConfig;
 
   return (
-    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface" data-testid="why-easy-fuel-section" id="about">
+    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface scroll-mt-24" data-testid="why-easy-fuel-section" id="about">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5 flex flex-col gap-5">

@@ -4,7 +4,7 @@ export function ComplianceSpotlight() {
   const { compliance } = siteConfig;
 
   return (
-    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface" data-testid="compliance-spotlight-section" id="etims-compliance">
+    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface scroll-mt-24" data-testid="compliance-spotlight-section" id="etims-compliance">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="p-8 lg:p-12 rounded-3xl bg-surface-container flex flex-col lg:flex-row gap-12 items-center justify-between shadow-sm">
           <div className="flex flex-col gap-5 max-w-2xl">

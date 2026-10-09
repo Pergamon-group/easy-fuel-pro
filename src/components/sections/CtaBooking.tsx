@@ -28,7 +28,7 @@ export function CtaBooking() {
   };
 
   return (
-    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface" id="demo-section" data-testid="cta-section">
+    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface scroll-mt-24" id="demo-section" data-testid="cta-section">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="p-8 lg:p-14 rounded-3xl bg-surface-container-low shadow-md">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

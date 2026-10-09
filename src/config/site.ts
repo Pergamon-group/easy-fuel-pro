@@ -278,9 +278,9 @@ export const siteConfig = {
     contactLabel: "Direct Dispatch & Channels",
     quickNavLabel: "Quick Navigation",
     quickNav: [
-      { label: "Platform", href: "#features" },
+      { label: "Platform", href: "#solutions" },
       { label: "Compliance", href: "#etims-compliance" },
-      { label: "Forecourt Hardware", href: "#why-easyfuel" },
+      { label: "Forecourt Hardware", href: "#about" },
       { label: "Support", href: "#contact" }
     ],
     copyright: "© 2025 EasyFuel Pro by Pergamon Group. All rights reserved. Industrial automation and forecourt telemetry systems.",

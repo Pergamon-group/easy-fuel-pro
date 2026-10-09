@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [],
+  },
+
+  allowedDevOrigins: ['easy-fuel-pro.vercel.app', 'easyfuelpro.co.ke'],
   turbopack: {
     rules: {
       "*.css": {
