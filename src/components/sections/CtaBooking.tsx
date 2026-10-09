@@ -133,11 +133,13 @@ export function CtaBooking() {
                       <label htmlFor="location" className="font-label-ui text-label-ui text-on-surface font-semibold">Primary Operations Location *</label>
                       <select id="location" name="location" required defaultValue="" className="w-full px-4 py-2.5 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm">
                         <option value="" disabled>Select location corridor...</option>
-                        <option value="Nairobi">Nairobi (CBD, Industrial Area &amp; Environs)</option>
-                        <option value="Mombasa">Mombasa (Coast Hub &amp; Maritime Corridor)</option>
-                        <option value="Eldoret">Eldoret (North Rift &amp; Depot Operations)</option>
-                        <option value="Kisii">Kisii (Western &amp; South Nyanza Network)</option>
-                        <option value="Other">Other Regional Location in Kenya / East Africa</option>
+                        <option value="Nairobi">Nairobi, Kenya (HQ &amp; Showroom)</option>
+                        <option value="Mombasa">Mombasa, Kenya (Branch)</option>
+                        <option value="Eldoret">Eldoret, Kenya (Branch)</option>
+                        <option value="Kisii">Kisii, Kenya (Branch)</option>
+                        <option value="Dar_es_Salaam">Dar es Salaam, Tanzania (Hub)</option>
+                        <option value="Kigali">Kigali, Rwanda (Hub)</option>
+                        <option value="Other">Other Location in East Africa</option>
                       </select>
                     </div>
 
