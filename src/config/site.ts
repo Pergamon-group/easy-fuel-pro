@@ -131,7 +131,7 @@ export const siteConfig = {
     comparison: {
       legacy: {
         title: "Legacy Fuel Stations",
-        description: "Fragmented manual logs leaving room for discrepancies and compliance audits.",
+        description: "Legacy fuel stations rely on fragmented manual logs, which leaves room for discrepancies and compliance audits.",
         points: [
           { title: "Manual Dips", desc: "High margin for human measurement error and tank fraud." },
           { title: "Paper Receipts", desc: "Slow checkout, missing records, manual book entry." },
@@ -141,7 +141,7 @@ export const siteConfig = {
       },
       modern: {
         title: "EasyFuel Pro Forecourt",
-        description: "Automated digital architecture built for absolute operational transparency.",
+        description: "EasyFuel Pro delivers an automated digital architecture built for absolute operational transparency.",
         points: [
           { title: "Automated KRA eTIMS", desc: "Direct pump-to-tax server handshake with live QR transmission." },
           { title: "Live Pump Telemetry", desc: "Immediate nozzle flow rates and instant digital transaction capture." },
@@ -164,7 +164,7 @@ export const siteConfig = {
         title: "Single Independent Station Mode",
         subtitle: "Autonomous forecourt execution",
         badge: { label: "EDGE CONTROLLER", type: "primary" },
-        description: "Direct dispenser connectivity via local Forecourt Controller. Complete POS integration, instant shift cash drops, nozzle-by-nozzle totalizer reconciliation, and local offline transaction buffering.",
+        description: "EasyFuel Pro provides direct dispenser connectivity via a local Forecourt Controller. It features complete POS integration, instant shift cash drops, nozzle-by-nozzle totalizer reconciliation, and local offline transaction buffering.",
         metrics: [
           { label: "Local Pump Latency", value: "< 150 ms" },
           { label: "Offline Buffer Capacity", value: "50,000+ Txns" }
@@ -175,7 +175,7 @@ export const siteConfig = {
         title: "Multi-Station Central HQ Fleet View",
         subtitle: "Enterprise network synchronization",
         badge: { label: "ENTERPRISE CLOUD", type: "secondary" },
-        description: "Aggregated real-time metrics across Nairobi, Mombasa, Eldoret, Kisii, and cross-border transit corridors. Unified price-change propagation, centralized fuel supplier deliveries, and regional fleet card authorization.",
+        description: "You get aggregated real-time metrics across Nairobi, Mombasa, Eldoret, Kisii, and cross-border transit corridors. Enjoy unified price-change propagation, centralized fuel supplier deliveries, and regional fleet card authorization.",
         metrics: [
           { label: "Network Fuel Stock", value: "1.2M Litres" },
           { label: "Price Sync Speed", value: "Instant 1-Click" }
@@ -193,12 +193,12 @@ export const siteConfig = {
       {
         icon: "fingerprint",
         title: "Automated Fiscal Signature",
-        description: "Direct digital signature generation without manual attendant intervention."
+        description: "Generates direct digital signatures automatically, without any manual attendant intervention."
       },
       {
         icon: "receipt",
         title: "Instant KRA Receipts",
-        description: "QR code printed directly on pump-side thermal till receipt."
+        description: "Prints KRA-validated QR codes directly onto pump-side thermal till receipts."
       },
       {
         icon: "cloud_sync",
@@ -208,7 +208,7 @@ export const siteConfig = {
       {
         icon: "gavel",
         title: "Zero Penalty Assurance",
-        description: "Eliminate tax audits and compliance fines with automated filing."
+        description: "Eliminates tax audits and compliance fines with automated background filing."
       }
     ],
     receipt: {
@@ -227,7 +227,7 @@ export const siteConfig = {
   valueProps: {
     badge: "The Strategic Advantage",
     headline: "WHAT MAKES EASYFUEL PRO DIFFERENT?",
-    description: "Engineered specifically for the East African commercial fuel landscape by industry pioneers.",
+    description: "EasyFuel Pro is engineered specifically for the East African commercial fuel landscape by industry pioneers.",
     pillars: [
       {
         icon: "visibility",
@@ -264,7 +264,7 @@ export const siteConfig = {
 
   // ── Footer ────────────────────────────────────────────────────────────────
   footer: {
-    description: "Modern Technology for a More Profitable Future. Fuel retail automation, real-time tank telemetry, and seamless fiscal compliance across East Africa.",
+    description: "Pergamon Group provides modern technology for a more profitable future. EasyFuel Pro delivers fuel retail automation, real-time tank telemetry, and seamless fiscal compliance across East Africa.",
     certifications: [
       "Certified KRA eTIMS Integrated Protocol"
     ],
