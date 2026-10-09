@@ -15,8 +15,8 @@ export const siteConfig = {
   // ── Contact ───────────────────────────────────────────────────────────────
   phone: "+254 111 050 950",
   phoneHref: "tel:+254111050950",
-  whatsapp: "0112 817 917", // Display format
-  whatsappHref: "https://wa.me/254112817917",
+  whatsapp: "+254 734 660 572", // Display format
+  whatsappHref: "https://wa.me/254734660572",
   email: "info@pergamongroup.com", // Placeholder
   website: "pergamongroup.com",
 
@@ -49,7 +49,7 @@ export const siteConfig = {
     subheadline: "Run your fuel station smarter, faster, and with greater control.",
     etimsNote: "With eTIMS-ready technology, EasyFuel Pro helps fuel stations manage their operations efficiently while staying compliant with Kenya’s digital tax requirements as enforced by the Kenya Revenue Authority (KRA).",
     primaryCta: { label: "Request a Demo", href: "#demo-section" },
-    secondaryCta: { label: "Talk to Us", href: "https://wa.me/254112817917" },
+    secondaryCta: { label: "Talk to Us", href: "https://wa.me/254734660572" },
     image: {
       src: "/res/filling-station-upperhill.jpg",
       alt: "Kenyan Fuel Forecourt",
@@ -270,10 +270,10 @@ export const siteConfig = {
     ],
     hubsLabel: "Regional Network Operations",
     hubs: [
-      { name: "Nairobi Headquarters", desc: "Lonrho House, 6th Floor\nStandard Street, CBD" },
-      { name: "Coast Regional Hub", desc: "Mombasa Office\nMaritime & Transit Corridor" },
-      { name: "North Rift Hub", desc: "Eldoret Operations\nDepot Integration Center" },
-      { name: "Western & South Nyanza", desc: "Kisii Center\nRetail Forecourt Services" }
+      { name: "Nairobi HQ & Showroom", desc: "Springette Office Park, Spring Valley , Lower Kabete Road, Block B1\nShowroom: Lonrho House, Standard St, Email: info@pergamongroup.com" },
+      { name: "Kenya Branches", desc: "Eldoret: Laneen Centre, Utalii St, Opposite Sirikwa Hotel\nKisii: Magsons Plaza: Off Hospital Rd\nMombasa: Digo Rd, 3rd Floor\nEmail: info@pergamongroup.com" },
+      { name: "Tanzania (Dar es Salaam)", desc: "Misasani, Mikocheni A, Old Bagamoyo Rd, PLOT 101\nTel: +255 22 277 5626, Mobile: +255 782 572 670, +255 716 684 002,\n\Email: info@pergamontz.com" },
+      { name: "Rwanda (Kigali)", desc: "Nobiscum House, 1st Floor, Remera Kisimenti\nTel: +250 786 381 374, +250 786 654 154, Email: info.rwanda@pergamongroup.com" }
     ],
     contactLabel: "Direct Dispatch & Channels",
     quickNavLabel: "Quick Navigation",

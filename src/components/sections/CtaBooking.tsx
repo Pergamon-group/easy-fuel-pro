@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react';
 import { submitBookingForm } from '@/app/actions/booking';
+import { siteConfig } from '@/config/site';
 
 export function CtaBooking() {
   const [success, setSuccess] = useState(false);
@@ -12,7 +13,7 @@ export function CtaBooking() {
     e.preventDefault();
     setError(null);
     const formData = new FormData(e.currentTarget);
-    
+
     startTransition(async () => {
       try {
         const result = await submitBookingForm(formData);
@@ -30,14 +31,14 @@ export function CtaBooking() {
   return (
     <section className="w-full py-space-2xl lg:py-space-3xl bg-surface scroll-mt-24" id="demo-section" data-testid="cta-section">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="p-8 lg:p-14 rounded-3xl bg-surface-container-low shadow-md">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
+        <div className="p-5 md:p-8 lg:p-14 rounded-3xl bg-surface-container-low shadow-md">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:items-start">
+
             {/* CTA Left Info */}
             <div className="lg:col-span-5 flex flex-col justify-between gap-8">
               <div className="flex flex-col gap-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container text-primary font-label-mono text-label-mono font-semibold w-fit">
-                  ⚡ DEPLOYMENT DESK ACTIVE
+                  ⚡ LET'S GET STARTED
                 </span>
                 <h2 className="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
                   READY TO TRANSFORM YOUR FORECOURT?
@@ -53,18 +54,18 @@ export function CtaBooking() {
                   Book Your EasyFuel Pro Demo Today
                 </div>
                 <div className="flex flex-col gap-2 pt-1">
-                  <a href="tel:+254111050950" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
+                  <a href={siteConfig.phoneHref} className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
                     <span className="material-symbols-outlined text-primary text-[22px]">call</span>
                     <div className="flex flex-col">
                       <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Voice Inquiries</span>
-                      <span className="font-label-mono text-label-mono font-bold text-on-surface">Call: +254 111 050 950</span>
+                      <span className="font-label-mono text-label-mono font-bold text-on-surface">Call: {siteConfig.phone}</span>
                     </div>
                   </a>
-                  <a href="https://wa.me/254112817917" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
+                  <a href={siteConfig.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
                     <span className="material-symbols-outlined text-primary text-[22px]">chat</span>
                     <div className="flex flex-col">
                       <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Direct WhatsApp</span>
-                      <span className="font-label-mono text-label-mono font-bold text-on-surface">WhatsApp: 0112 817 917</span>
+                      <span className="font-label-mono text-label-mono font-bold text-on-surface">WhatsApp: {siteConfig.whatsapp}</span>
                     </div>
                   </a>
                   <a href="https://pergamongroup.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
@@ -82,14 +83,15 @@ export function CtaBooking() {
                 <span className="font-headline-sm text-[14px] font-bold text-on-surface">
                   Pergamon Group — Modern Technology for a More Profitable Future.
                 </span>
-                <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  Nairobi: Lonrho House, Standard Street | Branches: Eldoret | Mombasa | Kisii
+                <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  HQ: Springette Office Park, Spring Valley | Showroom: Lonrho House, Standard St<br />
+                  Regional: Kenya (Mombasa, Eldoret, Kisii) • Tanzania (Dar es Salaam) • Rwanda (Kigali)
                 </p>
               </div>
             </div>
 
             {/* CTA Right: Request a Demo Form */}
-            <div className="lg:col-span-7 bg-surface-container-lowest p-8 lg:p-10 rounded-2xl shadow-sm flex flex-col gap-6">
+            <div className="lg:col-span-7 bg-surface-container-lowest p-5 md:p-8 lg:p-10 rounded-2xl shadow-sm flex flex-col gap-6">
               {!success ? (
                 <>
                   <div className="flex flex-col gap-1">
@@ -98,7 +100,7 @@ export function CtaBooking() {
                       Connect your forecourt to the EasyFuel Pro architecture. Fill in the details below.
                     </p>
                   </div>
-                  
+
                   {error && (
                     <div className="p-3 rounded bg-error-container text-on-error-container font-label-ui">
                       {error}
@@ -139,8 +141,8 @@ export function CtaBooking() {
                       </select>
                     </div>
 
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       disabled={isPending}
                       className="w-full mt-2 py-3.5 px-6 rounded-xl bg-primary text-on-primary font-label-ui text-headline-sm font-semibold hover:bg-tertiary shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-70"
                     >
@@ -159,7 +161,7 @@ export function CtaBooking() {
                 </div>
               )}
             </div>
-            
+
           </div>
         </div>
       </div>

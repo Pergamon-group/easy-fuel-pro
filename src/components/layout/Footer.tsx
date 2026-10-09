@@ -43,18 +43,18 @@ export function Footer() {
           <div className="lg:col-span-3 flex flex-col gap-3">
             <span className="font-label-ui text-label-ui uppercase tracking-wider text-primary font-bold">{footer.contactLabel}</span>
             <div className="flex flex-col gap-3 pt-1">
-              <a className="flex items-center gap-3 p-3 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors" href="tel:+254111050950">
+              <a className="flex items-center gap-3 p-3 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors" href={siteConfig.phoneHref}>
                 <span className="material-symbols-outlined text-primary text-[20px]">call</span>
                 <div className="flex flex-col">
                   <span className="font-label-ui text-[10px] text-on-surface-variant uppercase">Helpline Voice Desk</span>
-                  <span className="font-label-mono text-label-mono font-bold text-on-surface">+254 111 050 950</span>
+                  <span className="font-label-mono text-label-mono font-bold text-on-surface">{siteConfig.phone}</span>
                 </div>
               </a>
-              <a className="flex items-center gap-3 p-3 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors" href="https://wa.me/254112817917" target="_blank" rel="noopener noreferrer">
+              <a className="flex items-center gap-3 p-3 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors" href={siteConfig.whatsappHref} target="_blank" rel="noopener noreferrer">
                 <span className="material-symbols-outlined text-primary text-[20px]">chat</span>
                 <div className="flex flex-col">
                   <span className="font-label-ui text-[10px] text-on-surface-variant uppercase">Instant WhatsApp</span>
-                  <span className="font-label-mono text-label-mono font-bold text-on-surface">0112 817 917</span>
+                  <span className="font-label-mono text-label-mono font-bold text-on-surface">{siteConfig.whatsapp}</span>
                 </div>
               </a>
               <div className="pt-2 flex flex-col gap-1.5">
