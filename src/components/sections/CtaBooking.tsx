@@ -133,7 +133,7 @@ export function CtaBooking() {
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="location" className="font-label-ui text-label-ui text-on-surface font-semibold">Primary Operations Location *</label>
                       <select id="location" name="location" required value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)} className="w-full px-4 py-2.5 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm">
-                        <option value="" disabled>Select location corridor...</option>
+                        <option value="" disabled>Select a location...</option>
                         <option value="Nairobi">Nairobi, Kenya (HQ &amp; Showroom)</option>
                         <option value="Mombasa">Mombasa, Kenya (Branch)</option>
                         <option value="Eldoret">Eldoret, Kenya (Branch)</option>
