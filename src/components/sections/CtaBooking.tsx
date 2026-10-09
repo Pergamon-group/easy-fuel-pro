@@ -8,6 +8,7 @@ export function CtaBooking() {
   const [success, setSuccess] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -131,7 +132,7 @@ export function CtaBooking() {
 
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="location" className="font-label-ui text-label-ui text-on-surface font-semibold">Primary Operations Location *</label>
-                      <select id="location" name="location" required defaultValue="" className="w-full px-4 py-2.5 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm">
+                      <select id="location" name="location" required value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)} className="w-full px-4 py-2.5 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm">
                         <option value="" disabled>Select location corridor...</option>
                         <option value="Nairobi">Nairobi, Kenya (HQ &amp; Showroom)</option>
                         <option value="Mombasa">Mombasa, Kenya (Branch)</option>
@@ -141,6 +142,18 @@ export function CtaBooking() {
                         <option value="Kigali">Kigali, Rwanda (Hub)</option>
                         <option value="Other">Other Location in East Africa</option>
                       </select>
+                    </div>
+
+                    {selectedLocation === 'Other' && (
+                      <div className="flex flex-col gap-1.5 animate-in slide-in-from-top-2 fade-in duration-200">
+                        <label htmlFor="otherLocation" className="font-label-ui text-label-ui text-on-surface font-semibold">Please Specify Your Location *</label>
+                        <input type="text" id="otherLocation" name="otherLocation" required placeholder="e.g. Kampala, Uganda" className="w-full px-4 py-2.5 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+                      </div>
+                    )}
+
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="details" className="font-label-ui text-label-ui text-on-surface font-semibold">Additional Details (Optional)</label>
+                      <textarea id="details" name="details" rows={3} placeholder="Tell us about your current forecourt setup, specific challenges, or anything else you'd like us to know..." className="w-full px-4 py-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm resize-none"></textarea>
                     </div>
 
                     <button
