@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EasyFuel Pro — Web Application
 
-## Getting Started
+Official landing page and digital lead generation platform for **EasyFuel Pro** (a division of **Pergamon Group Ltd**), the ultimate smart fuel-station management and eTIMS compliance solution. Built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**.
 
-First, run the development server:
+---
 
+## Quick Start
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Using pnpm (default for Netlify / CI deployments):
+pnpm install
+
+# Or using npm:
+npm install --legacy-peer-deps
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Configuration
+Copy `.env.example` to `.env.local` and fill in any required credentials:
+```bash
+cp .env.example .env.local
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Lead Generation & CRM Integration
 
-To learn more about Next.js, take a look at the following resources:
+The website captures demo requests and enquiries through the `CtaBooking` form, processing the submission via Next.js Server Actions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Architecture Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+Customer Submits Form
+         │
+         ▼
+[components/sections/CtaBooking.tsx]
+         │  Server Action POST
+         ▼
+[app/actions/booking.ts]
+         │  Validates input (name, business, pumps, phone, location)
+         ▼
+    CRM Integration / Email Dispatch
+```
 
-## Deploy on Vercel
+*(Note: Currently configured for simulated latency. Connect to Pergamon Energy's CRM or SMTP provider in production).*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Single-Point-of-Config Architecture
+
+To ensure consistency and ease of maintenance, the entire application's data, copy, and structural logic are controlled centrally. 
+
+Edit `src/config/site.ts` to seamlessly update:
+- **Brand Information** (Logo, Tagline, Description)
+- **Live Metrics & Stats**
+- **Feature Pillars & Value Propositions**
+- **Hardware Integrations** (Scalability Matrix)
+- **Contact Channels & Footer Navigation**
+
+---
+
+## Testing & Quality Assurance
+
+This project strictly follows TDD methodologies. Every modular component is covered by comprehensive unit tests.
+
+Run the test suite:
+```bash
+# Run unit tests (Vitest)
+npm test
+
+# Run tests in UI mode
+npm run test:ui
+
+# TypeScript type check
+npx tsc --noEmit
+```
