@@ -7,6 +7,7 @@ Official landing page and digital lead generation platform for **EasyFuel Pro** 
 ## Quick Start
 
 ### 1. Install Dependencies
+
 ```bash
 # Using pnpm (default for Netlify / CI deployments):
 pnpm install
@@ -16,15 +17,19 @@ npm install --legacy-peer-deps
 ```
 
 ### 2. Environment Configuration
+
 Copy `.env.example` to `.env.local` and fill in any required credentials:
+
 ```bash
 cp .env.example .env.local
 ```
 
 ### 3. Run Development Server
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
@@ -48,15 +53,16 @@ Customer Submits Form
     CRM Integration / Email Dispatch
 ```
 
-*(Note: Currently configured for simulated latency. Connect to Pergamon Energy's CRM or SMTP provider in production).*
+*(Note: Currently configured for simulated latency. Pending configuration and connection to CRM or SMTP provider once launched).*
 
 ---
 
 ## Single-Point-of-Config Architecture
 
-To ensure consistency and ease of maintenance, the entire application's data, copy, and structural logic are controlled centrally. 
+To ensure consistency and ease of maintenance, the entire application's data, copy, and structural logic are controlled centrally.
 
 Edit `src/config/site.ts` to seamlessly update:
+
 - **Brand Information** (Logo, Tagline, Description)
 - **Live Metrics & Stats**
 - **Feature Pillars & Value Propositions**
@@ -70,6 +76,7 @@ Edit `src/config/site.ts` to seamlessly update:
 This project strictly follows TDD methodologies. Every modular component is covered by comprehensive unit tests.
 
 Run the test suite:
+
 ```bash
 # Run unit tests (Vitest)
 npm test
