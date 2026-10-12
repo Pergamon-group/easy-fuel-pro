@@ -69,10 +69,10 @@ export function CtaBooking() {
                       <span className="font-label-mono text-label-mono font-bold text-on-surface">WhatsApp: {siteConfig.whatsapp}</span>
                     </div>
                   </a>
-                  <a href="https://pergamongroup.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
+                  <a href={siteConfig.parentCompany.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
                     <span className="material-symbols-outlined text-primary text-[22px]">language</span>
                     <div className="flex flex-col">
-                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Corporate Portal</span>
+                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Corporate Website</span>
                       <span className="font-label-mono text-label-mono font-bold text-on-surface">Website: pergamongroup.com</span>
                     </div>
                   </a>
@@ -81,9 +81,15 @@ export function CtaBooking() {
 
               {/* Pergamon Footprint Info */}
               <div className="p-4 rounded-xl bg-surface-container flex flex-col gap-1.5">
-                <span className="font-headline-sm text-[14px] font-bold text-on-surface">
-                  Pergamon Group — Modern Technology for a More Profitable Future.
-                </span>
+                <a
+                  href={siteConfig.parentCompany.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-headline-sm text-[14px] font-bold text-on-surface hover:text-primary transition-colors flex items-center justify-between group"
+                >
+                  <span>{siteConfig.parentCompany.name} — Modern Technology for a More Profitable Future.</span>
+                  <span className="material-symbols-outlined text-[16px] text-primary opacity-70 group-hover:opacity-100 transition-opacity">open_in_new</span>
+                </a>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   HQ: Springette Office Park, Spring Valley | Showroom: Lonrho House, Standard St<br />
                   Regional: Kenya (Mombasa, Eldoret, Kisii) • Tanzania (Dar es Salaam) • Rwanda (Kigali)

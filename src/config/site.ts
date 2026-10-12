@@ -13,22 +13,45 @@ export const siteConfig = {
   name: "EasyFuel Pro",
   tagline: "The Future of Smart Forecourt Management",
   description: "EasyFuel Pro is Pergamon Group’s smart fuel-station management solution, designed to streamline forecourt operations while providing real-time visibility of fuel sales, pump activity, and business performance.",
-  url: "https://pergamongroup.com", // TODO: Update with real address before launch
-  ogImage: "/res/filling-station-upperhill.jpg",
+  url: "https://easyfuelpro.com",
+  website: "easyfuelpro.com",
+  ogImage: "/res/EasyFuel Pro logo.jpg",
+  ogImageSquare: "/res/Logo 1.png",
   logo: {
     src: "/res/EasyFuel_Pro logo_transparent_475.png",
     alt: "EasyFuel Pro Logo",
     width: 1680,
     height: 460,
   },
+  logos: {
+    landscape: "/res/EasyFuel Pro logo.jpg",
+    landscapeTransparent: "/res/EasyFuel Pro logo_transparent.png",
+    square: "/res/Logo 1.png",
+    squareTransparent: "/res/Logo 1_transparent.png",
+    parentCompany: "/res/pergamon-group-logo.png",
+  },
+  keywords: [
+    "EasyFuel Pro",
+    "Pergamon Group",
+    "smart forecourt management",
+    "eTIMS fuel station Kenya",
+    "fuel station automation",
+    "forecourt controller",
+    "pump telemetry",
+    "petrol station POS Kenya",
+    "automated fiscal receipting",
+    "KRA eTIMS compliant fuel POS",
+    "fuel inventory and tank monitoring",
+    "retail petroleum management East Africa",
+  ],
 
   // ── Contact ───────────────────────────────────────────────────────────────
   phone: "+254 111 050 950",
   phoneHref: "tel:+254111050950",
   whatsapp: "+254 734 660 572", // Display format
   whatsappHref: "https://wa.me/254734660572",
-  email: "info@pergamongroup.com", // Placeholder
-  website: "pergamongroup.com",
+  email: "info@pergamongroup.com", // Main business dispatch
+  websiteDomain: "easyfuelpro.com",
 
   // ── Navigation ────────────────────────────────────────────────────────────
   navLinks: [
@@ -50,6 +73,7 @@ export const siteConfig = {
   parentCompany: {
     name: "Pergamon Group",
     url: "https://pergamongroup.com",
+    logo: "/res/pergamon-group-logo.png",
     established: 2004,
   },
 

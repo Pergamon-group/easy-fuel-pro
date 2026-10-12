@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 
 export function Footer() {
@@ -8,8 +9,30 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-space-2xl pb-space-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-space-xl">
           <div className="lg:col-span-4 flex flex-col gap-4">
+            <a
+              href={siteConfig.parentCompany.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg transition-transform hover:scale-[1.02] w-fit"
+              aria-label={`${siteConfig.parentCompany.name} Official Website`}
+            >
+              <Image
+                src="/res/pergamon-group-logo.png"
+                alt="Pergamon Group Logo"
+                width={205}
+                height={80}
+                className="h-10 w-auto object-contain"
+              />
+            </a>
             <div className="flex items-center gap-3">
-              <span className="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight uppercase">Pergamon Group</span>
+              <a
+                href={siteConfig.parentCompany.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-headline-sm text-headline-sm text-on-surface hover:text-primary font-bold tracking-tight uppercase transition-colors"
+              >
+                {siteConfig.parentCompany.name}
+              </a>
             </div>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
               {footer.description}
@@ -22,8 +45,12 @@ export function Footer() {
                 </div>
               ))}
               <div className="inline-flex items-center gap-2 text-on-surface-variant font-label-mono text-label-mono">
+                <span className="material-symbols-outlined text-primary text-[18px]">public</span>
+                <a className="hover:text-primary transition-colors font-semibold" href={siteConfig.url}>easyfuelpro.com</a>
+              </div>
+              <div className="inline-flex items-center gap-2 text-on-surface-variant font-label-mono text-label-mono">
                 <span className="material-symbols-outlined text-primary text-[18px]">language</span>
-                <a className="hover:text-primary transition-colors" href="https://pergamongroup.com" target="_blank" rel="noopener noreferrer">pergamongroup.com</a>
+                <a className="hover:text-primary transition-colors" href={siteConfig.parentCompany.url} target="_blank" rel="noopener noreferrer">pergamongroup.com</a>
               </div>
             </div>
           </div>
@@ -71,7 +98,18 @@ export function Footer() {
           </div>
         </div>
         <div className="pt-space-md flex flex-col md:flex-row items-center justify-between gap-4 text-on-surface-variant font-label-ui text-label-ui">
-          <p>{footer.copyright}</p>
+          <p>
+            © 2026{' '}
+            <a
+              href={siteConfig.parentCompany.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors font-medium"
+            >
+              EasyFuel Pro by Pergamon Group
+            </a>
+            . All rights reserved. Industrial automation and forecourt telemetry systems.
+          </p>
           <div className="flex items-center gap-6">
             {footer.legalLinks.map((link, idx) => (
               <a key={idx} className="hover:text-on-surface transition-colors" href={link.href}>

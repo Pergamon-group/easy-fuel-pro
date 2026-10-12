@@ -1,2 +1,7 @@
-// Test setup file for Vitest
-// Added as a placeholder for any global test setup required in the future
+import { vi } from 'vitest';
+
+vi.mock('next/font/google', () => ({
+  Inter: () => ({ variable: '--font-inter', className: 'inter' }),
+  JetBrains_Mono: () => ({ variable: '--font-jetbrains-mono', className: 'jetbrains-mono' }),
+  Plus_Jakarta_Sans: () => ({ variable: '--font-plus-jakarta-sans', className: 'plus-jakarta-sans' }),
+}));
