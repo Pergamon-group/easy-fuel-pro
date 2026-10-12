@@ -6,7 +6,7 @@ import { Partners, PartnerCard } from './Partners';
 
 // Mock next/image to avoid src loading issues in test
 vi.mock('next/image', () => ({
-  default: ({ src, alt, ...rest }: ImageProps) => {
+  default: ({ src, alt, fill: _fill, priority: _priority, ...rest }: ImageProps) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={typeof src === 'string' ? src : ''} alt={alt || ''} {...rest} />;
   },
@@ -34,15 +34,17 @@ describe('Partners Component', () => {
 
   it('renders certified forecourt hardware partners', () => {
     render(<Partners />);
-    expect(screen.getByText('Forecourt POS & Hardware Certified Partners')).toBeDefined();
+    expect(screen.getByText('Forecourt Controllers, Dispensers & ATG Certified Partners')).toBeDefined();
+    expect(screen.getByText('PTS-2 Controller')).toBeDefined();
+    expect(screen.getByText('Incotex 600 ESD')).toBeDefined();
+    expect(screen.getByText('Gilbarco Veeder-Root')).toBeDefined();
     expect(screen.getByText('Wayne Fueling')).toBeDefined();
     expect(screen.getByText('Dover Fueling Solutions')).toBeDefined();
-    expect(screen.getByText('Gilbarco Veeder-Root')).toBeDefined();
-    expect(screen.getByText('Dispenser Automation')).toBeDefined();
     expect(screen.getByText('Tokheim')).toBeDefined();
-    expect(screen.getByText('Ingenico')).toBeDefined();
-    expect(screen.getByText('Honeywell')).toBeDefined();
-    expect(screen.getByText('Zebra')).toBeDefined();
+    expect(screen.getByText('Tatsuno')).toBeDefined();
+    expect(screen.getByText('Franklin Fueling')).toBeDefined();
+    expect(screen.getByText('OPW')).toBeDefined();
+    expect(screen.getByText('Bennett')).toBeDefined();
   });
 
   it('has anchor id="about" for navigation linkage', () => {

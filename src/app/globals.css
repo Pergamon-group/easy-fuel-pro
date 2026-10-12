@@ -71,18 +71,18 @@
   --spacing-space-sm: 0.5rem;
 
   /* Fonts */
-  --font-headline-sm: var(--font-plus-jakarta-sans);
-  --font-body-md: var(--font-inter);
-  --font-display-hero: var(--font-plus-jakarta-sans);
-  --font-headline-lg-mobile: var(--font-plus-jakarta-sans);
-  --font-body-sm: var(--font-inter);
-  --font-label-ui: var(--font-inter);
-  --font-headline-lg: var(--font-plus-jakarta-sans);
-  --font-headline-md: var(--font-plus-jakarta-sans);
+  --font-headline-sm: var(--font-poppins);
+  --font-body-md: var(--font-poppins);
+  --font-display-hero: var(--font-poppins);
+  --font-headline-lg-mobile: var(--font-poppins);
+  --font-body-sm: var(--font-poppins);
+  --font-label-ui: var(--font-poppins);
+  --font-headline-lg: var(--font-poppins);
+  --font-headline-md: var(--font-poppins);
   --font-label-mono: var(--font-jetbrains-mono);
-  --font-display-hero-mobile: var(--font-plus-jakarta-sans);
-  --font-stat-counter: var(--font-plus-jakarta-sans);
-  --font-body-lg: var(--font-inter);
+  --font-display-hero-mobile: var(--font-poppins);
+  --font-stat-counter: var(--font-poppins);
+  --font-body-lg: var(--font-poppins);
 
   /* Font Sizes */
   --text-headline-sm: 18px;

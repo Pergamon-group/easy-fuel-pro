@@ -71,7 +71,7 @@ export function Hero() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-sm text-on-surface font-label-mono text-[11px] font-semibold">
+                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-on-surface font-label-mono text-[11px] font-semibold">
                   <span className="w-2 h-2 rounded-full bg-primary-container"></span>
                   <span>{siteConfig.hero.image.badge}</span>
                 </div>

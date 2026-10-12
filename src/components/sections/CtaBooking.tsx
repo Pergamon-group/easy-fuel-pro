@@ -3,6 +3,7 @@
 import { useState, useTransition } from 'react';
 import { submitBookingForm } from '@/app/actions/booking';
 import { siteConfig } from '@/config/site';
+import { ForecourtCanopyIllustration } from '@/components/ui/ForecourtCanopyIllustration';
 
 export function CtaBooking() {
   const [success, setSuccess] = useState(false);
@@ -42,11 +43,17 @@ export function CtaBooking() {
                   ⚡ LET&apos;S GET STARTED
                 </span>
                 <h2 className="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
-                  READY TO TRANSFORM YOUR FORECOURT?
+                  LET&apos;S GET YOUR FUEL STATION eTIMS READY
                 </h2>
                 <p className="font-body-lg text-body-lg text-on-surface-variant">
-                  Upgrade Your Fuel Station with EasyFuel Pro. Get real-time visibility, smarter operations, better control, and eTIMS-ready technology in one powerful solution.
+                  Upgrade your fuel station with EasyFuel Pro. Get real-time visibility, smarter operations,
+                  forecourt controller automation, and seamless KRA compliance.
                 </p>
+
+                {/* Stylized Canopy Vector Illustration (from proposal) */}
+                <div className="w-full rounded-2xl overflow-hidden border border-outline-variant/30 bg-surface-container-lowest/60 p-2 shadow-xs">
+                  <ForecourtCanopyIllustration className="w-full h-auto max-h-[180px]" />
+                </div>
               </div>
 
               {/* Direct Channel Cards */}
@@ -54,26 +61,33 @@ export function CtaBooking() {
                 <div className="font-headline-sm text-headline-sm font-bold text-on-surface">
                   Book Your EasyFuel Pro Demo Today
                 </div>
-                <div className="flex flex-col gap-2 pt-1">
-                  <a href={siteConfig.phoneHref} className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
-                    <span className="material-symbols-outlined text-primary text-[22px]">call</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  <a href={siteConfig.phoneHref} className="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-xs hover:shadow transition-shadow">
+                    <span className="material-symbols-outlined text-primary text-[20px]">call</span>
                     <div className="flex flex-col">
-                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Voice Inquiries</span>
-                      <span className="font-label-mono text-label-mono font-bold text-on-surface">Call: {siteConfig.phone}</span>
+                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Direct Phone</span>
+                      <span className="font-label-mono text-[12px] font-bold text-on-surface">{siteConfig.phone}</span>
                     </div>
                   </a>
-                  <a href={siteConfig.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
-                    <span className="material-symbols-outlined text-primary text-[22px]">chat</span>
+                  <a href={siteConfig.whatsappHref} target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-xs hover:shadow transition-shadow">
+                    <span className="material-symbols-outlined text-primary text-[20px]">chat</span>
                     <div className="flex flex-col">
-                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Direct WhatsApp</span>
-                      <span className="font-label-mono text-label-mono font-bold text-on-surface">WhatsApp: {siteConfig.whatsapp}</span>
+                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">WhatsApp Desk</span>
+                      <span className="font-label-mono text-[12px] font-bold text-on-surface">{siteConfig.whatsapp}</span>
                     </div>
                   </a>
-                  <a href={siteConfig.parentCompany.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow transition-shadow">
-                    <span className="material-symbols-outlined text-primary text-[22px]">language</span>
+                  <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-xs hover:shadow transition-shadow">
+                    <span className="material-symbols-outlined text-primary text-[20px]">mail</span>
                     <div className="flex flex-col">
-                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Corporate Website</span>
-                      <span className="font-label-mono text-label-mono font-bold text-on-surface">Website: pergamongroup.com</span>
+                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Direct Email</span>
+                      <span className="font-label-mono text-[12px] font-bold text-on-surface">{siteConfig.email}</span>
+                    </div>
+                  </a>
+                  <a href={siteConfig.parentCompany.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-xs hover:shadow transition-shadow">
+                    <span className="material-symbols-outlined text-primary text-[20px]">language</span>
+                    <div className="flex flex-col">
+                      <span className="font-label-ui text-[10px] uppercase text-on-surface-variant font-semibold">Corporate Portal</span>
+                      <span className="font-label-mono text-[12px] font-bold text-on-surface">pergamongroup.com</span>
                     </div>
                   </a>
                 </div>

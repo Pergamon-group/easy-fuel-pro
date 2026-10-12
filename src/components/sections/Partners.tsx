@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { siteConfig, type PartnerItem } from '@/config/site';
+import { HardwareDirectory } from './HardwareDirectory';
 
 export interface PartnerCardProps {
   name: string;
@@ -246,6 +247,11 @@ export function Partners() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Searchable Protocol Compatibility Directory Trigger */}
+        <div className="pt-2 flex justify-center">
+          <HardwareDirectory />
         </div>
       </div>
     </section>

@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 
-const inter = Inter({
-  variable: "--font-inter",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
 });
 
@@ -173,7 +169,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${plusJakartaSans.variable} font-body-md bg-background text-on-surface antialiased min-h-screen`}
+        className={`${poppins.variable} ${jetbrainsMono.variable} font-body-md bg-background text-on-surface antialiased min-h-screen`}
       >
         {children}
       </body>
