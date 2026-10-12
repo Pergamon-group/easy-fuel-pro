@@ -1,11 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import type { ImageProps } from 'next/image';
 import { Hero } from './Hero';
 
 // Mock next/image to avoid src loading issues in test
 vi.mock('next/image', () => ({
-  default: (props: any) => {
-    return <img {...props} />;
+  default: ({ src, alt, ...rest }: ImageProps) => {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={typeof src === 'string' ? src : ''} alt={alt || ''} {...rest} />;
   },
 }));
 

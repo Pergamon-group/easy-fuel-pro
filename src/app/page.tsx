@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { Partners } from "@/components/sections/Partners";
 import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { WhyEasyFuel } from "@/components/sections/WhyEasyFuel";
 import { Scalability } from "@/components/sections/Scalability";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main className="w-full pt-20">
         <Hero />
+        <Partners />
         <FeatureGrid />
         <WhyEasyFuel />
         <Scalability />

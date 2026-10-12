@@ -1,3 +1,13 @@
+export interface PartnerItem {
+  name: string;
+  subtitle: string;
+  icon: string;
+  iconBg: string;
+  iconColor: string;
+  logoSrc?: string;
+  logoBg?: 'light' | 'dark';
+}
+
 export const siteConfig = {
   // ── Brand ─────────────────────────────────────────────────────────────────
   name: "EasyFuel Pro",
@@ -65,6 +75,121 @@ export const siteConfig = {
         { label: "Active Nozzles", value: "8/8" },
       ]
     }
+  },
+
+  // ── Proven Forecourt Adoption (Partners & Fuel Networks) ───────────────────
+  partners: {
+    badge: "TRUSTED ACROSS AFRICA",
+    headline: "TRUSTED BY THE CONTINENT'S FUEL NETWORKS",
+    description: "Pergamon Group's Easy Fuel Pro solution powers forecourts across the continent with mission-critical intelligence and automation.",
+    networksCategory: {
+      title: "Retail Petroleum Networks & Oil Marketing Companies",
+      items: [
+        {
+          name: "National Oil",
+          subtitle: "Corporation of Kenya",
+          icon: "local_gas_station",
+          iconBg: "bg-[#006591]/10",
+          iconColor: "text-[#006591]",
+        },
+        {
+          name: "Lake Oil",
+          subtitle: "Lake Group Retail",
+          icon: "water_drop",
+          iconBg: "bg-error/10",
+          iconColor: "text-error",
+        },
+        {
+          name: "Rubis Energy",
+          subtitle: "East Africa",
+          icon: "speed",
+          iconBg: "bg-primary/10",
+          iconColor: "text-primary",
+        },
+        {
+          name: "TotalEnergies",
+          subtitle: "Network Stations",
+          icon: "energy_savings_leaf",
+          iconBg: "bg-surface-container",
+          iconColor: "text-on-surface",
+        },
+        {
+          name: "Hass Petroleum",
+          subtitle: "Regional Corridor",
+          icon: "local_shipping",
+          iconBg: "bg-primary-container/15",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Ola Energy",
+          subtitle: "Forecourt Fleet",
+          icon: "oil_barrel",
+          iconBg: "bg-surface-container",
+          iconColor: "text-on-surface-variant",
+        },
+        {
+          name: "Shell Dealers",
+          subtitle: "Authorized Franchise",
+          icon: "store",
+          iconBg: "bg-primary/10",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Vivo Energy",
+          subtitle: "Commercial Retail",
+          icon: "hub",
+          iconBg: "bg-surface-container",
+          iconColor: "text-on-surface",
+        },
+      ],
+    },
+    hardwareCategory: {
+      title: "Forecourt POS & Hardware Certified Partners",
+      items: [
+        {
+          name: "Wayne Fueling",
+          subtitle: "Dover Fueling Solutions",
+          icon: "settings_input_component",
+          iconBg: "bg-surface-container",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Gilbarco Veeder-Root",
+          subtitle: "Dispenser Automation",
+          icon: "precision_manufacturing",
+          iconBg: "bg-surface-container",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Tokheim",
+          subtitle: "Dispenser Protocols",
+          icon: "ev_station",
+          iconBg: "bg-surface-container",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Ingenico",
+          subtitle: "Payment Terminals",
+          icon: "point_of_sale",
+          iconBg: "bg-surface-container",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Honeywell",
+          subtitle: "Industrial Scanners",
+          icon: "sensors",
+          iconBg: "bg-surface-container",
+          iconColor: "text-primary",
+        },
+        {
+          name: "Zebra",
+          subtitle: "Fiscal Printers",
+          icon: "qr_code_scanner",
+          iconBg: "bg-surface-container",
+          iconColor: "text-primary",
+        },
+      ],
+    },
   },
 
   // ── Features Grid (Integrated Forecourt Stack) ────────────────────────────

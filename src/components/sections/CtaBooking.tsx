@@ -23,7 +23,7 @@ export function CtaBooking() {
         } else {
           setError(result.error || 'Something went wrong.');
         }
-      } catch (err) {
+      } catch {
         setError('Failed to submit the form. Please try again.');
       }
     });
@@ -39,7 +39,7 @@ export function CtaBooking() {
             <div className="lg:col-span-5 flex flex-col justify-between gap-8">
               <div className="flex flex-col gap-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container text-primary font-label-mono text-label-mono font-semibold w-fit">
-                  ⚡ LET'S GET STARTED
+                  ⚡ LET&apos;S GET STARTED
                 </span>
                 <h2 className="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
                   READY TO TRANSFORM YOUR FORECOURT?

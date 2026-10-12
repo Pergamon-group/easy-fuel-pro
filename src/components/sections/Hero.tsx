@@ -29,7 +29,7 @@ export function Hero() {
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
               {siteConfig.description}
             </p>
-            <div className="w-full p-4 rounded-xl bg-surface-container-lowest border border-primary/20 shadow-sm mb-8">
+            <div className="w-full p-4 rounded-xl bg-surface-container-lowest border border-primary/2 shadow-xs mb-8">
               <div className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary text-[22px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
                 <p
@@ -62,7 +62,7 @@ export function Hero() {
           {/* Right Column */}
           <div className="lg:col-span-6 relative">
             <div className="flex flex-col gap-4 w-full">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-white h-[360px] w-full">
+              <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white h-[360px] w-full">
                 <Image
                   src={siteConfig.hero.image.src}
                   alt={siteConfig.hero.image.alt}
@@ -76,10 +76,10 @@ export function Hero() {
                   <span>{siteConfig.hero.image.badge}</span>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-200/80 flex flex-col gap-4">
+              <div className="bg-white rounded-2xl p-5 shadow-none border border-slate-200/80 flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 pb-3 border-b border-surface-container">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <div className="w-8 h-8 shrink-0 rounded-lg bg-primary/0 flex items-center justify-center text-primary">
                       <span className="material-symbols-outlined text-[20px]">local_gas_station</span>
                     </div>
                     <div className="flex flex-col">
@@ -87,23 +87,22 @@ export function Hero() {
                       <span className="font-label-mono text-[10px] sm:text-[11px] text-on-surface-variant leading-tight">{siteConfig.hero.liveMetrics.controllerId}</span>
                     </div>
                   </div>
-                  <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-mono text-[10px] sm:text-[11px] font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/90 border border-primary/20 text-white font-label-mono text-[10px] sm:text-[11px] font-bold">
                     <span>{siteConfig.hero.liveMetrics.status}</span>
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3 text-center">
-                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
+                  <div className="p-3 rounded-xl bg-surface-container-low/5 flex flex-col gap-0.5 justify-between">
                     <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium ">{siteConfig.hero.liveMetrics.metrics[0].label}</span>
                     <span className="font-headline-sm text-headline-sm font-bold text-on-surface">{siteConfig.hero.liveMetrics.metrics[0].value}</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
+                  <div className="p-3 rounded-xl bg-surface-container-low/5 flex flex-col gap-0.5 justify-between">
                     <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium">{siteConfig.hero.liveMetrics.metrics[1].label}</span>
                     <span className="font-headline-sm text-[12px] md:text-[15px] font-bold text-primary flex items-center justify-center gap-1">
                       <span className="material-symbols-outlined text-[10px] md:text-[16px]">{siteConfig.hero.liveMetrics.metrics[1].icon}</span>{siteConfig.hero.liveMetrics.metrics[1].value}
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-surface-container-low flex flex-col gap-0.5 justify-between">
+                  <div className="p-3 rounded-xl bg-surface-container-low/5 flex flex-col gap-0.5 justify-between">
                     <span className="font-label-ui text-[11px] text-on-surface-variant uppercase font-medium">{siteConfig.hero.liveMetrics.metrics[2].label}</span>
                     <span className="font-headline-sm text-headline-sm font-bold text-on-surface">{siteConfig.hero.liveMetrics.metrics[2].value}</span>
                   </div>

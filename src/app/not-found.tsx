@@ -15,7 +15,7 @@ export default function GlobalNotFound() {
             Page Not Found
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-8">
-            We couldn't find the page you were looking for. It might have been moved, deleted, or perhaps the URL is incorrect.
+            We couldn&apos;t find the page you were looking for. It might have been moved, deleted, or perhaps the URL is incorrect.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link 
