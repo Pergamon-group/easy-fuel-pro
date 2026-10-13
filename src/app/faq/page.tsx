@@ -52,7 +52,7 @@ export default function FaqPage() {
   return (
     <>
       <Header />
-      <main className="w-full pt-20 bg-background min-h-screen">
+      <main className="w-full pt-24 sm:pt-20 bg-background min-h-screen">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

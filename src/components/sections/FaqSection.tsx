@@ -58,7 +58,7 @@ export function FaqSection() {
               href="/faq"
               className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 font-label-ui text-[14px] font-semibold underline underline-offset-4"
             >
-              <span>Explore Dedicated Knowledge Base &amp; FAQ Page</span>
+              <span>Explore our Dedicated Knowledge Base &amp; FAQ Page</span>
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </div>

@@ -6,7 +6,7 @@ export default function GlobalNotFound() {
   return (
     <>
       <Header />
-      <main className="w-full pt-20">
+      <main className="w-full pt-24 sm:pt-20">
         <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 bg-surface">
           <span className="material-symbols-outlined text-[72px] text-primary mb-6 opacity-80">
             explore_off

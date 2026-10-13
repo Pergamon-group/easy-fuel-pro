@@ -33,7 +33,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="w-full pt-20">
+      <main className="w-full pt-24 sm:pt-20">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
