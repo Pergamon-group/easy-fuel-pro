@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
+import { FiscalPrinter } from '@/components/ui/FiscalPrinter';
 
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-surface py-16 lg:py-24" data-testid="hero-section">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
-          <div className="lg:col-span-6 flex flex-col items-start">
+          <div className="hero-copy relative lg:col-span-6 flex flex-col items-start">
             {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/0 border border-primary/0 text-primary font-label-ui text-label-ui uppercase tracking-wider font-semibold mb-6"> */}
             {/* <span className="w-2 h-2 rounded-full bg-primary-container"></span> */}
             {/* <span>{siteConfig.hero.badge}</span> */}
@@ -29,7 +30,10 @@ export function Hero() {
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
               {siteConfig.description}
             </p>
-            <div className="w-full p-4 rounded-xl bg-surface-container-lowest border border-primary/2 shadow-xs mb-8">
+            <div className="hero-etims relative w-full p-4 rounded-xl bg-surface-container-lowest border border-primary/2 shadow-xs mb-8">
+              <div className="hero-fiscal-printer hero-fiscal-printer--mobile" aria-label="Interactive fiscal printer">
+                <FiscalPrinter />
+              </div>
               <div className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary text-[22px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
                 <p
@@ -63,15 +67,20 @@ export function Hero() {
           <div className="lg:col-span-6 relative">
             <div className="flex flex-col gap-4 w-full">
               {/* <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white h-[360px] w-full"> */}
-              <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white aspect-[887/467] w-full">
-                <Image
-                  src={siteConfig.hero.image.src}
-                  alt={siteConfig.hero.image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover grayscale-25 hover:grayscale-0 transition-all duration-500"
-                  priority
-                />
+              <div className="hero-image relative rounded-2xl overflow-visible shadow-none border border-slate-200/80 bg-white aspect-[887/467] w-full">
+                <div className="hero-fiscal-printer hero-fiscal-printer--desktop" aria-label="Interactive fiscal printer">
+                  <FiscalPrinter />
+                </div>
+                <div className="hero-image-frame absolute inset-0 overflow-hidden rounded-2xl">
+                  <Image
+                    src={siteConfig.hero.image.src}
+                    alt={siteConfig.hero.image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover grayscale-25 hover:grayscale-0 transition-all duration-500"
+                    priority
+                  />
+                </div>
                 {/* <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-on-surface font-label-mono text-[11px] font-semibold">
                   <span className="w-2 h-2 rounded-full bg-primary-container"></span>
                   <span>{siteConfig.hero.image.badge}</span>
