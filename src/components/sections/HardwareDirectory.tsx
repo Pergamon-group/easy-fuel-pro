@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import {
-  DISPENSER_BRANDS,
-  ATG_PROBE_BRANDS,
   TOTAL_DISPENSER_COUNT,
   TOTAL_ATG_COUNT,
   searchHardwareBrands,

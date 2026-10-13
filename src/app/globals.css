@@ -71,18 +71,22 @@
   --spacing-space-sm: 0.5rem;
 
   /* Fonts */
-  --font-headline-sm: var(--font-poppins);
-  --font-body-md: var(--font-poppins);
-  --font-display-hero: var(--font-poppins);
-  --font-headline-lg-mobile: var(--font-poppins);
-  --font-body-sm: var(--font-poppins);
-  --font-label-ui: var(--font-poppins);
-  --font-headline-lg: var(--font-poppins);
-  --font-headline-md: var(--font-poppins);
-  --font-label-mono: var(--font-jetbrains-mono);
-  --font-display-hero-mobile: var(--font-poppins);
-  --font-stat-counter: var(--font-poppins);
-  --font-body-lg: var(--font-poppins);
+  --font-sans: var(--font-poppins, "Poppins", sans-serif);
+  --font-mono: var(--font-jetbrains-mono, "JetBrains Mono", monospace);
+  --font-poppins: var(--font-poppins, "Poppins", sans-serif);
+  --font-jetbrains-mono: var(--font-jetbrains-mono, "JetBrains Mono", monospace);
+  --font-headline-sm: var(--font-poppins, "Poppins", sans-serif);
+  --font-body-md: var(--font-poppins, "Poppins", sans-serif);
+  --font-display-hero: var(--font-poppins, "Poppins", sans-serif);
+  --font-headline-lg-mobile: var(--font-poppins, "Poppins", sans-serif);
+  --font-body-sm: var(--font-poppins, "Poppins", sans-serif);
+  --font-label-ui: var(--font-poppins, "Poppins", sans-serif);
+  --font-headline-lg: var(--font-poppins, "Poppins", sans-serif);
+  --font-headline-md: var(--font-poppins, "Poppins", sans-serif);
+  --font-label-mono: var(--font-jetbrains-mono, "JetBrains Mono", monospace);
+  --font-display-hero-mobile: var(--font-poppins, "Poppins", sans-serif);
+  --font-stat-counter: var(--font-poppins, "Poppins", sans-serif);
+  --font-body-lg: var(--font-poppins, "Poppins", sans-serif);
 
   /* Font Sizes */
   --text-headline-sm: 18px;
@@ -146,10 +150,16 @@
   --text-body-lg--font-weight: 400;
 }
 
+:root {
+  --font-poppins: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
 @layer base {
   html, body {
     margin: 0;
     padding: 0;
+    font-family: var(--font-poppins);
   }
   
   body {
@@ -170,3 +180,48 @@
     display: none;
   }
 }
+
+@utility font-poppins {
+  font-family: var(--font-poppins);
+}
+
+@utility font-jetbrains-mono {
+  font-family: var(--font-jetbrains-mono);
+}
+
+@utility font-display-hero {
+  font-family: var(--font-display-hero);
+}
+
+@utility font-headline-lg {
+  font-family: var(--font-headline-lg);
+}
+
+@utility font-headline-md {
+  font-family: var(--font-headline-md);
+}
+
+@utility font-headline-sm {
+  font-family: var(--font-headline-sm);
+}
+
+@utility font-body-lg {
+  font-family: var(--font-body-lg);
+}
+
+@utility font-body-md {
+  font-family: var(--font-body-md);
+}
+
+@utility font-body-sm {
+  font-family: var(--font-body-sm);
+}
+
+@utility font-label-ui {
+  font-family: var(--font-label-ui);
+}
+
+@utility font-label-mono {
+  font-family: var(--font-label-mono);
+}
+

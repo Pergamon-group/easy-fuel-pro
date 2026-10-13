@@ -54,4 +54,13 @@ describe('Footer Component', () => {
     expect(copyrightLink).toBeDefined();
     expect(copyrightLink.getAttribute('href')).toBe('https://pergamongroup.com');
   });
+
+  it('links architecture in footer to the architecture section', () => {
+    render(<Footer />);
+    const archLinks = screen.getAllByRole('link', { name: /architecture/i });
+    expect(archLinks.length).toBeGreaterThan(0);
+    archLinks.forEach((link) => {
+      expect(link.getAttribute('href')).toBe('/#architecture');
+    });
+  });
 });

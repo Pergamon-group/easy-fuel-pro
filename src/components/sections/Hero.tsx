@@ -62,19 +62,20 @@ export function Hero() {
           {/* Right Column */}
           <div className="lg:col-span-6 relative">
             <div className="flex flex-col gap-4 w-full">
-              <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white h-[360px] w-full">
+              {/* <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white h-[360px] w-full"> */}
+              <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white aspect-[887/467] w-full">
                 <Image
                   src={siteConfig.hero.image.src}
                   alt={siteConfig.hero.image.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover grayscale-25 hover:grayscale-0 transition-all duration-500"
                   priority
                 />
-                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-on-surface font-label-mono text-[11px] font-semibold">
+                {/* <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-on-surface font-label-mono text-[11px] font-semibold">
                   <span className="w-2 h-2 rounded-full bg-primary-container"></span>
                   <span>{siteConfig.hero.image.badge}</span>
-                </div>
+                </div> */}
               </div>
               <div className="bg-white rounded-2xl p-5 shadow-none border border-slate-200/80 flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 pb-3 border-b border-surface-container">
@@ -87,9 +88,9 @@ export function Hero() {
                       <span className="font-label-mono text-[10px] sm:text-[11px] text-on-surface-variant leading-tight">{siteConfig.hero.liveMetrics.controllerId}</span>
                     </div>
                   </div>
-                  <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/90 border border-primary/20 text-white font-label-mono text-[10px] sm:text-[11px] font-bold">
+                  {/* <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/90 border border-primary/20 text-white font-label-mono text-[10px] sm:text-[11px] font-bold">
                     <span>{siteConfig.hero.liveMetrics.status}</span>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-xl bg-surface-container-low/5 flex flex-col gap-0.5 justify-between">

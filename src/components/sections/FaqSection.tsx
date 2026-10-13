@@ -1,44 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { FORECOURT_FAQS, FaqItem } from '@/data/faqs';
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-const FAQS: readonly FaqItem[] = [
-  {
-    question: 'How does EasyFuel Pro achieve KRA eTIMS compliance?',
-    answer:
-      'EasyFuel Pro connects directly to the KRA-certified Incotex 600 ESD (Electronic Signature Device) and PTS-2 controller. Each fuel sale transaction is automatically cryptographically signed and issued with a validated KRA QR code on thermal receipts, satisfying tax authority obligations without cashier friction.',
-  },
-  {
-    question: 'What is the difference between Semi-Automated and Full Automation?',
-    answer:
-      'Option 1 (Semi-Automated, indicative KES 109,500*) utilizes POS-driven fiscalization with an Incotex 600 ESD and thermal printer, where attendants log dispenser totals. Option 2 (Full Automation, indicative KES 269,500*) adds the PTS-2 Forecourt Controller, physically interlocking up to 50 dispensers and 50 ATG probes for live telemetry, automated nozzle flow cutoff, and 0% variance shift audits.',
-  },
-  {
-    question: 'Which dispenser and ATG probe brands are supported?',
-    answer:
-      'The platform natively supports more than 150 dispenser brands (including Gilbarco, Wayne Dresser, Tokheim, Tatsuno, Bennett, Prowalco, Compac, Censtar) across Petroleum, LPG, and CNG fuels, alongside over 60 Automatic Tank Gauge (ATG) systems including Veeder-Root, Franklin Fueling, OPW, Fafnir, and Enraf.',
-  },
-  {
-    question: 'Why are civil works pricing based on a site survey?',
-    answer:
-      'Station layouts differ in trenching distance, existing cabling conduits, island counts, and explosion-proof containment requirements. Pergamon forecourt engineers conduct a physical on-site survey to map electrical cable lengths and hazardous zone ducting before calculating exact civil works.',
-  },
-  {
-    question: 'What happens if the fuel station loses internet connection?',
-    answer:
-      'The PTS-2 Forecourt Controller buffers over 50,000 transactions locally in hardened offline edge storage. Fuel dispensing continues without disruption, and all stored sales and tank dip logs automatically transmit to cloud and KRA servers once connectivity is restored.',
-  },
-  {
-    question: 'What does the Annual Maintenance Contract (AMC) cover?',
-    answer:
-      'Payable from Year 2 at KES 10,000 per station, the AMC covers firmware upgrades, statutory KRA regulatory protocol updates, priority on-call dispatch, remote health telemetry, and routine controller inspections.',
-  },
-];
+export type { FaqItem };
+export { FORECOURT_FAQS };
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -50,7 +17,7 @@ export function FaqSection() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQS.map((faq) => ({
+    mainEntity: FORECOURT_FAQS.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -86,11 +53,20 @@ export function FaqSection() {
             Everything station operators, dealers, and oil marketing companies need to know about
             forecourt compliance, PTS-2 controllers, and eTIMS certification.
           </p>
+          <div className="pt-2">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 font-label-ui text-[14px] font-semibold underline underline-offset-4"
+            >
+              <span>Explore Dedicated Knowledge Base &amp; FAQ Page</span>
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+          </div>
         </div>
 
         {/* FAQ Accordion List */}
         <div className="flex flex-col gap-3.5">
-          {FAQS.map((faq, index) => {
+          {FORECOURT_FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
@@ -125,10 +101,10 @@ export function FaqSection() {
         <div className="p-6 rounded-2xl bg-surface-container-low border border-surface-container flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex flex-col">
             <span className="font-headline-sm text-[15px] font-bold text-on-surface">
-              Have a specific forecourt pump or protocol inquiry?
+              Do you have questions about a specific forecourt pump or protocol?
             </span>
             <span className="font-body-sm text-body-sm text-on-surface-variant">
-              Our engineering specialists are available via direct dispatch.
+              Our engineering specialists are available to review your forecourt setup and provide personalized guidance.
             </span>
           </div>
           <a

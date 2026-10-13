@@ -6,7 +6,7 @@ import { Partners, PartnerCard } from './Partners';
 
 // Mock next/image to avoid src loading issues in test
 vi.mock('next/image', () => ({
-  default: ({ src, alt, fill: _fill, priority: _priority, ...rest }: ImageProps) => {
+  default: ({ src, alt, ...rest }: ImageProps) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={typeof src === 'string' ? src : ''} alt={alt || ''} {...rest} />;
   },

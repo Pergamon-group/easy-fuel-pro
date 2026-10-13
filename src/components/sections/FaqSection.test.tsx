@@ -9,7 +9,7 @@ describe('FaqSection Component (Forecourt & eTIMS FAQ for SEO)', () => {
     expect(screen.getByText(/clarity & compliance/i)).toBeDefined();
   });
 
-  it('renders key forecourt questions from proposal', () => {
+  it('renders key forecourt compliance and automation questions', () => {
     render(<FaqSection />);
     expect(
       screen.getByText(/how does easyfuel pro achieve kra etims compliance\?/i)

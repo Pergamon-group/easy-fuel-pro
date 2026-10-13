@@ -18,7 +18,7 @@ describe('Hardware Compatibility Dataset (Vetted Forecourt Catalog)', () => {
     expect(TOTAL_ATG_COUNT).toBe(ATG_PROBE_BRANDS.length);
   });
 
-  it('includes key global dispenser manufacturers from proposal', () => {
+  it('includes key global dispenser manufacturers supported in EasyFuel Pro', () => {
     const dispenserNames = DISPENSER_BRANDS.map((b) => b.name.toLowerCase());
     expect(dispenserNames).toContain('gilbarco');
     expect(dispenserNames.some((n) => n.includes('wayne'))).toBe(true);
@@ -28,7 +28,7 @@ describe('Hardware Compatibility Dataset (Vetted Forecourt Catalog)', () => {
     expect(dispenserNames).toContain('prowalco');
   });
 
-  it('includes key global ATG probe manufacturers from proposal', () => {
+  it('includes key global ATG probe manufacturers supported in EasyFuel Pro', () => {
     const atgNames = ATG_PROBE_BRANDS.map((b) => b.name.toLowerCase());
     expect(atgNames.some((n) => n.includes('veeder root'))).toBe(true);
     expect(atgNames.some((n) => n.includes('franklin fueling'))).toBe(true);

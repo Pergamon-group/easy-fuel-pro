@@ -39,14 +39,14 @@ export default function ContactPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
         />
 
-        {/* Hero Banner inspired directly by Page 13 of Proposal */}
+        {/* Forecourt Assessment & Site Survey Hero Banner */}
         <section className="w-full py-12 lg:py-20 bg-surface-container-low border-b border-surface-container relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Column: Typography & Direct Action */}
               <div className="lg:col-span-7 flex flex-col gap-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container text-primary font-label-mono text-label-mono font-semibold w-fit uppercase">
-                  ⚡ Forecourt Deployment &amp; Site Assessment
+                  Forecourt Deployment &amp; Site Assessment
                 </div>
 
                 <div className="flex flex-col gap-2">

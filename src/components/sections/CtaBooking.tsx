@@ -3,7 +3,6 @@
 import { useState, useTransition } from 'react';
 import { submitBookingForm } from '@/app/actions/booking';
 import { siteConfig } from '@/config/site';
-import { ForecourtCanopyIllustration } from '@/components/ui/ForecourtCanopyIllustration';
 
 export function CtaBooking() {
   const [success, setSuccess] = useState(false);
@@ -40,19 +39,29 @@ export function CtaBooking() {
             <div className="lg:col-span-5 flex flex-col justify-between gap-8">
               <div className="flex flex-col gap-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container text-primary font-label-mono text-label-mono font-semibold w-fit">
-                  ⚡ LET&apos;S GET STARTED
+                  ⚡ READY TO GET STARTED?
                 </span>
                 <h2 className="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
-                  LET&apos;S GET YOUR FUEL STATION eTIMS READY
+                  LET&apos;S GET YOUR FUEL STATION READY
                 </h2>
-                <p className="font-body-lg text-body-lg text-on-surface-variant">
-                  Upgrade your fuel station with EasyFuel Pro. Get real-time visibility, smarter operations,
-                  forecourt controller automation, and seamless KRA compliance.
+                <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                  Upgrade your forecourt with EasyFuel Pro. Gain real-time visibility across all pumps,
+                  automate tank stock reconciliation, and maintain effortless KRA eTIMS compliance.
                 </p>
 
-                {/* Stylized Canopy Vector Illustration (from proposal) */}
-                <div className="w-full rounded-2xl overflow-hidden border border-outline-variant/30 bg-surface-container-lowest/60 p-2 shadow-xs">
-                  <ForecourtCanopyIllustration className="w-full h-auto max-h-[180px]" />
+                <div className="flex flex-col gap-2.5 pt-2">
+                  <div className="flex items-center gap-2.5 text-on-surface text-[13px] font-medium">
+                    <span className="material-symbols-outlined text-primary text-[18px]">verified</span>
+                    <span>Free preliminary site assessment &amp; hardware compatibility audit</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-on-surface text-[13px] font-medium">
+                    <span className="material-symbols-outlined text-primary text-[18px]">verified</span>
+                    <span>Direct engineering consultation with zero sales pressure</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-on-surface text-[13px] font-medium">
+                    <span className="material-symbols-outlined text-primary text-[18px]">verified</span>
+                    <span>Tailored quotation based on your exact pump island configuration</span>
+                  </div>
                 </div>
               </div>
 
@@ -101,7 +110,7 @@ export function CtaBooking() {
                   rel="noopener noreferrer"
                   className="font-headline-sm text-[14px] font-bold text-on-surface hover:text-primary transition-colors flex items-center justify-between group"
                 >
-                  <span>{siteConfig.parentCompany.name} — Modern Technology for a More Profitable Future.</span>
+                  <span>{siteConfig.parentCompany.name}: Modern Technology for a More Profitable Future.</span>
                   <span className="material-symbols-outlined text-[16px] text-primary opacity-70 group-hover:opacity-100 transition-opacity">open_in_new</span>
                 </a>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">

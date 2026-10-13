@@ -11,12 +11,19 @@ describe('SEO Metadata Routes (sitemap & robots)', () => {
     expect(robotsConfig.sitemap).toBe(`${siteConfig.url}/sitemap.xml`);
   });
 
-  it('generates sitemap.xml with easyfuelpro.com root entry', () => {
+  it('generates sitemap.xml with easyfuelpro.com root entry, contact, and faq routes', () => {
     const sitemapEntries = sitemap();
-    expect(sitemapEntries.length).toBeGreaterThan(0);
+    expect(sitemapEntries.length).toBeGreaterThanOrEqual(3);
     const rootEntry = sitemapEntries.find((entry) => entry.url === siteConfig.url);
     expect(rootEntry).toBeDefined();
     expect(rootEntry?.priority).toBe(1.0);
+
+    const contactEntry = sitemapEntries.find((entry) => entry.url === `${siteConfig.url}/contact`);
+    expect(contactEntry).toBeDefined();
+
+    const faqEntry = sitemapEntries.find((entry) => entry.url === `${siteConfig.url}/faq`);
+    expect(faqEntry).toBeDefined();
+    expect(faqEntry?.priority).toBe(0.9);
   });
 
   it('exports complete SEO and OpenGraph metadata in root layout', () => {

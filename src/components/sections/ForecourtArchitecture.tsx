@@ -1,5 +1,7 @@
 'use client';
 
+import { ForecourtArchitectureDiagram } from '@/components/ui/ForecourtArchitectureDiagram';
+
 export function ForecourtArchitecture() {
   const nodes = [
     {
@@ -7,7 +9,7 @@ export function ForecourtArchitecture() {
       title: 'KRA eTIMS Servers',
       badge: 'Tax Authority Cloud',
       icon: 'cloud_done',
-      desc: 'Automatic cloud synchronization for real-time fiscal signatures and QR-code validation directly with the Kenya Revenue Authority.',
+      desc: 'Every sale is cryptographically signed in real time, validating each transaction directly with the Kenya Revenue Authority so your station remains fully compliant without manual bookkeeping.',
       role: 'Compliance & Audit Handshake',
     },
     {
@@ -15,7 +17,7 @@ export function ForecourtArchitecture() {
       title: 'POS / Station Management',
       badge: 'Touch Forecourt Terminal',
       icon: 'point_of_sale',
-      desc: 'Centralized station management system handling attendant shifts, fuel grades, price board updates, and payment reconciliation.',
+      desc: 'Manage your daily shifts, pump pricing, attendant handovers, and payment reconciliations from one intuitive interface built specifically for busy forecourts.',
       role: 'Operations & Cash Management',
     },
     {
@@ -23,7 +25,7 @@ export function ForecourtArchitecture() {
       title: 'Type C eTIMS ETR (Incotex 600 ESD)',
       badge: 'Fiscal Electronic Signature',
       icon: 'fingerprint',
-      desc: 'Hardware fiscal device generating encrypted signatures for every litre dispensed without slowing attendant speed.',
+      desc: 'A certified hardware signature device that signs each dispensing event instantly, keeping your queues moving while securing statutory tax compliance.',
       role: 'Hardware Security Module',
     },
     {
@@ -31,7 +33,7 @@ export function ForecourtArchitecture() {
       title: 'Thermal Receipt Printer',
       badge: 'Pump-Side / Till Printing',
       icon: 'receipt_long',
-      desc: 'High-speed till printer generating compliant receipts with instant KRA-scannable QR codes for customers and corporate fleets.',
+      desc: 'Crisp, high-speed receipt printing equipped with scannable KRA QR codes that both retail drivers and corporate fleet managers can rely on.',
       role: 'Customer Fiscal Proof',
     },
     {
@@ -39,7 +41,7 @@ export function ForecourtArchitecture() {
       title: 'Forecourt Controller (PTS-2)',
       badge: 'Industrial Brain',
       icon: 'developer_board',
-      desc: 'Manages simultaneous communication with up to 50 tanks, 50 fuel dispensers, and 5 price boards across 66+ open protocols.',
+      desc: 'The central nerve center of your station. It bridges communication across up to 50 fuel dispensers, 50 underground tank probes, and price displays, speaking over 60 industry protocols seamlessly.',
       role: 'Forecourt Protocol Bridge',
     },
     {
@@ -47,7 +49,7 @@ export function ForecourtArchitecture() {
       title: 'Fuel Dispensers & ATG Probes',
       badge: 'Petroleum, LPG & CNG',
       icon: 'local_gas_station',
-      desc: 'Direct telemetry connection to pumps and automatic tank gauge probes for sub-second flow monitoring and zero-loss variance tracking.',
+      desc: 'Direct sensor feeds capture every drop pumped and monitor underground fuel inventory around the clock, protecting your margins against variances and unauthorized dispensing.',
       role: 'Physical Forecourt Assets',
     },
   ];
@@ -71,13 +73,12 @@ export function ForecourtArchitecture() {
             >
               THE FORECOURT ARCHITECTURE
             </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">
-              Engineered for seamless interoperability: from fuel pump nozzles and in-tank probes,
-              through the industrial PTS-2 controller and Incotex 600 ESD, directly to KRA tax servers.
+            <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              EasyFuel Pro connects your forecourt directly to KRA. When fuel is dispensed, the sale records in the POS, signs through the fiscal unit, prints a verified QR receipt, and files with KRA. This keeps your forecourt operations smooth and fully compliant.
             </p>
           </div>
 
-          <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3">
+          <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3 self-start md:self-auto shadow-xs">
             <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <div className="flex flex-col">
               <span className="text-[12px] font-label-mono font-bold text-on-surface">
@@ -89,6 +90,9 @@ export function ForecourtArchitecture() {
             </div>
           </div>
         </div>
+
+        {/* Forecourt Architecture Schematic & Interactive Topology */}
+        <ForecourtArchitectureDiagram />
 
         {/* Visual Architecture Flow Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
@@ -140,10 +144,10 @@ export function ForecourtArchitecture() {
             </div>
             <div className="flex flex-col">
               <span className="font-headline-sm text-[15px] font-bold text-on-surface">
-                Offline Transaction Buffer Capacity
+                Uninterrupted Offline Operations
               </span>
               <span className="font-body-sm text-body-sm text-on-surface-variant">
-                50,000+ local transactions buffered in PTS-2 edge memory during internet downtime.
+                If internet drops, the PTS-2 controller buffers over 50,000 transactions locally. Your station keeps pumping without delay, and all data auto-syncs when reconnected.
               </span>
             </div>
           </div>

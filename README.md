@@ -1,4 +1,4 @@
-# EasyFuel Pro — Web Application
+# EasyFuel Pro: Web Application
 
 Official landing page and digital lead generation platform for **EasyFuel Pro** (a division of **Pergamon Group Ltd**), the ultimate smart fuel-station management and eTIMS compliance solution. Built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**.
 

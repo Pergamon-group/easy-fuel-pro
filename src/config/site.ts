@@ -55,11 +55,11 @@ export const siteConfig = {
 
   // ── Navigation ────────────────────────────────────────────────────────────
   navLinks: [
-    { label: "Solutions", href: "#solutions" },
-    { label: "Architecture", href: "#architecture" },
-    { label: "Partners", href: "#about" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Solutions", href: "/#solutions" },
+    { label: "Architecture", href: "/#architecture" },
+    { label: "Partners", href: "/#about" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ],
 
@@ -88,7 +88,8 @@ export const siteConfig = {
     primaryCta: { label: "Request a Demo", href: "#demo-section" },
     secondaryCta: { label: "Talk to Us", href: "https://wa.me/254734660572" },
     image: {
-      src: "/res/filling-station-upperhill.jpg",
+      // src: "/res/filling-station-upperhill.jpg",
+      src: "/res/easy-fuel-pro-station.png",
       alt: "Kenyan Fuel Forecourt",
       badge: "Nairobi Live Site",
     },
@@ -335,9 +336,9 @@ export const siteConfig = {
       {
         icon: "store",
         title: "Single Independent Station Mode",
-        subtitle: "Autonomous forecourt execution",
+        subtitle: "Autonomous forecourt intelligence",
         badge: { label: "EDGE CONTROLLER", type: "primary" },
-        description: "EasyFuel Pro provides direct dispenser connectivity via a local Forecourt Controller. It features complete POS integration, instant shift cash drops, nozzle-by-nozzle totalizer reconciliation, and local offline transaction buffering.",
+        description: "Connect your dispensers and automatic tank gauges directly through a dedicated Forecourt Controller. Your attendants benefit from simplified POS operations, clean shift handovers, automatic nozzle totalizer matching, and local offline transaction buffering.",
         metrics: [
           { label: "Local Pump Latency", value: "< 150 ms" },
           { label: "Offline Buffer Capacity", value: "50,000+ Txns" }
@@ -348,7 +349,7 @@ export const siteConfig = {
         title: "Multi-Station Central HQ Fleet View",
         subtitle: "Enterprise network synchronization",
         badge: { label: "ENTERPRISE CLOUD", type: "secondary" },
-        description: "You get aggregated real-time metrics across Nairobi, Mombasa, Eldoret, Kisii, and cross-border transit corridors. Enjoy unified price-change propagation, centralized fuel supplier deliveries, and regional fleet card authorization.",
+        description: "Gain a unified, real-time overview of your fuel stock, sales, and pump status across Nairobi, Mombasa, Eldoret, Kisii, and regional transit corridors. Update fuel prices across every site with one click, monitor supplier deliveries, and manage fleet customer cards from a single screen.",
         metrics: [
           { label: "Network Fuel Stock", value: "1.2M Litres" },
           { label: "Price Sync Speed", value: "Instant 1-Click" }
@@ -451,16 +452,18 @@ export const siteConfig = {
     contactLabel: "Direct Dispatch & Channels",
     quickNavLabel: "Quick Navigation",
     quickNav: [
-      { label: "Platform", href: "#solutions" },
-      { label: "Compliance", href: "#etims-compliance" },
-      { label: "Forecourt Hardware", href: "#about" },
-      { label: "Support", href: "#contact" }
+      { label: "Platform", href: "/#solutions" },
+      { label: "Architecture", href: "/#architecture" },
+      { label: "Compliance", href: "/#etims-compliance" },
+      { label: "Forecourt Hardware", href: "/#about" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Contact", href: "/contact" }
     ],
     copyright: "© 2025 EasyFuel Pro by Pergamon Group. All rights reserved. Industrial automation and forecourt telemetry systems.",
     legalLinks: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
-      { label: "eTIMS Architecture SLA", href: "#" }
+      { label: "eTIMS Architecture SLA", href: "/#architecture" }
     ]
   }
 } as const;

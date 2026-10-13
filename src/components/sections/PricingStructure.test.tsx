@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { PricingStructure } from './PricingStructure';
 
-describe('PricingStructure Component (Page 12 Proposal Commercial Model)', () => {
+describe('PricingStructure Component', () => {
   it('renders section headline and tentative disclaimer badge', () => {
     render(<PricingStructure />);
     expect(screen.getByText(/pricing structure/i)).toBeDefined();

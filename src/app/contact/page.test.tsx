@@ -8,13 +8,13 @@ vi.mock('@/app/actions/booking', () => ({
 }));
 
 describe('ContactPage Component (/contact Route)', () => {
-  it('renders page heading with proposal Page 13 theme', () => {
+  it('renders forecourt onboarding page heading', () => {
     render(<ContactPage />);
     expect(screen.getAllByText(/let's get your fuel station etims ready/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText(/get in touch today/i)).toBeDefined();
   });
 
-  it('renders verified contact channels from proposal', () => {
+  it('renders verified contact channels for customer inquiries', () => {
     render(<ContactPage />);
     expect(screen.getAllByText(/\+254 111 050 950|0111 050 950/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/info@pergamongroup\.com/i).length).toBeGreaterThanOrEqual(1);
