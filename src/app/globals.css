@@ -506,8 +506,10 @@
   text-align: center;
 }
 
-.fiscal-printer__receipt-line.receipt-total {
-  text-align: right;
+.fiscal-printer__receipt-line.receipt-total,
+.fiscal-printer__receipt-line.receipt-total-items,
+.fiscal-printer__receipt-line.receipt-subtotal {
+  text-align: center;
 }
 
 .fiscal-printer__receipt-line.receipt-heading,

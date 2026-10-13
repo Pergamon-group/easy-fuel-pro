@@ -39,9 +39,9 @@ function createReceiptLines(printRun: number): [string, string][] {
 
   lines.push(
     ['--------------------------', 'receipt-rule'],
-    [`ITEMS ${items.length}   VOL ${totalLiters.toFixed(2)}L`, ''],
-    [`SUBTOTAL   ${formatKes(netTotal)}`, ''],
-    [`VAT 16%    ${formatKes(vat)}`, ''],
+    [`ITEMS ${items.length}   VOL ${totalLiters.toFixed(2)}L`, 'receipt-total-items'],
+    [`SUBTOTAL   ${formatKes(netTotal)}`, 'receipt-subtotal'],
+    [`VAT 16%    ${formatKes(vat)}`, 'receipt-subtotal'],
     [`TOTAL      ${formatKes(grossTotal)}`, 'receipt-total'],
     ['--------------------------', 'receipt-rule'],
     ['eTIMS      VALIDATED', 'receipt-valid'],
@@ -49,7 +49,8 @@ function createReceiptLines(printRun: number): [string, string][] {
     ['PAYMENT    CARD', ''],
     ['TRANSACTION SIGNED', 'receipt-valid'],
     ['THANK YOU FOR FUELING SMART', 'receipt-center'],
-    ['easyfuelpro.co.ke', 'receipt-center'],
+    ['easyfuelpro.com', 'receipt-center'],
+    ['By Pergamon Group Ltd.', 'receipt-center'],
   );
 
   return lines;
