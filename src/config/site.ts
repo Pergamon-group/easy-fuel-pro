@@ -48,8 +48,8 @@ export const siteConfig = {
   // ── Contact ───────────────────────────────────────────────────────────────
   phone: "+254 111 050 950",
   phoneHref: "tel:+254111050950",
-  whatsapp: "+254 734 660 572", // Display format
-  whatsappHref: "https://wa.me/254734660572",
+  whatsapp: "+254 111 050 950", // Display format
+  whatsappHref: "https://wa.me/254111050950",
   email: "info@pergamongroup.com", // Main business dispatch
   websiteDomain: "easyfuelpro.com",
 
@@ -86,7 +86,7 @@ export const siteConfig = {
     subheadline: "Run your fuel station smarter, faster, and with greater control.",
     etimsNote: "With eTIMS-ready technology, EasyFuel Pro helps fuel stations manage their operations efficiently while staying compliant with Kenya’s digital tax requirements as enforced by the Kenya Revenue Authority (KRA).",
     primaryCta: { label: "Request a Demo", href: "#demo-section" },
-    secondaryCta: { label: "Talk to Us", href: "https://wa.me/254734660572" },
+    secondaryCta: { label: "Talk to Us", href: "https://wa.me/254111050950" },
     image: {
       // src: "/res/filling-station-upperhill.jpg",
       src: "/res/easy-fuel-pro-station.png",
@@ -182,8 +182,8 @@ export const siteConfig = {
           iconColor: "text-primary",
         },
         {
-          name: "Incotex 600 ESD",
-          subtitle: "KRA Type C Fiscal Device",
+          name: "EasyFuel Pro Fiscal Device",
+          subtitle: "KRA-Approved Fiscal Device e.g. Incotex",
           icon: "fingerprint",
           iconBg: "bg-surface-container",
           iconColor: "text-primary",

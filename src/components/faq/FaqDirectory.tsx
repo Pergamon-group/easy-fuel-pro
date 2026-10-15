@@ -50,7 +50,7 @@ export function FaqDirectory() {
           <input
             type="text"
             aria-label="Search forecourt FAQs"
-            placeholder="Search by topic, e.g. PTS-2, Incotex ESD, Wayne, site survey, AMC..."
+            placeholder="Search by topic, e.g. PTS-2, EasyFuel Pro Fiscal Device, Incotex ESD, Wayne, site survey, AMC..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-surface-container-low border border-surface-container text-on-surface font-body-md text-[14px] placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
@@ -76,11 +76,10 @@ export function FaqDirectory() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full font-label-mono text-[11px] font-bold uppercase whitespace-nowrap transition-all cursor-pointer ${
-                  isSelected
+                className={`px-3.5 py-1.5 rounded-full font-label-mono text-[11px] font-bold uppercase whitespace-nowrap transition-all cursor-pointer ${isSelected
                     ? 'bg-primary text-on-primary shadow-xs'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -161,9 +160,8 @@ export function FaqDirectory() {
                       <span>{faq.question}</span>
                     </div>
                     <span
-                      className={`material-symbols-outlined text-primary text-[22px] transition-transform duration-200 shrink-0 mt-0.5 ${
-                        isOpen ? 'rotate-180' : ''
-                      }`}
+                      className={`material-symbols-outlined text-primary text-[22px] transition-transform duration-200 shrink-0 mt-0.5 ${isOpen ? 'rotate-180' : ''
+                        }`}
                     >
                       keyboard_arrow_down
                     </span>

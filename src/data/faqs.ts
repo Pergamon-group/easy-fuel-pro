@@ -11,12 +11,12 @@ export const FORECOURT_FAQS: readonly FaqItem[] = [
     question: 'How does EasyFuel Pro achieve KRA eTIMS compliance?',
     category: 'Compliance & eTIMS',
     answer:
-      'EasyFuel Pro connects directly to the KRA-certified Incotex 600 ESD (Electronic Signature Device) and PTS-2 controller. Each fuel sale transaction is automatically cryptographically signed and issued with a validated KRA QR code on thermal receipts, satisfying tax authority obligations without cashier friction.',
+      'EasyFuel Pro connects directly to the KRA-certified EasyFuel Pro Fiscal ESD Device (Electronic Signature Device) and PTS-2 controller. Each fuel sale transaction is automatically cryptographically signed and issued with a validated KRA QR code on thermal receipts, satisfying tax authority obligations without cashier friction.',
   },
   {
     question: 'What is the difference between Semi-Automated and Full Automation?',
     category: 'Commercial & Hardware',
-    answer: `Option 1 (Semi-Automated, starting at an indicative ${pricingConfig.options.semiAutomated.totalFormatted}*) equips your station with an Incotex 600 ESD fiscal device and thermal printer, allowing attendants to generate compliant receipts directly from the POS till. Option 2 (Full Automation, starting at an indicative ${pricingConfig.options.fullAutomation.totalFormatted}*) introduces the PTS-2 Forecourt Controller, physically interlocking up to 50 dispensers and 50 ATG probes for live telemetry, automated nozzle flow cutoff, and 0% variance shift audits.`,
+    answer: `Option 1 (Semi-Automated, starting at an indicative ${pricingConfig.options.semiAutomated.totalFormatted}*) equips your station with the appropriate EasyFuel Pro Fiscal Device and thermal printer, allowing attendants to generate compliant receipts directly from the POS till. Option 2 (Full Automation, starting at an indicative ${pricingConfig.options.fullAutomation.totalFormatted}*) introduces the PTS-2 Forecourt Controller, physically interlocking up to 50 dispensers and 50 ATG probes for live telemetry, automated nozzle flow cutoff, and 0% variance shift audits.`,
   },
   {
     question: 'Which dispenser and ATG probe brands are supported?',

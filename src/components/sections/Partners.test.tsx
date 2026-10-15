@@ -36,7 +36,7 @@ describe('Partners Component', () => {
     render(<Partners />);
     expect(screen.getByText('Forecourt Controllers, Dispensers & ATG Certified Partners')).toBeDefined();
     expect(screen.getByText('PTS-2 Controller')).toBeDefined();
-    expect(screen.getByText('Incotex 600 ESD')).toBeDefined();
+    expect(screen.getByText('EasyFuel Pro Fiscal Device')).toBeDefined();
     expect(screen.getByText('Gilbarco Veeder-Root')).toBeDefined();
     expect(screen.getByText('Wayne Fueling')).toBeDefined();
     expect(screen.getByText('Dover Fueling Solutions')).toBeDefined();

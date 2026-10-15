@@ -22,7 +22,7 @@ export function ForecourtArchitecture() {
     },
     {
       step: '03',
-      title: 'Type C eTIMS ETR (Incotex 600 ESD)',
+      title: 'Type C eTIMS ETR (EasyFuel Pro Fiscal Device)',
       badge: 'Fiscal Electronic Signature',
       icon: 'fingerprint',
       desc: 'A certified hardware signature device that signs each dispensing event instantly, keeping your queues moving while securing statutory tax compliance.',
@@ -82,7 +82,7 @@ export function ForecourtArchitecture() {
             <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <div className="flex flex-col">
               <span className="text-[12px] font-label-mono font-bold text-on-surface">
-                PTS-2 &amp; Incotex 600
+                PTS-2 &amp; EasyFuel Pro Fiscal Device
               </span>
               <span className="text-[11px] font-body-sm text-on-surface-variant">
                 Certified KRA Type C Forecourt Stack

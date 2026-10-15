@@ -209,7 +209,7 @@ export function Header() {
                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                   <span className="material-symbols-outlined text-[18px]">call</span>
                 </span>
-                <span>{siteConfig.phone}</span>
+                <span data-testid="mobile-phone-header-text">{siteConfig.phone}</span>
               </a>
 
               <a
@@ -224,7 +224,7 @@ export function Header() {
                   </span>
                   <span>WhatsApp Dispatch</span>
                 </div>
-                <span className="text-xs font-label-mono text-on-surface-variant">
+                <span data-testid="mobile-whatsapp-header-text" className="text-xs font-label-mono text-on-surface-variant">
                   {siteConfig.whatsapp}
                 </span>
               </a>

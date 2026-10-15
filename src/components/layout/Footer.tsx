@@ -19,12 +19,12 @@ export function Footer() {
               <Image
                 src="/res/pergamon-group-logo.png"
                 alt="Pergamon Group Logo"
-                width={205}
-                height={80}
-                className="h-10 w-auto object-contain"
+                width={369}
+                height={144}
+                className="h-18 w-auto object-contain aspect-[206/80"
               />
             </a>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <a
                 href={siteConfig.parentCompany.url}
                 target="_blank"
@@ -33,7 +33,7 @@ export function Footer() {
               >
                 {siteConfig.parentCompany.name}
               </a>
-            </div>
+            </div> */}
             <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
               {footer.description}
             </p>

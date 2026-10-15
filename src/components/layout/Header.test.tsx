@@ -46,6 +46,14 @@ describe('Header Component', () => {
     const drawer = screen.getByTestId('mobile-navigation-drawer');
     expect(drawer).toBeDefined();
 
+    const mobilePhoneText = screen.getByTestId('mobile-phone-header-text');
+    expect(mobilePhoneText).toBeDefined();
+    expect(mobilePhoneText.textContent).toContain(siteConfig.phone);
+
+    const mobileWhatsappText = screen.getByTestId('mobile-whatsapp-header-text');
+    expect(mobileWhatsappText).toBeDefined();
+    expect(mobileWhatsappText.textContent).toContain(siteConfig.whatsapp);
+
     const drawerScope = within(drawer);
     expect(drawerScope.getByText('Site Navigation')).toBeDefined();
     expect(drawerScope.getByText(/EasyFuel Pro/i)).toBeDefined();
@@ -54,8 +62,6 @@ describe('Header Component', () => {
     expect(drawerScope.getByText('Pricing')).toBeDefined();
     expect(drawerScope.getByText('FAQ')).toBeDefined();
     expect(drawerScope.getByText('Contact')).toBeDefined();
-    expect(drawerScope.getByText(siteConfig.phone)).toBeDefined();
-    expect(drawerScope.getByText(siteConfig.whatsapp)).toBeDefined();
   });
 
   it('toggles solutions sub-items inside mobile drawer when accordion is clicked', () => {

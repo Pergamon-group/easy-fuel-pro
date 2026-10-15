@@ -36,7 +36,7 @@ const ARCHITECTURE_NODES: readonly ArchitectureNode[] = [
   },
   {
     id: 'etims-etr',
-    name: 'Type C eTIMS ETR (Incotex 600 ESD)',
+    name: 'Type C eTIMS ETR (EasyFuel Pro Fiscal Device)',
     category: 'Hardware Fiscal Unit',
     role: 'Cryptographic Fiscal Signature Engine',
     protocol: 'Direct Hardware Serial / USB Fiscal Interface',
@@ -115,11 +115,10 @@ export function ForecourtArchitectureDiagram() {
               aria-selected={isActive}
               type="button"
               onClick={() => setActiveNodeId(node.id)}
-              className={`px-3.5 py-1.5 rounded-xl font-label-ui text-[12px] font-semibold whitespace-nowrap transition-all cursor-pointer shrink-0 ${
-                isActive
+              className={`px-3.5 py-1.5 rounded-xl font-label-ui text-[12px] font-semibold whitespace-nowrap transition-all cursor-pointer shrink-0 ${isActive
                   ? 'bg-primary text-on-primary shadow-xs'
                   : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface'
-              }`}
+                }`}
             >
               {node.name}
             </button>
@@ -153,20 +152,17 @@ export function ForecourtArchitectureDiagram() {
                   top: node.pinPosition.top,
                   left: node.pinPosition.left,
                 }}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center transition-transform cursor-pointer focus:outline-none ${
-                  isActive ? 'scale-125 z-30' : 'hover:scale-115 opacity-85 hover:opacity-100'
-                }`}
+                className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center transition-transform cursor-pointer focus:outline-none ${isActive ? 'scale-125 z-30' : 'hover:scale-115 opacity-85 hover:opacity-100'
+                  }`}
               >
                 <span className="relative flex h-7 w-7 items-center justify-center">
                   <span
-                    className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-60 ${
-                      isActive ? 'bg-primary' : 'bg-sky-400'
-                    }`}
+                    className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-60 ${isActive ? 'bg-primary' : 'bg-sky-400'
+                      }`}
                   />
                   <span
-                    className={`relative inline-flex rounded-full h-5 w-5 border-2 border-white shadow-md items-center justify-center text-[10px] font-bold text-white ${
-                      isActive ? 'bg-primary' : 'bg-[#00a2e6]'
-                    }`}
+                    className={`relative inline-flex rounded-full h-5 w-5 border-2 border-white shadow-md items-center justify-center text-[10px] font-bold text-white ${isActive ? 'bg-primary' : 'bg-[#00a2e6]'
+                      }`}
                   >
                     •
                   </span>

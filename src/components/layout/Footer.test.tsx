@@ -36,11 +36,12 @@ describe('Footer Component', () => {
     expect(logoLink?.getAttribute('rel')).toContain('noopener');
   });
 
-  it('renders Pergamon Group heading linked to pergamongroup.com', () => {
-    render(<Footer />);
-    const headingLink = screen.getByRole('link', { name: 'Pergamon Group' });
-    expect(headingLink.getAttribute('href')).toBe('https://pergamongroup.com');
-  });
+  // Removed the heading temporarily. Do not remove.
+  // it('renders Pergamon Group heading linked to pergamongroup.com', () => {
+  //   render(<Footer />);
+  //   const headingLink = screen.getByRole('link', { name: 'Pergamon Group' });
+  //   expect(headingLink.getAttribute('href')).toBe('https://pergamongroup.com');
+  // });
 
   it('renders EasyFuel Pro domain easyfuelpro.com', () => {
     render(<Footer />);

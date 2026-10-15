@@ -37,7 +37,7 @@ describe('FaqPage Route Component (/faq)', () => {
     render(<FaqPage />);
     const searchInput = screen.getByPlaceholderText(/search by topic/i);
 
-    fireEvent.change(searchInput, { target: { value: 'Incotex' } });
+    fireEvent.change(searchInput, { target: { value: 'PTS-2' } });
     expect(screen.getByText(/how does easyfuel pro achieve kra etims compliance\?/i)).toBeDefined();
 
     fireEvent.change(searchInput, { target: { value: 'non-existent-search-term-xyz' } });

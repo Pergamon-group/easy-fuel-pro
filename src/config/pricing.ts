@@ -60,7 +60,7 @@ export const pricingConfig: {
   components: {
     incotexEsd: {
       id: 'incotex-esd',
-      name: 'Incotex 600 ESD',
+      name: 'EasyFuel Pro Fiscal Device',
       desc: 'Type C eTIMS Electronic Signature Device',
       price: 70000,
       priceFormatted: 'KES 70,000.00',
@@ -106,7 +106,7 @@ export const pricingConfig: {
       title: 'Option 1: Semi-Automated',
       badge: 'Entry-Level Compliance',
       description:
-        'Compliant fiscal invoicing via POS and Incotex 600 ESD without automatic dispenser flow locking.',
+        'Compliant fiscal invoicing via POS and our EasyFuel Pro Fiscal Device without automatic dispenser flow locking.',
       totalYear1: 109500,
       totalFormatted: 'KES 109,500',
       totalAmountOnly: '109,500',
@@ -116,7 +116,7 @@ export const pricingConfig: {
       amcNote: 'Annual Maintenance Contract (AMC) payable from Year 2: KES 10,000.00',
       components: [
         {
-          name: 'Incotex 600 ESD (Type C)',
+          name: 'EasyFuel Pro Fiscal Device (Type C)',
           desc: 'KRA fiscal signature device',
           priceFormatted: 'KES 70,000.00',
         },
@@ -163,7 +163,7 @@ export const pricingConfig: {
       amcNote: 'Annual Maintenance Contract (AMC) payable from Year 2: KES 10,000.00',
       components: [
         {
-          name: 'Incotex 600 ESD (Type C)',
+          name: 'EasyFuel Pro Fiscal Device (Type C)',
           desc: 'KRA fiscal signature device',
           priceFormatted: 'KES 70,000.00',
         },
