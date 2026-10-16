@@ -60,7 +60,7 @@ export default function ContactPage() {
 
                 <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
                   Connect with Pergamon Group&apos;s certified forecourt engineers. Whether you need
-                  a single station eTIMS Type C upgrade or multi-station PTS-2 network automation,
+                  a single station eTIMS ESD upgrade or multi-station PTS-2 network automation,
                   we are ready to dispatch.
                 </p>
 

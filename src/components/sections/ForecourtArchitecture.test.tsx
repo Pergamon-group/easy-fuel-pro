@@ -21,7 +21,7 @@ describe('ForecourtArchitecture Component', () => {
     render(<ForecourtArchitecture />);
     expect(screen.getAllByText(/kra (etims )?servers/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/pos (or|\/) (station|fuel) management/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/type c etims etr/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/easyfuel pro esd/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/thermal receipt printer|printer/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/forecourt controller/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/fuel (station )?dispensers/i).length).toBeGreaterThanOrEqual(1);

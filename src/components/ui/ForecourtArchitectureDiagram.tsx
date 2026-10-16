@@ -36,7 +36,7 @@ const ARCHITECTURE_NODES: readonly ArchitectureNode[] = [
   },
   {
     id: 'etims-etr',
-    name: 'Type C eTIMS ETR (EasyFuel Pro Fiscal Device)',
+    name: 'Fuel Pro eTIMS ETR (EasyFuel Pro Fiscal Device)',
     category: 'Hardware Fiscal Unit',
     role: 'Cryptographic Fiscal Signature Engine',
     protocol: 'Direct Hardware Serial / USB Fiscal Interface',
@@ -90,7 +90,7 @@ export function ForecourtArchitectureDiagram() {
       {/* Schematic Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-surface-container">
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+          {/* <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" /> */}
           <h3 className="font-headline-sm text-[16px] font-bold text-on-surface">
             Forecourt Fiscal Architecture &amp; Device Topology
           </h3>
@@ -116,8 +116,8 @@ export function ForecourtArchitectureDiagram() {
               type="button"
               onClick={() => setActiveNodeId(node.id)}
               className={`px-3.5 py-1.5 rounded-xl font-label-ui text-[12px] font-semibold whitespace-nowrap transition-all cursor-pointer shrink-0 ${isActive
-                  ? 'bg-primary text-on-primary shadow-xs'
-                  : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface'
+                ? 'bg-primary text-on-primary shadow-xs'
+                : 'bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface'
                 }`}
             >
               {node.name}
@@ -131,7 +131,7 @@ export function ForecourtArchitectureDiagram() {
         <div className="relative w-full aspect-[916/488] max-h-[520px]">
           <Image
             src="/res/forecourt-architecture-diagram.png"
-            alt="Forecourt Architecture Schematic showing KRA Servers, POS System, Type C eTIMS ETR, Forecourt Controller, Thermal Printer, and Dispensers"
+            alt="Forecourt Architecture Schematic showing KRA Servers, POS System, EasyFuel Pro eTIMS ETR, Forecourt Controller, Thermal Printer, and Dispensers"
             fill
             sizes="(max-width: 1024px) 100vw, 1100px"
             priority

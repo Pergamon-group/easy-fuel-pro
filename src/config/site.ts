@@ -119,6 +119,8 @@ export const siteConfig = {
           icon: "local_gas_station",
           iconBg: "bg-[#006591]/10",
           iconColor: "text-[#006591]",
+          logoSrc: "/logos/national-oil.jpg",
+          logoBg: "light",
         },
         {
           name: "Lake Oil",
@@ -126,6 +128,8 @@ export const siteConfig = {
           icon: "water_drop",
           iconBg: "bg-error/10",
           iconColor: "text-error",
+          logoSrc: "/logos/lake-group.jpg",
+          logoBg: "light",
         },
         {
           name: "Rubis Energy",
@@ -133,6 +137,8 @@ export const siteConfig = {
           icon: "speed",
           iconBg: "bg-primary/10",
           iconColor: "text-primary",
+          logoSrc: "/logos/rubis-energie.jpg",
+          logoBg: "light",
         },
         {
           name: "TotalEnergies",
@@ -140,6 +146,8 @@ export const siteConfig = {
           icon: "energy_savings_leaf",
           iconBg: "bg-surface-container",
           iconColor: "text-on-surface",
+          logoSrc: "/logos/total-energies.png",
+          logoBg: "light",
         },
         {
           name: "Hass Petroleum",
@@ -147,6 +155,8 @@ export const siteConfig = {
           icon: "local_shipping",
           iconBg: "bg-primary-container/15",
           iconColor: "text-primary",
+          logoSrc: "/logos/hass-petroleum.webp",
+          logoBg: "light",
         },
         {
           name: "Ola Energy",
@@ -154,6 +164,8 @@ export const siteConfig = {
           icon: "oil_barrel",
           iconBg: "bg-surface-container",
           iconColor: "text-on-surface-variant",
+          logoSrc: "/logos/ola-energy.avif",
+          logoBg: "light",
         },
         {
           name: "Shell Dealers",
@@ -161,6 +173,8 @@ export const siteConfig = {
           icon: "store",
           iconBg: "bg-primary/10",
           iconColor: "text-primary",
+          logoSrc: "/logos/shell-energy.avif",
+          logoBg: "light",
         },
         {
           name: "Vivo Energy",
@@ -168,6 +182,8 @@ export const siteConfig = {
           icon: "hub",
           iconBg: "bg-surface-container",
           iconColor: "text-on-surface",
+          logoSrc: "/logos/vivo-energy.png",
+          logoBg: "light",
         },
       ],
     },
@@ -290,7 +306,8 @@ export const siteConfig = {
   whyEasyFuel: {
     badge: "The Forecourt Challenge",
     headline: "WHY EASYFUEL PRO?",
-    subheadline: "Stop Managing Your Station in the Dark.",
+    // subheadline: "Stop Managing Your Station in the Dark.",
+    subheadline: "No more guesswork. Make Better decisions.",
     description: "Traditional fuel-station operations can make it difficult to keep track of sales, pump activity, inventory, and overall performance. EasyFuel Pro gives you the visibility you need, when you need it.",
     benefitsLabel: "With EasyFuel Pro, you can:",
     benefits: [
@@ -328,8 +345,9 @@ export const siteConfig = {
 
   // ── Scalability (Architectural Mode Switcher) ─────────────────────────────
   scalability: {
-    badge: "Scalable Architecture",
-    headline: "BUILT FOR MODERN FUEL STATIONS",
+    // badge: "Scalable Architecture",
+    badge: "Ready to scale with you",
+    headline: "WE ARE BUILT FOR MODERN FUEL STATIONS",
     description: "Whether you operate one station or multiple locations, EasyFuel Pro gives you the technology to manage your forecourt with greater visibility and control.",
     quote: "“Smart technology for a more efficient and profitable future.”",
     modes: [

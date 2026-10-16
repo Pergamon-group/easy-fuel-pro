@@ -48,4 +48,44 @@ describe('HardwareDirectory Component (TDD Searchable Hardware Matrix)', () => {
 
     expect(screen.queryByPlaceholderText(/search dispenser or atg probe brand/i)).toBeNull();
   });
+
+  it('closes modal when backdrop is clicked', () => {
+    render(<HardwareDirectory defaultOpen={true} />);
+
+    const dialogBackdrop = screen.getByTestId('hardware-directory-dialog');
+    fireEvent.click(dialogBackdrop);
+
+    expect(screen.queryByPlaceholderText(/search dispenser or atg probe brand/i)).toBeNull();
+  });
+
+  it('closes modal when Escape key is pressed', () => {
+    render(<HardwareDirectory defaultOpen={true} />);
+
+    expect(screen.getByPlaceholderText(/search dispenser or atg probe brand/i)).toBeDefined();
+    fireEvent.keyDown(window, { key: 'Escape' });
+
+    expect(screen.queryByPlaceholderText(/search dispenser or atg probe brand/i)).toBeNull();
+  });
+
+  it('closes modal when mobile footer close button is clicked', () => {
+    render(<HardwareDirectory defaultOpen={true} />);
+
+    const footerCloseBtn = screen.getByRole('button', { name: /^close$/i });
+    fireEvent.click(footerCloseBtn);
+
+    expect(screen.queryByPlaceholderText(/search dispenser or atg probe brand/i)).toBeNull();
+  });
+
+  it('allows clearing search query with clear button', () => {
+    render(<HardwareDirectory defaultOpen={true} />);
+
+    const searchInput = screen.getByPlaceholderText(/search dispenser or atg probe brand/i);
+    fireEvent.change(searchInput, { target: { value: 'tokheim' } });
+
+    const clearBtn = screen.getByRole('button', { name: /clear search input/i });
+    fireEvent.click(clearBtn);
+
+    expect((searchInput as HTMLInputElement).value).toBe('');
+  });
 });
+

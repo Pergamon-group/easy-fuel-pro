@@ -61,7 +61,7 @@ export const pricingConfig: {
     incotexEsd: {
       id: 'incotex-esd',
       name: 'EasyFuel Pro Fiscal Device',
-      desc: 'Type C eTIMS Electronic Signature Device',
+      desc: 'EasyFuel eTIMS Electronic Signature Device',
       price: 70000,
       priceFormatted: 'KES 70,000.00',
       tag: 'KRA Mandated',
@@ -84,7 +84,7 @@ export const pricingConfig: {
     },
     ptsController: {
       id: 'pts-controller',
-      name: 'PTS-2 Forecourt Controller',
+      name: 'Forecourt Controller',
       desc: 'Multi-pump & ATG automated protocol bridge',
       price: 160000,
       priceFormatted: 'KES 160,000.00',
@@ -116,7 +116,7 @@ export const pricingConfig: {
       amcNote: 'Annual Maintenance Contract (AMC) payable from Year 2: KES 10,000.00',
       components: [
         {
-          name: 'EasyFuel Pro Fiscal Device (Type C)',
+          name: 'EasyFuel Pro Fiscal Device',
           desc: 'KRA fiscal signature device',
           priceFormatted: 'KES 70,000.00',
         },
@@ -131,7 +131,7 @@ export const pricingConfig: {
           priceFormatted: 'KES 9,500.00',
         },
         {
-          name: 'PTS-2 Forecourt Controller',
+          name: 'Forecourt Controller',
           desc: 'Manual entry via POS',
           priceFormatted: 'Not Required',
           isExcluded: true,
@@ -153,7 +153,7 @@ export const pricingConfig: {
       badge: 'Complete Forecourt Telemetry',
       recommendedBadge: '★ Recommended Forecourt Stack',
       description:
-        'Direct pump protocol interlocking via PTS-2 controller, live nozzle flow capture, and ATG tank telemetry.',
+        'Direct pump protocol interlocking via our Forecourt controller, live nozzle flow capture, and ATG tank telemetry.',
       totalYear1: 269500,
       totalFormatted: 'KES 269,500',
       totalAmountOnly: '269,500',
@@ -163,12 +163,12 @@ export const pricingConfig: {
       amcNote: 'Annual Maintenance Contract (AMC) payable from Year 2: KES 10,000.00',
       components: [
         {
-          name: 'EasyFuel Pro Fiscal Device (Type C)',
+          name: 'EasyFuel Pro Fiscal Device',
           desc: 'KRA fiscal signature device',
           priceFormatted: 'KES 70,000.00',
         },
         {
-          name: 'PTS-2 Forecourt Controller (50 Pumps/50 Tanks)',
+          name: 'Forecourt Controller (50 Pumps/50 Tanks)',
           desc: 'Industrial protocol gateway',
           priceFormatted: 'KES 160,000.00',
           highlight: true,
