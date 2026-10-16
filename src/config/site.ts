@@ -307,7 +307,7 @@ export const siteConfig = {
     badge: "The Forecourt Challenge",
     headline: "WHY EASYFUEL PRO?",
     // subheadline: "Stop Managing Your Station in the Dark.",
-    subheadline: "No more guesswork. Make Better decisions.",
+    subheadline: "No more guesswork.\nYou make better decisions.",
     description: "Traditional fuel-station operations can make it difficult to keep track of sales, pump activity, inventory, and overall performance. EasyFuel Pro gives you the visibility you need, when you need it.",
     benefitsLabel: "With EasyFuel Pro, you can:",
     benefits: [
@@ -321,8 +321,8 @@ export const siteConfig = {
     ],
     comparison: {
       legacy: {
-        title: "Legacy Fuel Stations",
-        description: "Legacy fuel stations rely on fragmented manual logs, which leaves room for discrepancies and compliance audits.",
+        title: "Traditional Fuel Stations",
+        description: "Traditional fuel-station operations rely on fragmented manual logs, which often leave room for discrepancies and compliance audits.",
         points: [
           { title: "Manual Dips", desc: "High margin for human measurement error and tank fraud." },
           { title: "Paper Receipts", desc: "Slow checkout, missing records, manual book entry." },

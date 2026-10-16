@@ -70,7 +70,7 @@ export function CtaBooking() {
                 <div className="font-headline-sm text-headline-sm font-bold text-on-surface">
                   Book Your EasyFuel Pro Demo Today
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 pt-1">
                   <a href={siteConfig.phoneHref} className="flex items-center gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-xs hover:shadow transition-shadow">
                     <span className="material-symbols-outlined text-primary text-[20px]">call</span>
                     <div className="flex flex-col">

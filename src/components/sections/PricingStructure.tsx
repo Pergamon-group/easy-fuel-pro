@@ -25,7 +25,7 @@ export function PricingStructure() {
               PRICING STRUCTURE
             </h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Transparent, modular hardware pricing tailored for single independent stations and
+              Pergamon Group offers transparent, modular hardware pricing tailored for single independent stations and
               regional multi-station fuel networks across East Africa.
             </p>
           </div>
@@ -75,7 +75,7 @@ export function PricingStructure() {
                 </div>
                 <div className="flex items-center justify-between pt-1 border-t border-surface-container/60 text-[11px] sm:text-[12px] font-label-mono text-outline">
                   <span>{semiAutomated.period}</span>
-                  <span className="hidden sm:inline">Modular Base Stack</span>
+                  <span className="hidden sm:inline">Modular Base Setup</span>
                 </div>
               </div>
 
@@ -92,9 +92,8 @@ export function PricingStructure() {
                     >
                       <div className="flex flex-col">
                         <span
-                          className={`${
-                            comp.highlight ? 'font-semibold text-primary' : 'text-on-surface'
-                          }`}
+                          className={`${comp.highlight ? 'font-semibold text-primary' : 'text-on-surface'
+                            }`}
                         >
                           {comp.name}
                         </span>
@@ -105,13 +104,12 @@ export function PricingStructure() {
                         )}
                       </div>
                       <span
-                        className={`font-label-mono font-bold whitespace-nowrap self-start sm:self-auto ${
-                          comp.highlight
-                            ? 'text-primary font-semibold'
-                            : comp.isExcluded
+                        className={`font-label-mono font-bold whitespace-nowrap self-start sm:self-auto ${comp.highlight
+                          ? 'text-primary font-semibold'
+                          : comp.isExcluded
                             ? 'italic text-outline font-normal'
                             : 'text-on-surface'
-                        }`}
+                          }`}
                       >
                         {comp.priceFormatted}
                       </span>
@@ -192,9 +190,8 @@ export function PricingStructure() {
                     >
                       <div className="flex flex-col">
                         <span
-                          className={`${
-                            comp.highlight ? 'font-semibold text-primary' : 'text-on-surface'
-                          }`}
+                          className={`${comp.highlight ? 'font-semibold text-primary' : 'text-on-surface'
+                            }`}
                         >
                           {comp.name}
                         </span>
@@ -205,11 +202,10 @@ export function PricingStructure() {
                         )}
                       </div>
                       <span
-                        className={`font-label-mono font-bold whitespace-nowrap self-start sm:self-auto ${
-                          comp.highlight
-                            ? 'text-primary font-semibold'
-                            : 'text-on-surface'
-                        }`}
+                        className={`font-label-mono font-bold whitespace-nowrap self-start sm:self-auto ${comp.highlight
+                          ? 'text-primary font-semibold'
+                          : 'text-on-surface'
+                          }`}
                       >
                         {comp.priceFormatted}
                       </span>

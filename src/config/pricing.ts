@@ -150,8 +150,8 @@ export const pricingConfig: {
     fullAutomation: {
       id: 'option-2',
       title: 'Option 2: Full Automation',
-      badge: 'Complete Forecourt Telemetry',
-      recommendedBadge: '★ Recommended Forecourt Stack',
+      badge: 'Complete Forecourt Automation',
+      recommendedBadge: '★ Recommended Forecourt Setup',
       description:
         'Direct pump protocol interlocking via our Forecourt controller, live nozzle flow capture, and ATG tank telemetry.',
       totalYear1: 269500,

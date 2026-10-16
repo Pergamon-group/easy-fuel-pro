@@ -30,9 +30,8 @@ export function PartnerCard({
     <div className="border border-outline-variant/30 bg-surface-container-lowest/80 backdrop-blur-sm rounded-xl px-5 py-3 shadow-xs hover:border-primary/50 transition-all flex items-center gap-3 shrink-0 min-w-[200px] h-[72px] select-none group">
       {logoSrc ? (
         <div
-          className={`w-10 h-10 rounded-lg flex items-center justify-center p-1.5 overflow-hidden shrink-0 transition-colors ${
-            isDark ? 'bg-[#111827]' : 'bg-surface-container/60'
-          }`}
+          className={`w-10 h-10 rounded-lg flex items-center justify-center p-1.5 overflow-hidden shrink-0 transition-colors ${isDark ? 'bg-[#111827]' : 'bg-surface-container/60'
+            }`}
         >
           <Image
             src={logoSrc}
@@ -40,10 +39,13 @@ export function PartnerCard({
             width={40}
             height={40}
             className={`max-w-full max-h-full object-contain transition-all duration-300 ${
+              // !isDark
+              //   ? 'grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100'
+              //   : 'opacity-90 group-hover:opacity-100'
               !isDark
-                ? 'grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100'
+                ? ' opacity-70 group-hover:opacity-100'
                 : 'opacity-90 group-hover:opacity-100'
-            }`}
+              }`}
           />
         </div>
       ) : (
