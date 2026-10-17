@@ -9,22 +9,29 @@ vi.mock('@/app/actions/booking', () => ({
 }));
 
 describe('CtaBooking Component', () => {
-  it('renders the booking form initially', () => {
+  it('renders the prominent Site Survey gateway and General Inquiry form', () => {
     render(<CtaBooking />);
-    expect(screen.getByText('Book Your EasyFuel Pro Demo Today')).toBeDefined();
+    // Site Survey gateway
+    expect(screen.getByText('Full Forecourt Site Survey & eTIMS Readiness Audit')).toBeDefined();
+    expect(screen.getByText('Start Forecourt Survey')).toBeDefined();
+
+    // General Inquiry form
+    expect(screen.getByText('Send a Message or Demo Request')).toBeDefined();
     expect(screen.getByLabelText(/Full Name/i)).toBeDefined();
+    expect(screen.getByLabelText(/Fuel Station \/ Company Name/i)).toBeDefined();
+    expect(screen.getByLabelText(/Phone Number/i)).toBeDefined();
   });
 
   it('shows success state after valid submission', async () => {
     vi.mocked(bookingActions.submitBookingForm).mockResolvedValueOnce({ success: true });
-    
+
     render(<CtaBooking />);
-    
-    const form = screen.getByRole('button', { name: /Book Live Forecourt Demo/i }).closest('form');
+
+    const form = screen.getByRole('button', { name: /Submit Inquiry/i }).closest('form');
     fireEvent.submit(form!);
 
     await waitFor(() => {
-      expect(screen.getByText('Demo Request Received')).toBeDefined();
+      expect(screen.getByText('Inquiry Received')).toBeDefined();
     });
   });
 });

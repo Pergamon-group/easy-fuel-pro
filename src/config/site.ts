@@ -59,6 +59,7 @@ export const siteConfig = {
     { label: "Architecture", href: "/#architecture" },
     { label: "Partners", href: "/#about" },
     { label: "Pricing", href: "/#pricing" },
+    { label: "Site Survey", href: "/site-survey" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ],
@@ -474,6 +475,7 @@ export const siteConfig = {
       { label: "Architecture", href: "/#architecture" },
       { label: "Compliance", href: "/#etims-compliance" },
       { label: "Forecourt Hardware", href: "/#about" },
+      { label: "Site Survey", href: "/site-survey" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" }
     ],
