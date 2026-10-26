@@ -323,44 +323,56 @@ export function SiteSurveyWizard({ onSwitchToOffline }: SiteSurveyWizardProps) {
         )}
 
         {/* Step Navigation Bar */}
-        <div className="mt-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between gap-3">
-          <div className="flex items-center">
-            {currentStepIndex > 0 ? (
-              <button
-                type="button"
-                onClick={handlePrevStep}
-                aria-label="Previous Step"
-                className="min-h-[44px] py-2.5 px-5 rounded-xl bg-surface border border-outline-variant/60 text-on-surface font-semibold text-xs font-label-ui hover:bg-surface-container hover:border-outline-variant active:scale-[0.98] transition-all duration-150 flex items-center gap-1.5 cursor-pointer shadow-2xs"
-              >
-                <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-                <span>Previous Step</span>
-              </button>
-            ) : onSwitchToOffline ? (
-              <button
-                type="button"
-                onClick={onSwitchToOffline}
-                className="min-h-[44px] text-xs text-primary font-semibold hover:underline flex items-center gap-1.5 font-label-ui cursor-pointer py-2 px-1"
-              >
-                <span className="material-symbols-outlined text-[18px]">file_download</span>
-                <span>Switch to Offline PDF Download</span>
-              </button>
-            ) : (
-              <div className="min-h-[44px]" />
-            )}
-          </div>
+        <div className="mt-8 pt-6 border-t border-outline-variant/30 space-y-3">
+          {/* Navigation Context Line */}
+          {currentStepIndex < SURVEY_STEPS.length - 1 && (
+            <div className="flex items-center justify-between text-xs font-label-ui select-none px-1">
+              <span className="text-on-surface-variant font-medium text-[11px]">
+                Step {currentStepIndex + 1} of {SURVEY_STEPS.length}:{' '}
+                <strong className="text-on-surface font-semibold">
+                  {SURVEY_STEPS[currentStepIndex].title}
+                </strong>
+              </span>
 
-          <div>
-            {currentStepIndex < SURVEY_STEPS.length - 1 && (
-              <div className="flex flex-col items-end gap-1">
-                {/* Secondary preview micro-label */}
-                <div className="text-[11px] font-medium text-on-surface-variant font-label-ui flex items-center gap-1 select-none">
-                  <span className="text-on-surface-variant/70">Next:</span>
-                  <span className="font-semibold text-on-surface">
-                    {SURVEY_STEPS[currentStepIndex + 1].title}
-                  </span>
-                </div>
+              <div className="flex items-start justify-end text-end gap-1.5 text-[11px] text-on-surface-variant">
+                <span className="text-on-surface-variant/70">Next:</span>
+                <span className="font-bold text-primary">
+                  {SURVEY_STEPS[currentStepIndex + 1].title}
+                </span>
+                <span className="material-symbols-outlined text-primary text-[14px]">arrow_forward</span>
+              </div>
+            </div>
+          )}
 
-                {/* Primary CTA button with stable geometry */}
+          {/* Symmetrical Button Row: Both buttons aligned on the exact same baseline */}
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              {currentStepIndex > 0 ? (
+                <button
+                  type="button"
+                  onClick={handlePrevStep}
+                  aria-label="Previous Step"
+                  className="min-h-[44px] py-2.5 px-5 rounded-xl bg-surface border border-outline-variant/60 text-on-surface font-semibold text-xs font-label-ui hover:bg-surface-container hover:border-outline-variant active:scale-[0.98] transition-all duration-150 flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                >
+                  <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+                  <span>Previous Step</span>
+                </button>
+              ) : onSwitchToOffline ? (
+                <button
+                  type="button"
+                  onClick={onSwitchToOffline}
+                  className="min-h-[44px] text-xs text-primary font-semibold hover:underline flex items-center gap-1.5 font-label-ui cursor-pointer py-2 px-1"
+                >
+                  <span className="material-symbols-outlined text-[18px]">file_download</span>
+                  <span>Switch to Offline PDF Download</span>
+                </button>
+              ) : (
+                <div className="min-h-[44px]" />
+              )}
+            </div>
+
+            <div>
+              {currentStepIndex < SURVEY_STEPS.length - 1 && (
                 <button
                   type="button"
                   onClick={handleNextStep}
@@ -372,8 +384,8 @@ export function SiteSurveyWizard({ onSwitchToOffline }: SiteSurveyWizardProps) {
                   </span>
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </button>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

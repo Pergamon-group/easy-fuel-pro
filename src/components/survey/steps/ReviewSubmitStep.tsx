@@ -196,60 +196,248 @@ export function ReviewSubmitStep({
       </div>
 
       {/* Collapsible Submission Summary Preview */}
-      <div className="rounded-2xl border border-outline-variant/40 overflow-hidden">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface shadow-2xs overflow-hidden">
         <button
           type="button"
           onClick={() => setShowSummary(!showSummary)}
-          className="w-full p-4 flex items-center justify-between bg-surface-container hover:bg-surface-container-high transition-colors text-left"
+          aria-expanded={showSummary}
+          className="accordion-trigger w-full min-h-[52px] p-4 flex items-center justify-between bg-surface-container hover:bg-surface-container-high active:bg-surface-container transition-colors text-left cursor-pointer shadow-none select-none"
         >
           <div className="flex items-center gap-2.5">
-            <span className="material-symbols-outlined text-primary text-[20px]">
+            <span className="material-symbols-outlined text-primary text-[20px] shrink-0">
               preview
             </span>
-            <span className="font-bold text-sm text-on-surface font-headline-sm">
-              Review Survey Summary Before Submitting
-            </span>
+            <div>
+              <span className="font-bold text-sm text-on-surface font-headline-sm block">
+                Review Survey Summary Before Submitting
+              </span>
+              <span className="text-[11px] text-on-surface-variant">
+                {showSummary
+                  ? 'Click to collapse summary preview'
+                  : 'Click to inspect all site specifications, pump setups, and compliance parameters'}
+              </span>
+            </div>
           </div>
-          <span className="material-symbols-outlined text-on-surface-variant text-[20px]">
-            {showSummary ? 'expand_less' : 'expand_more'}
+          <span
+            className={`material-symbols-outlined text-on-surface-variant text-[20px] transition-transform duration-200 ease-out shrink-0 ${
+              showSummary ? 'rotate-180 text-primary' : ''
+            }`}
+            aria-hidden="true"
+          >
+            expand_more
           </span>
         </button>
 
         {showSummary && (
-          <div className="p-5 bg-surface text-xs font-body-md space-y-4 border-t border-outline-variant/30">
-            <div>
-              <span className="font-bold text-primary uppercase text-[11px] font-label-ui">Station & Contact:</span>
-              <p className="text-on-surface mt-1">
-                <strong>{businessInfo.siteName}</strong> &bull; {businessInfo.customerName} &bull; {businessInfo.physicalLocation}, {businessInfo.county} &bull; KRA PIN: {businessInfo.kraPin}
-              </p>
-              <p className="text-on-surface-variant">
-                Contact: {businessInfo.contactPersonName} ({businessInfo.contactPhone}, {businessInfo.contactEmail})
-              </p>
+          <div className="p-4 sm:p-5 bg-surface-container-lowest/60 text-xs font-body-md space-y-3.5 border-t border-outline-variant/30 animate-accordion-down">
+            {/* 1. Station & Legal Profile */}
+            <div className="p-4 rounded-xl bg-surface border border-outline-variant/30 space-y-2">
+              <div className="flex items-center justify-between gap-2 border-b border-outline-variant/15 pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-[18px]">local_gas_station</span>
+                  <span className="font-bold text-xs font-label-ui uppercase tracking-wider text-primary">
+                    Station &amp; Entity Profile
+                  </span>
+                </div>
+                <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30 text-on-surface">
+                  PIN: {businessInfo.kraPin || 'Unspecified'}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">Station / Site Name:</span>
+                  <span className="font-bold text-on-surface text-sm">{businessInfo.siteName || '—'}</span>
+                  <span className="text-on-surface-variant block mt-0.5">{businessInfo.customerName}</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">Location &amp; County:</span>
+                  <span className="font-semibold text-on-surface">
+                    {businessInfo.physicalLocation || '—'}, {businessInfo.county || '—'}
+                  </span>
+                  <span className="text-on-surface-variant text-[11px] block mt-0.5">
+                    Contact: {businessInfo.contactPersonName} ({businessInfo.contactPhone}, {businessInfo.contactEmail})
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <span className="font-bold text-primary uppercase text-[11px] font-label-ui">Scheduling:</span>
-              <p className="text-on-surface mt-1">
-                Preferred: {scheduling.preferredDates.join(', ') || 'Flexible'} &bull; Hours: {scheduling.operatingHours}
-              </p>
+            {/* 2. Field Scheduling & Shift Hours */}
+            <div className="p-4 rounded-xl bg-surface border border-outline-variant/30 space-y-2">
+              <div className="flex items-center gap-2 border-b border-outline-variant/15 pb-2">
+                <span className="material-symbols-outlined text-primary text-[18px]">calendar_month</span>
+                <span className="font-bold text-xs font-label-ui uppercase tracking-wider text-primary">
+                  Survey Visit Window
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">Requested Audit Dates:</span>
+                  {scheduling.preferredDates.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5 mt-1">
+                      {scheduling.preferredDates.map((date, idx) => (
+                        <span
+                          key={date}
+                          className="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/25 font-mono text-[11px] font-semibold"
+                        >
+                          Slot #{idx + 1}: {date}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <span className="italic text-on-surface-variant">Flexible / Unspecified</span>
+                  )}
+                </div>
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">Forecourt Shift Hours:</span>
+                  <span className="font-semibold text-on-surface">
+                    {scheduling.operatingHours === 'full_24h'
+                      ? '24 Hours Continuous Operations'
+                      : scheduling.operatingHours === '6am_10pm'
+                      ? '6:00 AM to 10:00 PM Extended Shift'
+                      : scheduling.operatingHours === '6am_6pm'
+                      ? '6:00 AM to 6:00 PM Day Shift'
+                      : scheduling.operatingHours === 'custom'
+                      ? `Custom: ${scheduling.customOperatingHours}`
+                      : 'Unspecified'}
+                  </span>
+                  {scheduling.schedulingNotes && (
+                    <p className="text-[11px] text-on-surface-variant mt-1 italic">
+                      &ldquo;{scheduling.schedulingNotes}&rdquo;
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
 
-            <div>
-              <span className="font-bold text-primary uppercase text-[11px] font-label-ui">Dispensers ({infrastructure.totalPumpCount} Pumps):</span>
-              <ul className="list-disc pl-5 mt-1 space-y-1 text-on-surface">
+            {/* 3. Forecourt Dispensers & Pulser Technology */}
+            <div className="p-4 rounded-xl bg-surface border border-outline-variant/30 space-y-2.5">
+              <div className="flex items-center justify-between gap-2 border-b border-outline-variant/15 pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-[18px]">local_gas_station</span>
+                  <span className="font-bold text-xs font-label-ui uppercase tracking-wider text-primary">
+                    Dispensers ({infrastructure.totalPumpCount} Configured)
+                  </span>
+                </div>
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-surface-container font-medium text-on-surface-variant border border-outline-variant/30">
+                  {infrastructure.isSiteAutomated === 'yes'
+                    ? `Automated (${infrastructure.automationVendor || 'Vendor'})`
+                    : 'Standalone Forecourt'}
+                </span>
+              </div>
+
+              <div className="space-y-2">
                 {infrastructure.pumps.map((p, i) => (
-                  <li key={p.id || i}>
-                    Pump #{i + 1}: {p.makeModel || 'Unspecified'} {p.dispenserSerial ? `(SN: ${p.dispenserSerial})` : ''} &bull; {p.nozzleCount} Nozzles &bull; Fuels: {p.fuelTypes.map((f) => f === 'other' ? (p.otherFuelType ? `Other (${p.otherFuelType})` : 'Other') : f.toUpperCase()).join(', ')} &bull; {p.meterType} &bull; Pulser: {p.pulseOutputAvailable === 'yes' ? 'Available' : 'No / None'}
-                  </li>
+                  <div
+                    key={p.id || i}
+                    className="p-2.5 rounded-lg bg-surface-container-low/70 border border-outline-variant/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10 text-[11px]">
+                        Pump #{i + 1}
+                      </span>
+                      <span className="font-semibold text-on-surface">
+                        {p.makeModel || 'Unspecified Model'}
+                      </span>
+                      {p.dispenserSerial && (
+                        <span className="text-on-surface-variant/70 font-mono text-[10px]">
+                          (SN: {p.dispenserSerial})
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="px-2 py-0.5 rounded bg-surface border border-outline-variant/30 text-[10px] font-medium text-on-surface">
+                        {p.nozzleCount} Nozzles
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-surface border border-outline-variant/30 text-[10px] font-medium text-on-surface capitalize">
+                        {p.meterType} Pulser
+                      </span>
+                      <div className="flex items-center gap-1">
+                        {p.fuelTypes.map((f) => (
+                          <span
+                            key={f}
+                            className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-surface border border-outline-variant/30 uppercase text-on-surface-variant"
+                          >
+                            {f === 'other' ? (p.otherFuelType || 'Other') : f}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
-            <div>
-              <span className="font-bold text-primary uppercase text-[11px] font-label-ui">eTIMS Compliance:</span>
-              <p className="text-on-surface mt-1">
-                Solution: {compliance.etimsSolutionType?.toUpperCase()} &bull; Live KRA Today: {compliance.realTimeSalesCurrentlyTransmitting || 'No'} &bull; Automate Goal: {compliance.requireRealtimeTransmissionGoal || 'Yes'} &bull; POS: {compliance.posSystem || 'None'} &bull; Internet: {compliance.internetAvailable} ({compliance.connectionType})
-              </p>
+            {/* 4. eTIMS Compliance & Physical Readiness */}
+            <div className="p-4 rounded-xl bg-surface border border-outline-variant/30 space-y-2">
+              <div className="flex items-center gap-2 border-b border-outline-variant/15 pb-2">
+                <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+                <span className="font-bold text-xs font-label-ui uppercase tracking-wider text-primary">
+                  eTIMS Compliance &amp; Civil Readiness
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">eTIMS Architecture:</span>
+                  <span className="font-bold text-on-surface uppercase">
+                    {compliance.etimsSolutionType || 'Undecided'}
+                  </span>
+                  <span className="text-on-surface-variant text-[11px] block mt-0.5">
+                    POS: {compliance.posSystem || 'None'}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">Live KRA Today / Goal:</span>
+                  <span className="font-semibold text-on-surface">
+                    Live: {compliance.realTimeSalesCurrentlyTransmitting === 'yes' ? 'Yes' : 'No'} &bull; Goal:{' '}
+                    {compliance.requireRealtimeTransmissionGoal === 'yes' ? 'Automate' : 'No'}
+                  </span>
+                  <span className="text-on-surface-variant text-[11px] block mt-0.5">
+                    Net: {compliance.internetAvailable} ({compliance.connectionType || 'Standard'})
+                  </span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant text-[11px] block">Site Civil Works:</span>
+                  <div className="flex items-center gap-3 mt-1 text-[11px]">
+                    <span className="flex items-center gap-0.5">
+                      <span
+                        className={`material-symbols-outlined text-[14px] ${
+                          readiness.trenchingCompleted === 'yes'
+                            ? 'text-primary'
+                            : 'text-on-surface-variant/60'
+                        }`}
+                      >
+                        {readiness.trenchingCompleted === 'yes' ? 'check_circle' : 'cancel'}
+                      </span>
+                      Trenching
+                    </span>
+                    <span className="flex items-center gap-0.5">
+                      <span
+                        className={`material-symbols-outlined text-[14px] ${
+                          readiness.conduitsInstalled === 'yes'
+                            ? 'text-primary'
+                            : 'text-on-surface-variant/60'
+                        }`}
+                      >
+                        {readiness.conduitsInstalled === 'yes' ? 'check_circle' : 'cancel'}
+                      </span>
+                      Conduits
+                    </span>
+                    <span className="flex items-center gap-0.5">
+                      <span
+                        className={`material-symbols-outlined text-[14px] ${
+                          readiness.pumpIslandsGrounded === 'yes'
+                            ? 'text-primary'
+                            : 'text-on-surface-variant/60'
+                        }`}
+                      >
+                        {readiness.pumpIslandsGrounded === 'yes' ? 'check_circle' : 'cancel'}
+                      </span>
+                      Grounded
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}

@@ -21,7 +21,7 @@ export function InfoCard({
 
   return (
     <aside
-      className="my-3 rounded-xl border border-outline-variant/30 bg-surface transition-all duration-150 overflow-hidden"
+      className="my-3 rounded-xl border border-outline-variant/40 bg-surface shadow-2xs overflow-hidden"
       data-testid="info-card"
       aria-label={title}
     >
@@ -29,10 +29,10 @@ export function InfoCard({
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
-        className="w-full flex items-center justify-between px-3.5 py-2.5 text-left hover:bg-surface-container-low transition-colors focus:outline-none focus:ring-1 focus:ring-primary/40 rounded-xl"
+        className="accordion-trigger w-full min-h-[44px] flex items-center justify-between px-3.5 py-2.5 text-left hover:bg-surface-container-low active:bg-surface-container transition-colors duration-150 focus:outline-none focus-visible:bg-surface-container-low cursor-pointer shadow-none"
       >
         <div className="flex items-center gap-2.5">
-          <span className="flex items-center justify-center w-6 h-6 rounded-md bg-surface-container text-on-surface-variant">
+          <span className="flex items-center justify-center w-6 h-6 rounded-md bg-surface-container text-on-surface-variant shrink-0">
             <span className="material-symbols-outlined text-[16px]">{icon}</span>
           </span>
           <div className="flex items-center gap-2">
@@ -46,8 +46,8 @@ export function InfoCard({
         </div>
 
         <span
-          className={`material-symbols-outlined text-on-surface-variant text-[18px] transition-transform duration-200 ${
-            isExpanded ? 'rotate-180' : ''
+          className={`material-symbols-outlined text-on-surface-variant text-[18px] transition-transform duration-200 ease-out shrink-0 ${
+            isExpanded ? 'rotate-180 text-primary' : ''
           }`}
           aria-hidden="true"
         >
@@ -57,7 +57,7 @@ export function InfoCard({
 
       {isExpanded && (
         <div
-          className="px-4 pb-3.5 pt-2 text-xs text-on-surface-variant font-body-md border-t border-outline-variant/20 bg-surface-container-lowest leading-relaxed"
+          className="px-4 pb-3.5 pt-2.5 text-xs text-on-surface-variant font-body-md border-t border-outline-variant/20 bg-surface-container-lowest/60 leading-relaxed animate-accordion-down"
           data-testid="info-card-content"
         >
           {children}
