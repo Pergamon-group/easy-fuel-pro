@@ -45,7 +45,7 @@ export function Hero() {
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-4 mb-6">
-              <Link href={siteConfig.hero.primaryCta.href} className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-[#00a3e0] text-white font-label-ui  text-[15px] text-[15px] font-semibold shadow-md hover:bg-primary transition-all duration-200">
+              <Link href={siteConfig.hero.primaryCta.href} className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-[#17afed] text-white font-label-ui  text-[15px] text-[15px] font-semibold shadow-md hover:bg-primary transition-all duration-200">
                 {siteConfig.hero.primaryCta.label}
               </Link>
               <a href={siteConfig.hero.secondaryCta.href} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-transparent border border-outline-variant hover:border-primary text-on-surface hover:text-primary font-label-ui text-[15px] font-semibold transition-all duration-200">
