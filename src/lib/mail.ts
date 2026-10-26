@@ -75,20 +75,53 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
+export interface OutboxEmailRecord {
+  id: string;
+  type: 'booking' | 'site-survey' | 'offline-survey' | 'customer-confirmation';
+  to: string[];
+  from: string;
+  subject: string;
+  html: string;
+  attachments?: { filename: string; contentType?: string; size: number }[];
+  sentAt: string;
+  meta?: Record<string, unknown>;
+}
+
+interface GlobalWithTestMailOutbox {
+  __testMailOutbox?: OutboxEmailRecord[];
+}
+
+export function recordTestEmail(record: Omit<OutboxEmailRecord, 'id' | 'sentAt'>): OutboxEmailRecord {
+  const testGlobal = globalThis as unknown as GlobalWithTestMailOutbox;
+  if (!testGlobal.__testMailOutbox) {
+    testGlobal.__testMailOutbox = [];
+  }
+  const fullRecord: OutboxEmailRecord = {
+    ...record,
+    id: `mail_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    sentAt: new Date().toISOString(),
+  };
+  testGlobal.__testMailOutbox.push(fullRecord);
+  return fullRecord;
+}
+
+export function getTestMailOutbox(): OutboxEmailRecord[] {
+  const testGlobal = globalThis as unknown as GlobalWithTestMailOutbox;
+  return testGlobal.__testMailOutbox || [];
+}
+
+export function clearTestMailOutbox(): void {
+  const testGlobal = globalThis as unknown as GlobalWithTestMailOutbox;
+  testGlobal.__testMailOutbox = [];
+}
+
 /**
  * Dispatches a booking/contact inquiry email to the operations/sales team and a customer confirmation.
  */
 export async function sendBookingEmail(payload: BookingLeadPayload): Promise<{ success: boolean; error?: string }> {
   const config = getSmtpConfig();
-  if (!config) {
-    console.warn('[Mail Service] SMTP_USER or SMTP_PASS not set. Logging lead payload to console:', payload);
-    return { success: true };
-  }
 
-  try {
-    const transporter = createMailTransporter(config);
-
-    const htmlContent = `
+  const htmlContent = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
@@ -116,12 +149,40 @@ export async function sendBookingEmail(payload: BookingLeadPayload): Promise<{ s
   </div>
 </body>
 </html>
-    `.trim();
+  `.trim();
 
+  const subject = `[EasyFuel Pro Inquiry] ${payload.subject ? `${payload.subject} - ` : ''}${payload.business}`;
+
+  // Record in test outbox in development or testing environments
+  if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_TEST_OUTBOX === 'true') {
+    recordTestEmail({
+      type: 'booking',
+      to: config ? config.to : ['sales@pergamongroup.com', 'info@easyfuelpro.com'],
+      from: config ? config.from : '"EasyFuel Pro Notifications" <noreply@easyfuelpro.com>',
+      subject,
+      html: htmlContent,
+      meta: {
+        name: payload.name,
+        business: payload.business,
+        phone: payload.phone,
+        email: payload.email,
+        subject: payload.subject,
+        details: payload.details,
+      },
+    });
+  }
+
+  if (!config) {
+    console.warn('[Mail Service] SMTP_USER or SMTP_PASS not set. Logging lead payload to console:', payload);
+    return { success: true };
+  }
+
+  try {
+    const transporter = createMailTransporter(config);
     const mailOptions: SendMailOptions = {
       from: config.from,
       to: config.to,
-      subject: `[EasyFuel Pro Inquiry] ${payload.subject ? `${payload.subject} - ` : ''}${payload.business}`,
+      subject,
       html: htmlContent,
     };
 
@@ -150,18 +211,7 @@ export async function sendSiteSurveyNotificationEmail(options: SendSurveyEmailOp
   const { survey, referenceCode, pdfBuffer, imageSignedUrls = [] } = options;
   const { businessInfo, scheduling, infrastructure, compliance, readiness } = survey;
 
-  if (!config) {
-    console.warn('[Mail Service] SMTP_USER or SMTP_PASS not set. Logging survey payload:', {
-      referenceCode,
-      station: businessInfo.siteName,
-      customer: businessInfo.customerName,
-    });
-    return { success: true };
-  }
-
   try {
-    const transporter = createMailTransporter(config);
-
     const pumpRows = infrastructure.pumps
       .map(
         (p, idx) => `
@@ -277,23 +327,60 @@ export async function sendSiteSurveyNotificationEmail(options: SendSurveyEmailOp
 </html>
     `.trim();
 
-    const mailOptions: SendMailOptions = {
-      from: config.from,
-      to: config.to,
-      subject: `[Site Survey #${referenceCode}] ${businessInfo.siteName} (${businessInfo.county}) - ${businessInfo.customerName}`,
-      html: htmlContent,
-      attachments: pdfBuffer
-        ? [
-            {
-              filename: `Site-Survey-${referenceCode}.pdf`,
-              content: pdfBuffer,
-              contentType: 'application/pdf',
-            },
-          ]
-        : undefined,
-    };
+    const subject = `[Site Survey #${referenceCode}] ${businessInfo.siteName} (${businessInfo.county}) - ${businessInfo.customerName}`;
 
-    await transporter.sendMail(mailOptions);
+    // Record admin notification in test outbox in development or testing environments
+    if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_TEST_OUTBOX === 'true') {
+      recordTestEmail({
+        type: 'site-survey',
+        to: config ? config.to : ['operations@pergamongroup.com', 'surveys@easyfuelpro.com'],
+        from: config ? config.from : '"EasyFuel Pro Notifications" <noreply@easyfuelpro.com>',
+        subject,
+        html: htmlContent,
+        attachments: pdfBuffer
+          ? [
+              {
+                filename: `Site-Survey-${referenceCode}.pdf`,
+                contentType: 'application/pdf',
+                size: pdfBuffer.length,
+              },
+            ]
+          : undefined,
+        meta: {
+          referenceCode,
+          siteName: businessInfo.siteName,
+          customerName: businessInfo.customerName,
+          county: businessInfo.county,
+        },
+      });
+    }
+
+    if (config) {
+      const transporter = createMailTransporter(config);
+      const mailOptions: SendMailOptions = {
+        from: config.from,
+        to: config.to,
+        subject,
+        html: htmlContent,
+        attachments: pdfBuffer
+          ? [
+              {
+                filename: `Site-Survey-${referenceCode}.pdf`,
+                content: pdfBuffer,
+                contentType: 'application/pdf',
+              },
+            ]
+          : undefined,
+      };
+
+      await transporter.sendMail(mailOptions);
+    } else {
+      console.warn('[Mail Service] SMTP_USER or SMTP_PASS not set. Logging survey payload:', {
+        referenceCode,
+        station: businessInfo.siteName,
+        customer: businessInfo.customerName,
+      });
+    }
 
     // Also send customer confirmation acknowledgment
     if (businessInfo.contactEmail && process.env.SEND_CUSTOMER_CONFIRMATION !== 'false') {
@@ -326,18 +413,7 @@ export async function sendOfflinePdfNotificationEmail(options: {
   const config = getSmtpConfig();
   const { submission, referenceCode, fileBuffer, fileName, fileUrl } = options;
 
-  if (!config) {
-    console.warn('[Mail Service] SMTP unconfigured. Logging offline submission:', {
-      referenceCode,
-      submission,
-    });
-    return { success: true };
-  }
-
-  try {
-    const transporter = createMailTransporter(config);
-
-    const htmlContent = `
+  const htmlContent = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
@@ -369,12 +445,44 @@ export async function sendOfflinePdfNotificationEmail(options: {
   </div>
 </body>
 </html>
-    `.trim();
+  `.trim();
 
+  const subject = `[Offline Survey Upload #${referenceCode}] ${submission.siteName} - ${submission.customerName}`;
+
+  if (process.env.NODE_ENV !== 'production') {
+    recordTestEmail({
+      type: 'offline-survey',
+      to: config ? config.to : ['operations@pergamongroup.com'],
+      from: config ? config.from : '"EasyFuel Pro Notifications" <noreply@easyfuelpro.com>',
+      subject,
+      html: htmlContent,
+      attachments: fileBuffer && fileName
+        ? [
+            {
+              filename: fileName,
+              contentType: 'application/pdf',
+              size: fileBuffer.length,
+            },
+          ]
+        : undefined,
+      meta: { referenceCode, customerName: submission.customerName, siteName: submission.siteName },
+    });
+  }
+
+  if (!config) {
+    console.warn('[Mail Service] SMTP unconfigured. Logging offline submission:', {
+      referenceCode,
+      submission,
+    });
+    return { success: true };
+  }
+
+  try {
+    const transporter = createMailTransporter(config);
     const mailOptions: SendMailOptions = {
       from: config.from,
       to: config.to,
-      subject: `[Offline Survey Upload #${referenceCode}] ${submission.siteName} - ${submission.customerName}`,
+      subject,
       html: htmlContent,
       attachments: fileBuffer && fileName
         ? [
@@ -407,11 +515,7 @@ export async function sendCustomerSurveyConfirmation(options: {
   const config = getSmtpConfig();
   const { to, customerName, siteName, referenceCode } = options;
 
-  if (!config) return { success: true };
-
-  try {
-    const transporter = createMailTransporter(config);
-    const htmlContent = `
+  const htmlContent = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
@@ -438,12 +542,29 @@ export async function sendCustomerSurveyConfirmation(options: {
   </div>
 </body>
 </html>
-    `.trim();
+  `.trim();
 
+  const subject = `Site Survey Received - ${siteName} [Ref: ${referenceCode}]`;
+
+  if (process.env.NODE_ENV !== 'production' || process.env.ENABLE_TEST_OUTBOX === 'true') {
+    recordTestEmail({
+      type: 'customer-confirmation',
+      to: [to],
+      from: config ? config.from : '"EasyFuel Pro Notifications" <noreply@easyfuelpro.com>',
+      subject,
+      html: htmlContent,
+      meta: { referenceCode, customerName, siteName },
+    });
+  }
+
+  if (!config) return { success: true };
+
+  try {
+    const transporter = createMailTransporter(config);
     await transporter.sendMail({
       from: config.from,
       to,
-      subject: `Site Survey Received - ${siteName} [Ref: ${referenceCode}]`,
+      subject,
       html: htmlContent,
     });
 

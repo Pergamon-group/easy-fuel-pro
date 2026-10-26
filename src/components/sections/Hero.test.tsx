@@ -14,7 +14,9 @@ vi.mock('next/image', () => ({
 describe('Hero Component', () => {
   it('renders the main heading', () => {
     render(<Hero />);
-    expect(screen.getByText('The Future of Smart Forecourt Management')).toBeDefined();
+    expect(
+      screen.getByRole('heading', { level: 1, name: /The Future of Smart Forecourt Management/i })
+    ).toBeDefined();
   });
 
   it('renders the call to action buttons', () => {

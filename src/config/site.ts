@@ -93,7 +93,7 @@ export const siteConfig = {
     subheadline: "Run your fuel station smarter, faster, and with greater control.",
     etimsNote: "With eTIMS-ready technology, EasyFuel Pro helps fuel stations manage their operations efficiently while staying compliant with Kenya’s digital tax requirements as enforced by the Kenya Revenue Authority (KRA).",
     primaryCta: { label: "Request a Demo", href: "#demo-form" },
-    secondaryCta: { label: "Talk to Us", href: "https://wa.me/254111050950" },
+    secondaryCta: { label: "Talk to Us", href: "https://wa.me/254112817917" },
     image: {
       // src: "/res/filling-station-upperhill.jpg",
       src: "/res/easy-fuel-pro-station.png",
