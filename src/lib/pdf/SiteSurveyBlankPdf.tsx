@@ -428,7 +428,7 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
               </View>
 
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ fontSize: 7, fontFamily: 'Helvetica-Bold', color: '#00658d', marginRight: 4 }}>Is Pulse Output Available?</Text>
+                <Text style={{ fontSize: 7, fontFamily: 'Helvetica-Bold', color: '#00658d', marginRight: 4 }}>Pulse Output Available?</Text>
                 <View style={styles.checkboxItem}><View style={styles.box} /><Text style={{ fontSize: 6.5 }}>Yes</Text></View>
                 <View style={styles.checkboxItem}><View style={styles.box} /><Text style={{ fontSize: 6.5 }}>No</Text></View>
               </View>

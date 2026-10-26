@@ -11,17 +11,17 @@ export function SurveyContainer() {
   return (
     <div className="w-full">
       {mode !== 'landing' && (
-        <div className="max-w-4xl mx-auto mb-6 flex items-center justify-between">
+        <div className="max-w-4xl mx-auto mb-6 flex items-center justify-between gap-2">
           <button
             type="button"
             onClick={() => setMode('landing')}
-            className="text-xs font-semibold text-primary hover:text-tertiary flex items-center gap-1.5 font-label-ui transition-colors cursor-pointer"
+            className="text-xs font-semibold text-primary hover:text-tertiary flex items-center gap-2 font-label-ui transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-            <span>Switch Submission Method</span>
+            <span className='text-left'>Switch Submission Method</span>
           </button>
 
-          <span className="text-xs text-on-surface-variant font-label-ui">
+          <span className="text-right text-xs text-on-surface-variant font-label-ui">
             Current mode:{' '}
             <strong className="text-on-surface">
               {mode === 'wizard' ? 'Online 5-Step Wizard' : 'Offline PDF Checklist'}

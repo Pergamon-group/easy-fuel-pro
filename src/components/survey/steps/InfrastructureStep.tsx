@@ -10,6 +10,54 @@ import {
 } from '@/data/survey-schema';
 import { InfoCard } from '../InfoCard';
 
+const PUMP_PRESETS = [2, 4, 6, 8, 12] as const;
+
+interface FuelGradeConfig {
+  code: string;
+  name: string;
+  colorDot: string;
+  borderActive: string;
+  bgActive: string;
+}
+
+const FUEL_GRADE_CONFIG: Record<string, FuelGradeConfig> = {
+  pms: {
+    code: 'PMS',
+    name: 'Super Petrol',
+    colorDot: 'bg-rose-500',
+    borderActive: 'border-rose-500 dark:border-rose-400',
+    bgActive: 'bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-100',
+  },
+  ago: {
+    code: 'AGO',
+    name: 'Diesel',
+    colorDot: 'bg-slate-800 dark:bg-slate-300',
+    borderActive: 'border-slate-800 dark:border-slate-400',
+    bgActive: 'bg-slate-100 dark:bg-slate-800/60 text-slate-900 dark:text-slate-100',
+  },
+  ik: {
+    code: 'IK',
+    name: 'Kerosene',
+    colorDot: 'bg-sky-500',
+    borderActive: 'border-sky-500 dark:border-sky-400',
+    bgActive: 'bg-sky-50 dark:bg-sky-950/40 text-sky-900 dark:text-sky-100',
+  },
+  lpg: {
+    code: 'LPG',
+    name: 'Autogas',
+    colorDot: 'bg-emerald-500',
+    borderActive: 'border-emerald-500 dark:border-emerald-400',
+    bgActive: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-100',
+  },
+  other: {
+    code: 'Other',
+    name: 'Special Grade',
+    colorDot: 'bg-purple-500',
+    borderActive: 'border-purple-500 dark:border-purple-400',
+    bgActive: 'bg-purple-50 dark:bg-purple-950/40 text-purple-900 dark:text-purple-100',
+  },
+};
+
 export interface InfrastructureStepProps {
   data: InfrastructureInfo;
   onChange: (updated: Partial<InfrastructureInfo>) => void;
@@ -180,32 +228,118 @@ export function InfrastructureStep({ data, onChange, errors }: InfrastructureSte
       )}
 
       {/* Multi-Pump Configuration Section */}
-      <div className="pt-3 border-t border-outline-variant/20">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-4">
-          <div>
-            <h4 className="text-base font-bold text-on-surface font-headline-sm">
-              Forecourt Pump &amp; Dispenser Setup
-            </h4>
-            <p className="text-xs text-on-surface-variant">
-              Specify each dispenser&apos;s serial, nozzle count, and meter technology below.
-            </p>
+      <div className="pt-4 border-t border-outline-variant/20 space-y-4">
+        {/* Forecourt Setup Control Panel */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-surface border border-outline-variant/25 shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-[22px]">local_gas_station</span>
+                <h4 className="text-base font-bold text-on-surface font-headline-sm">
+                  Forecourt Pump &amp; Dispenser Setup
+                </h4>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-0.5">
+                Configure total physical dispensers, nozzle counts, and pulser electronics.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 self-start sm:self-center">
+              <span
+                className={`text-[11px] font-bold font-mono px-3 py-1 rounded-full border ${
+                  filledCount === (data.totalPumpCount || data.pumps.length) && filledCount > 0
+                    ? 'bg-primary/10 text-primary border-primary/30'
+                    : 'bg-surface-container text-on-surface-variant border-outline-variant/30'
+                }`}
+              >
+                {filledCount} of {data.totalPumpCount || data.pumps.length} Configured
+              </span>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2.5 self-start sm:self-center">
-            <span className="text-[11px] font-medium text-primary px-2.5 py-1 bg-primary/10 rounded-full font-label-ui">
-              {filledCount} of {data.totalPumpCount || data.pumps.length} configured
-            </span>
-            <div className="flex items-center border border-outline-variant/30 rounded-lg bg-surface px-2 py-0.5">
-              <label htmlFor="totalPumpInput" className="text-xs text-on-surface-variant mr-1.5">Pumps:</label>
-              <input
-                id="totalPumpInput"
-                type="number"
-                min={1}
-                max={24}
-                value={data.totalPumpCount || ''}
-                onChange={(e) => handlePumpCountChange(parseInt(e.target.value || '1', 10))}
-                className="w-10 px-1 py-0.5 text-center font-bold text-xs bg-surface-container rounded focus:outline-none focus:ring-1 focus:ring-primary"
-              />
+          {/* Stepper + Quick Presets Row */}
+          <div className="pt-3 border-t border-outline-variant/15 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            {/* Dedicated Stepper Control */}
+            <div className="flex items-center gap-3">
+              <label
+                htmlFor="totalPumpInput"
+                className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant font-label-ui"
+              >
+                Total Pumps:
+              </label>
+
+              <div className="inline-flex items-center p-1 rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-2xs">
+                {/* Decrement Button */}
+                <button
+                  type="button"
+                  onClick={() => handlePumpCountChange(data.totalPumpCount - 1)}
+                  disabled={data.totalPumpCount <= 1}
+                  aria-label="Decrease pump count"
+                  className="w-11 h-11 rounded-xl bg-surface hover:bg-surface-container-high active:scale-95 text-on-surface flex items-center justify-center transition-all duration-150 disabled:opacity-30 disabled:pointer-events-none cursor-pointer border border-outline-variant/25 shadow-xs"
+                >
+                  <span className="material-symbols-outlined text-[20px]">remove</span>
+                </button>
+
+                {/* Spinbutton Display / Editable Input */}
+                <input
+                  id="totalPumpInput"
+                  type="number"
+                  min={1}
+                  max={24}
+                  role="spinbutton"
+                  aria-valuenow={data.totalPumpCount}
+                  aria-valuemin={1}
+                  aria-valuemax={24}
+                  aria-label="Total forecourt pumps"
+                  value={data.totalPumpCount || ''}
+                  onChange={(e) => handlePumpCountChange(parseInt(e.target.value || '1', 10))}
+                  onKeyDown={(e) => {
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowRight') {
+                      e.preventDefault();
+                      handlePumpCountChange(data.totalPumpCount + 1);
+                    } else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') {
+                      e.preventDefault();
+                      handlePumpCountChange(data.totalPumpCount - 1);
+                    }
+                  }}
+                  className="w-16 h-11 text-center font-mono font-bold text-base sm:text-lg bg-transparent text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg select-all"
+                />
+
+                {/* Increment Button */}
+                <button
+                  type="button"
+                  onClick={() => handlePumpCountChange(data.totalPumpCount + 1)}
+                  disabled={data.totalPumpCount >= 24}
+                  aria-label="Increase pump count"
+                  className="w-11 h-11 rounded-xl bg-surface hover:bg-surface-container-high active:scale-95 text-on-surface flex items-center justify-center transition-all duration-150 disabled:opacity-30 disabled:pointer-events-none cursor-pointer border border-outline-variant/25 shadow-xs"
+                >
+                  <span className="material-symbols-outlined text-[20px]">add</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Quick-Select Capacity Presets */}
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[11px] font-semibold text-on-surface-variant font-label-ui mr-1">
+                Presets:
+              </span>
+              {PUMP_PRESETS.map((preset) => {
+                const isActive = data.totalPumpCount === preset;
+                return (
+                  <button
+                    key={preset}
+                    type="button"
+                    onClick={() => handlePumpCountChange(preset)}
+                    className={`min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs font-semibold font-label-ui active:scale-95 transition-all duration-150 border cursor-pointer ${
+                      isActive
+                        ? 'bg-primary text-on-primary border-primary shadow-xs'
+                        : 'bg-surface text-on-surface border-outline-variant/30 hover:bg-surface-container hover:border-outline-variant/60'
+                    }`}
+                  >
+                    {preset} Pumps
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -246,7 +380,7 @@ export function InfrastructureStep({ data, onChange, errors }: InfrastructureSte
             return (
               <div
                 key={pump.id || idx}
-                className="p-4 sm:p-5 rounded-2xl bg-surface border border-outline-variant/30 transition-all"
+                className="p-4 sm:p-5 rounded-2xl bg-surface border border-outline-variant/30 transition-all animate-fade-in shadow-2xs"
                 data-testid={`pump-card-${idx}`}
               >
                 {/* Header */}
@@ -391,25 +525,57 @@ export function InfrastructureStep({ data, onChange, errors }: InfrastructureSte
                   </div>
 
                   {/* Fuel Types Available on this Pump */}
-                  <div className="sm:col-span-2 md:col-span-3 pt-1">
-                    <label className="block text-xs font-semibold text-on-surface-variant font-label-ui mb-1.5">
-                      Fuel Grades Dispensed at this Pump
+                  <div className="sm:col-span-2 md:col-span-3 pt-2">
+                    <label className="block text-xs font-semibold text-on-surface-variant font-label-ui mb-2">
+                      Fuel Grades Dispensed at this Pump *
                     </label>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {FUEL_TYPES.map((fuel) => {
                         const isSelected = pump.fuelTypes.includes(fuel.value);
+                        const config = FUEL_GRADE_CONFIG[fuel.value] || {
+                          code: fuel.value.toUpperCase(),
+                          name: fuel.label,
+                          colorDot: 'bg-primary',
+                          borderActive: 'border-primary',
+                          bgActive: 'bg-primary/10 text-on-surface',
+                        };
+
                         return (
                           <button
                             type="button"
                             key={fuel.value}
+                            role="button"
+                            aria-pressed={isSelected}
                             onClick={() => handleToggleFuelType(idx, fuel.value)}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-medium font-label-ui transition-colors border ${
+                            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-medium font-label-ui transition-all duration-150 border flex items-center gap-2 cursor-pointer active:scale-[0.98] ${
                               isSelected
-                                ? 'bg-primary text-on-primary border-primary'
-                                : 'bg-surface text-on-surface border-outline-variant/30 hover:bg-surface-container-low'
+                                ? `${config.borderActive} ${config.bgActive} shadow-xs ring-1 ring-current/20`
+                                : 'bg-surface text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low hover:text-on-surface hover:border-outline-variant/60'
                             }`}
                           >
-                            {fuel.label}
+                            {/* Color Pip */}
+                            <span
+                              className={`w-2.5 h-2.5 rounded-full ${config.colorDot} shadow-2xs shrink-0 ring-2 ${
+                                isSelected ? 'ring-current/30 scale-110' : 'ring-transparent'
+                              } transition-transform`}
+                            />
+
+                            {/* Acronym Code */}
+                            <span className="font-bold text-on-surface">
+                              {config.code}
+                            </span>
+
+                            {/* Grade Subtitle */}
+                            <span className="text-[11px] opacity-80">
+                              {config.name}
+                            </span>
+
+                            {/* Checkmark indicator for selected state */}
+                            {isSelected && (
+                              <span className="material-symbols-outlined text-[16px] text-primary shrink-0 ml-0.5">
+                                check
+                              </span>
+                            )}
                           </button>
                         );
                       })}
@@ -445,14 +611,15 @@ export function InfrastructureStep({ data, onChange, errors }: InfrastructureSte
         </div>
 
         {/* Add Another Pump Button */}
-        <div className="mt-4 flex justify-center">
+        <div className="mt-5 flex justify-center">
           <button
             type="button"
             onClick={handleAddSinglePump}
-            className="px-4 py-2 rounded-xl border border-outline-variant/40 bg-surface text-primary font-semibold text-xs hover:bg-surface-container-low transition-colors flex items-center gap-1.5 font-label-ui cursor-pointer"
+            disabled={data.totalPumpCount >= 24}
+            className="min-h-[44px] px-5 py-2.5 rounded-xl border border-primary/30 bg-primary/5 text-primary font-bold text-xs hover:bg-primary/10 active:scale-[0.98] transition-all flex items-center gap-2 font-label-ui cursor-pointer disabled:opacity-50 disabled:pointer-events-none shadow-2xs"
           >
-            <span className="material-symbols-outlined text-[16px]">add</span>
-            <span>Add Another Pump</span>
+            <span className="material-symbols-outlined text-[18px]">add</span>
+            <span>Add Another Pump Slot</span>
           </button>
         </div>
 

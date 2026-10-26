@@ -323,13 +323,14 @@ export function SiteSurveyWizard({ onSwitchToOffline }: SiteSurveyWizardProps) {
         )}
 
         {/* Step Navigation Bar */}
-        <div className="mt-8 pt-6 border-t border-outline-variant/30 flex gap-2 items-center justify-between">
-          <div>
+        <div className="mt-8 pt-6 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+          <div className="flex items-center">
             {currentStepIndex > 0 ? (
               <button
                 type="button"
                 onClick={handlePrevStep}
-                className="py-2.5 px-5 rounded-xl bg-surface border border-outline-variant text-on-surface font-semibold text-xs font-label-ui hover:bg-surface-container transition-colors flex items-center gap-1.5 cursor-pointer"
+                aria-label="Previous Step"
+                className="min-h-[44px] py-2.5 px-5 rounded-xl bg-surface border border-outline-variant/60 text-on-surface font-semibold text-xs font-label-ui hover:bg-surface-container hover:border-outline-variant active:scale-[0.98] transition-all duration-150 flex items-center gap-1.5 cursor-pointer shadow-2xs"
               >
                 <span className="material-symbols-outlined text-[18px]">arrow_back</span>
                 <span>Previous Step</span>
@@ -338,24 +339,40 @@ export function SiteSurveyWizard({ onSwitchToOffline }: SiteSurveyWizardProps) {
               <button
                 type="button"
                 onClick={onSwitchToOffline}
-                className="text-xs text-primary font-semibold hover:underline flex items-center gap-1 font-label-ui cursor-pointer"
+                className="min-h-[44px] text-xs text-primary font-semibold hover:underline flex items-center gap-1.5 font-label-ui cursor-pointer py-2 px-1"
               >
-                <span className="material-symbols-outlined text-[16px]">file_download</span>
+                <span className="material-symbols-outlined text-[18px]">file_download</span>
                 <span>Switch to Offline PDF Download</span>
               </button>
-            ) : null}
+            ) : (
+              <div className="min-h-[44px]" />
+            )}
           </div>
 
           <div>
             {currentStepIndex < SURVEY_STEPS.length - 1 && (
-              <button
-                type="button"
-                onClick={handleNextStep}
-                className="py-2.5 px-6 rounded-xl bg-primary text-on-primary font-bold text-xs font-label-ui hover:bg-tertiary transition-all shadow-sm flex items-center gap-2 cursor-pointer"
-              >
-                <span>Continue to {SURVEY_STEPS[currentStepIndex + 1].title}</span>
-                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </button>
+              <div className="flex flex-col items-end gap-1">
+                {/* Secondary preview micro-label */}
+                <div className="text-[11px] font-medium text-on-surface-variant font-label-ui flex items-center gap-1 select-none">
+                  <span className="text-on-surface-variant/70">Next:</span>
+                  <span className="font-semibold text-on-surface">
+                    {SURVEY_STEPS[currentStepIndex + 1].title}
+                  </span>
+                </div>
+
+                {/* Primary CTA button with stable geometry */}
+                <button
+                  type="button"
+                  onClick={handleNextStep}
+                  aria-label={`Continue to ${SURVEY_STEPS[currentStepIndex + 1].title}`}
+                  className="min-h-[44px] min-w-[130px] sm:min-w-[144px] py-2.5 px-6 rounded-xl bg-primary text-on-primary font-bold text-xs font-label-ui hover:bg-tertiary active:scale-[0.98] transition-all duration-150 shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>
+                    {currentStepIndex === SURVEY_STEPS.length - 2 ? 'Review Survey' : 'Continue'}
+                  </span>
+                  <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </button>
+              </div>
             )}
           </div>
         </div>
