@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [],
   },
 
+  experimental: {
+    agentUpgrade: "security",
+  },
   allowedDevOrigins: ['easy-fuel-pro.vercel.app', 'easyfuelpro.co.ke'],
   turbopack: {
     rules: {

@@ -15,32 +15,30 @@ export interface UseAutoSaveReturn {
   dismissDraftPrompt: () => void;
 }
 
-export function useAutoSave(currentData: SiteSurveyData): UseAutoSaveReturn {
-  const [hasSavedDraft, setHasSavedDraft] = useState(false);
-  const [draftData, setDraftData] = useState<SiteSurveyData | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Check once on initial mount if a draft exists
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored) as SiteSurveyData;
-        // Verify it contains some filled content
-        if (
-          parsed.businessInfo?.customerName ||
-          parsed.businessInfo?.siteName ||
-          parsed.businessInfo?.kraPin ||
-          parsed.infrastructure?.totalPumpCount > 0
-        ) {
-          setDraftData(parsed);
-          setHasSavedDraft(true);
-        }
-      }
-    } catch {
-      // Storage access disabled or corrupt JSON
+function getStoredDraft(): SiteSurveyData | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return null;
+    const parsed = JSON.parse(stored) as SiteSurveyData;
+    if (
+      parsed.businessInfo?.customerName ||
+      parsed.businessInfo?.siteName ||
+      parsed.businessInfo?.kraPin ||
+      parsed.infrastructure?.totalPumpCount > 0
+    ) {
+      return parsed;
     }
-  }, []);
+  } catch {
+    // Storage access disabled or corrupt JSON
+  }
+  return null;
+}
+
+export function useAutoSave(currentData: SiteSurveyData): UseAutoSaveReturn {
+  const [draftData, setDraftData] = useState<SiteSurveyData | null>(getStoredDraft);
+  const [hasSavedDraft, setHasSavedDraft] = useState<boolean>(() => getStoredDraft() !== null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Debounced auto-save when currentData changes
   useEffect(() => {

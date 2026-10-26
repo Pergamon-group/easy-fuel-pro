@@ -27,7 +27,7 @@ describe('useAutoSave Hook (TDD)', () => {
     const survey = createDefaultSurveyData();
     survey.businessInfo.customerName = 'Rubis Karen';
 
-    const { rerender } = renderHook(({ data }) => useAutoSave(data), {
+    renderHook(({ data }) => useAutoSave(data), {
       initialProps: { data: survey },
     });
 
