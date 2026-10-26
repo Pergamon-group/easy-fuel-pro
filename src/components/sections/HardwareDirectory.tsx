@@ -245,7 +245,7 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
             {/* Modal Footer */}
             <div className="p-3.5 sm:p-5 border-t border-surface-container bg-surface-container-low/80 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-center sm:text-left shrink-0">
               <span className="text-[11px] sm:text-[12px] font-body-sm text-on-surface-variant hidden sm:block">
-                Need verification for a rare or older hydraulic dispenser? We support 66+ open RS-485
+                Do you need verification for a rare or older hydraulic dispenser? We support 66+ open RS-485
                 and current-loop protocols.
               </span>
               <div className="flex items-center gap-2 w-full sm:w-auto justify-end">

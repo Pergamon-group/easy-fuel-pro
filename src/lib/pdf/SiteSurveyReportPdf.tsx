@@ -277,7 +277,7 @@ export function SiteSurveyReportPdf({
             infrastructure.pumps.map((pump, idx) => (
               <View style={styles.tableRow} key={pump.id || idx}>
                 <Text style={[styles.td, { width: '12%' }]}>Pump {idx + 1}</Text>
-                <Text style={[styles.td, { width: '20%' }]}>{pump.dispenserSerial || '—'}</Text>
+                <Text style={[styles.td, { width: '20%' }]}>{pump.dispenserSerial || 'N/A'}</Text>
                 <Text style={[styles.td, { width: '22%' }]}>{pump.makeModel || 'N/A'}</Text>
                 <Text style={[styles.td, { width: '12%' }]}>{pump.nozzleCount} Nozzles</Text>
                 <Text style={[styles.td, { width: '16%' }]}>

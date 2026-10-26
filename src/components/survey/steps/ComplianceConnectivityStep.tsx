@@ -265,11 +265,11 @@ export function ComplianceConnectivityStep({
         {/* Quick Hardware Checklist */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
           {[
-            { field: 'networkRedundancy', label: 'Network Redundancy Available (e.g. backup 4G router)?', val: data.networkRedundancy },
-            { field: 'lanInPlace', label: 'Local Area Network (LAN) wired to forecourt?', val: data.lanInPlace },
-            { field: 'posTerminalsInstalled', label: 'POS Terminals currently installed?', val: data.posTerminalsInstalled },
-            { field: 'controlUnitSecured', label: 'Forecourt Control Unit in a secure location?', val: data.controlUnitSecured },
-            { field: 'upsPowerBackup', label: 'Dedicated UPS / Inverter Power Backup installed?', val: data.upsPowerBackup },
+            { field: 'networkRedundancy', label: 'Is network redundancy available on site (e.g. backup 4G router)?', val: data.networkRedundancy },
+            { field: 'lanInPlace', label: 'Is a Local Area Network (LAN) wired to the forecourt?', val: data.lanInPlace },
+            { field: 'posTerminalsInstalled', label: 'Are POS terminals currently installed on the forecourt?', val: data.posTerminalsInstalled },
+            { field: 'controlUnitSecured', label: 'Is the forecourt control unit housed in a secure location?', val: data.controlUnitSecured },
+            { field: 'upsPowerBackup', label: 'Is dedicated UPS or inverter power backup installed?', val: data.upsPowerBackup },
           ].map((item) => (
             <div key={item.field} className="p-3 rounded-xl border border-outline-variant/20 bg-surface flex items-center justify-between">
               <span className="text-xs text-on-surface font-body-md pr-2">{item.label}</span>

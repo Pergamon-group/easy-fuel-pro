@@ -63,17 +63,17 @@ export function ReviewSubmitStep({
         {[
           {
             field: 'trenchingCompleted',
-            label: 'Trenching completed for data and power cables between canopy and office?',
+            label: 'Has trenching been completed for data and power cables between canopy and office?',
             val: readiness.trenchingCompleted,
           },
           {
             field: 'conduitsInstalled',
-            label: 'Underground PVC conduits installed and secured?',
+            label: 'Are underground PVC conduits installed and secured?',
             val: readiness.conduitsInstalled,
           },
           {
             field: 'pumpIslandsGrounded',
-            label: 'Pump islands properly grounded (earth bonding in place)?',
+            label: 'Are pump islands properly grounded with earth bonding in place?',
             val: readiness.pumpIslandsGrounded,
           },
         ].map((item) => (

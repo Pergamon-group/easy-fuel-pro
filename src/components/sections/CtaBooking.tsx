@@ -103,7 +103,7 @@ export function CtaBooking() {
                   Speak Directly with Pergamon Engineers
                 </h3>
                 <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
-                  Have a quick question about forecourt automation, need hardware pricing, or want a demo before completing a full site survey? Send us a message or reach our dispatch desks across East Africa.
+                  Do you have a quick question about forecourt automation, need hardware pricing, or want a demo before completing a full site survey? Send us a message or reach our dispatch desks across East Africa.
                 </p>
               </div>
 

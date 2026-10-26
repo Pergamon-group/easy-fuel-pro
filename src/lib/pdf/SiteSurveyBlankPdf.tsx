@@ -379,7 +379,7 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
             Engineering Guide: Dispensers, Pulsers &amp; Protocols (IFSF, PMS, AGO, IK)
           </Text>
           <Text style={styles.eduText}>
-            Electronic dispensers contain microprocessor electronic calculators that transmit volumetric meter signals via serial loop (Current Loop, RS-485, or IFSF — International Forecourt Standards Forum). Common fuel grades include PMS (Premium Motor Spirit / Super Petrol), AGO (Automotive Gas Oil / Diesel), IK (Illuminating Kerosene / Paraffin), and LPG. Mechanical pumps feature rotating mechanical totalizers that require an external electro-mechanical pulser retrofit head.
+            Electronic dispensers contain microprocessor electronic calculators that transmit volumetric meter signals via serial loop (Current Loop, RS-485, or IFSF: International Forecourt Standards Forum). Common fuel grades include PMS (Premium Motor Spirit / Super Petrol), AGO (Automotive Gas Oil / Diesel), IK (Illuminating Kerosene / Paraffin), and LPG. Mechanical pumps feature rotating mechanical totalizers that require an external electro-mechanical pulser retrofit head.
           </Text>
         </View>
 
@@ -428,7 +428,7 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
               </View>
 
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ fontSize: 7, fontFamily: 'Helvetica-Bold', color: '#00658d', marginRight: 4 }}>Pulse Output?</Text>
+                <Text style={{ fontSize: 7, fontFamily: 'Helvetica-Bold', color: '#00658d', marginRight: 4 }}>Is Pulse Output Available?</Text>
                 <View style={styles.checkboxItem}><View style={styles.box} /><Text style={{ fontSize: 6.5 }}>Yes</Text></View>
                 <View style={styles.checkboxItem}><View style={styles.box} /><Text style={{ fontSize: 6.5 }}>No</Text></View>
               </View>
@@ -496,12 +496,12 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
           <View style={styles.fieldLine} />
         </View>
         <View style={styles.fieldRow}>
-          <Text style={styles.fieldLabel}>System generates eTIMS Receipts?</Text>
+          <Text style={styles.fieldLabel}>Does the system generate eTIMS Receipts?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
           </View>
-          <Text style={[styles.fieldLabel, { width: 145, marginLeft: 16 }]}>Mandatory QR &amp; CU on Receipts?</Text>
+          <Text style={[styles.fieldLabel, { width: 145, marginLeft: 16 }]}>Are QR Code and CU Number printed?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
@@ -545,7 +545,7 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
 
         <Text style={styles.sectionTitle}>E. Network &amp; Connectivity</Text>
         <View style={styles.fieldRow}>
-          <Text style={styles.fieldLabel}>Internet Available on Site?</Text>
+          <Text style={styles.fieldLabel}>Is Internet Available on Site?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
@@ -558,12 +558,12 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
           </View>
         </View>
         <View style={styles.fieldRow}>
-          <Text style={styles.fieldLabel}>Network Redundancy Available (Backup Link)?</Text>
+          <Text style={styles.fieldLabel}>Is Network Redundancy Available (Backup Link)?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
           </View>
-          <Text style={[styles.fieldLabel, { width: 110, marginLeft: 20 }]}>Local LAN in Place?</Text>
+          <Text style={[styles.fieldLabel, { width: 110, marginLeft: 20 }]}>Is a Local LAN in Place?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
@@ -619,7 +619,7 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
           </View>
-          <Text style={[styles.fieldLabel, { width: 145, marginLeft: 20 }]}>UPS / Power Backup Available?</Text>
+          <Text style={[styles.fieldLabel, { width: 145, marginLeft: 20 }]}>Is UPS / Power Backup Available?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
@@ -629,19 +629,19 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
         {/* Section G */}
         <Text style={styles.sectionTitle}>G. Civil &amp; Physical Works</Text>
         <View style={styles.fieldRow}>
-          <Text style={styles.fieldLabel}>Trenching Completed for Data/Power Cables?</Text>
+          <Text style={styles.fieldLabel}>Has Trenching Been Completed for Cables?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
           </View>
         </View>
         <View style={styles.fieldRow}>
-          <Text style={styles.fieldLabel}>Conduits Installed and Secured?</Text>
+          <Text style={styles.fieldLabel}>Are Conduits Installed and Secured?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
           </View>
-          <Text style={[styles.fieldLabel, { width: 145, marginLeft: 20 }]}>Pump Islands Properly Grounded?</Text>
+          <Text style={[styles.fieldLabel, { width: 145, marginLeft: 20 }]}>Are Pump Islands Properly Grounded?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No</Text></View>
@@ -651,7 +651,7 @@ export function SiteSurveyBlankPdf({ logoBase64 }: SiteSurveyBlankPdfProps = {})
         {/* Section H / I */}
         <Text style={styles.sectionTitle}>H. Technician Observations &amp; Documentation</Text>
         <View style={styles.fieldRow}>
-          <Text style={styles.fieldLabel}>Forecourt Images Attached (Pumps, Dispensers, Control Unit, LAN)?</Text>
+          <Text style={styles.fieldLabel}>Are Forecourt Images Attached (Pumps, Dispensers, LAN)?</Text>
           <View style={styles.checkboxGroup}>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>Yes, Attached</Text></View>
             <View style={styles.checkboxItem}><View style={styles.box} /><Text>No Images</Text></View>

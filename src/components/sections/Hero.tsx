@@ -34,13 +34,13 @@ export function Hero() {
               <div className="hero-fiscal-printer hero-fiscal-printer--mobile" aria-label="Interactive fiscal printer">
                 <FiscalPrinter />
               </div>
-              <div className="bg-transparent rounded-xl px-0 py-2 shadow-none border border-outline-variant/20 shrink-0 self-start sm:self-start flex items-center justify-center">
+              <div className="bg-transparent dark:bg-white/90 rounded-xl p-0 dark:p-2.5 shrink-0 self-start sm:self-center flex items-center justify-center transition-colors">
                 <Image
                   src={siteConfig.etimsIntegrator.src}
                   alt={siteConfig.etimsIntegrator.alt}
-                  width={110}
-                  height={38}
-                  className="h-8 sm:h-9 w-auto object-contain"
+                  width={siteConfig.etimsIntegrator.width}
+                  height={siteConfig.etimsIntegrator.height}
+                  className="h-14 sm:h-16 w-auto object-contain"
                 />
               </div>
               <p

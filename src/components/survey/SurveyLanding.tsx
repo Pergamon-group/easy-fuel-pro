@@ -8,13 +8,13 @@ export interface SurveyLandingProps {
 
 export function SurveyLanding({ onSelectMode }: SurveyLandingProps) {
   return (
-    <div className="max-w-4xl mx-auto space-y-8" data-testid="survey-landing">
+    <div className="max-w-4xl mx-auto space-y-8 mt-6" data-testid="survey-landing">
       {/* Intro Header */}
-      <div className="text-center max-w-2xl mx-auto space-y-3">
-        <h1 className="inline-flex items-center px-3 py-4 text-3xl sm:text-4xl font-extrabold font-headline-lg text-on-surface tracking-normal">
+      <div className="w-full text-left max-w-full mx-auto space-y-6">
+        <h1 className="w-full inline-flex items-center px-3 py-4 text-3xl sm:text-4xl font-extrabold font-headline-lg text-on-surface tracking-normal">
           How would you like to complete your Site Survey?
         </h1>
-        <p className="text-sm sm:text-base font-body-md text-on-surface-variant leading-relaxed">
+        <p className="w-full text-sm sm:text-base font-body-md text-on-surface-variant leading-relaxed">
           Tell us about your station&apos;s pumps, dispenser hardware, and eTIMS setup. This technical snapshot allows our engineering team to design your exact forecourt integration and prevent costly site delays.
         </p>
       </div>
@@ -27,7 +27,7 @@ export function SurveyLanding({ onSelectMode }: SurveyLandingProps) {
           </span>
           <div>
             <p className="text-sm font-bold text-on-surface font-headline-sm">
-              Need the printable forecourt paper checklist?
+              Do you need the printable forecourt paper checklist?
             </p>
             <p className="text-xs text-on-surface-variant font-body-md">
               Print this official A4 checklist to walk the pump islands with your station technician.

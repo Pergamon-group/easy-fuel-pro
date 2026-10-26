@@ -107,8 +107,8 @@ export function SchedulingStep({ data, onChange, errors }: SchedulingStepProps) 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5">
           {[
             { value: 'full_24h', label: '24 Hours Open', desc: 'Continuous operations' },
-            { value: '6am_10pm', label: '6:00 AM – 10:00 PM', desc: 'Extended day shift' },
-            { value: '6am_6pm', label: '6:00 AM – 6:00 PM', desc: 'Daytime only' },
+            { value: '6am_10pm', label: '6:00 AM to 10:00 PM', desc: 'Extended day shift' },
+            { value: '6am_6pm', label: '6:00 AM to 6:00 PM', desc: 'Daytime only' },
             { value: 'custom', label: 'Custom Hours', desc: 'Specific shift schedule' },
           ].map((opt) => (
             <label
@@ -141,7 +141,7 @@ export function SchedulingStep({ data, onChange, errors }: SchedulingStepProps) 
               type="text"
               value={data.customOperatingHours}
               onChange={(e) => onChange({ customOperatingHours: e.target.value })}
-              placeholder="e.g. Mon–Sat 5am to 11pm, Sun 7am to 9pm"
+              placeholder="e.g. Mon to Sat 5am to 11pm, Sun 7am to 9pm"
               className="w-full px-4 py-3 rounded-xl bg-surface border border-outline-variant/50 text-on-surface font-body-md text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
             />
             {getFieldError('customOperatingHours') && (

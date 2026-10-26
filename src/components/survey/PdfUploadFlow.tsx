@@ -296,7 +296,7 @@ export function PdfUploadFlow({ onBackToOnline }: PdfUploadFlowProps) {
               className="text-xs font-semibold text-primary hover:underline flex items-center gap-1 font-label-ui"
             >
               <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-              <span>Prefer to fill online instead? Launch Wizard</span>
+              <span>Do you prefer to fill this online instead? Launch Wizard</span>
             </button>
           )}
 

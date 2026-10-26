@@ -3,7 +3,7 @@
 This rule documents the communication tone and copywriting standard observed and required across EasyFuel Pro (such as in `/site-survey`). All user-facing text, questionnaires, and checklists MUST adhere to these guidelines:
 
 ## 1. Empathetic, Field-Grounded Language
-- Write for real human station operators, dealers, and forecourt technicians walking the pump islands—not abstract enterprise personas.
+- Write for real human station operators, dealers, and forecourt technicians walking the pump islands, not abstract enterprise personas.
 - Ground explanations in their daily reality: clipboards, pump nameplates, physical conduits, shift handovers, and KRA compliance audits.
 - Example: *"Download our checklist, walk the forecourt with your station engineer to fill it out by hand, and upload the completed scan."*
 
