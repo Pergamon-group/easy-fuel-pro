@@ -15,8 +15,14 @@ export function Hero() {
             {/* <span>{siteConfig.hero.badge}</span> */}
             {/* </div> */}
 
-            <h1 className="font-display-hero text-headline-lg lg:text-display-hero text-on-surface tracking-tight font-extrabold mb-6 leading-tight">
-              {siteConfig.tagline}
+            <h1
+              className="font-display-hero text-headline-lg lg:text-display-hero text-on-surface tracking-tight font-extrabold mb-6 leading-tight"
+              dangerouslySetInnerHTML={{
+                // different color for Smart Forecourt Management
+                __html: siteConfig.tagline.replace('Smart Forecourt Management', '<span class="text-primary-container underline decoration-dotted text-shadow-primary/10 text-shadow-xs">Smart Forecourt Management</span>')
+              }}
+            >
+              {/* {siteConfig.tagline} */}
             </h1>
             {/* <p className="text-lg lg:text-xl font-bold text-on-surface tracking-tight leading-snug mb-3">
               {siteConfig.hero.subheadline}
