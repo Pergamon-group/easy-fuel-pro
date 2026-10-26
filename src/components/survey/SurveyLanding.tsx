@@ -11,16 +11,37 @@ export function SurveyLanding({ onSelectMode }: SurveyLandingProps) {
     <div className="max-w-4xl mx-auto space-y-8" data-testid="survey-landing">
       {/* Intro Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        {/* <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary font-label-ui">
-          <span className="material-symbols-outlined text-[16px]">verified</span>
-          <span>Forecourt Readiness & eTIMS Checklist</span>
-        </span> */}
-        <h1 className="inline-flex items-center px-3 py-6 text-3xl sm:text-4xl font-extrabold font-headline-lg text-on-surface tracking-normal">
+        <h1 className="inline-flex items-center px-3 py-4 text-3xl sm:text-4xl font-extrabold font-headline-lg text-on-surface tracking-normal">
           How would you like to complete your Site Survey?
         </h1>
         <p className="text-sm sm:text-base font-body-md text-on-surface-variant leading-relaxed">
           Tell us about your station&apos;s pumps, dispenser hardware, and eTIMS setup. This technical snapshot allows our engineering team to design your exact forecourt integration and prevent costly site delays.
         </p>
+      </div>
+
+      {/* Quick Direct Download Banner */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-surface-container-low border border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+        <div className="flex items-center gap-3 text-left">
+          <span className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <span className="material-symbols-outlined text-[22px]">print</span>
+          </span>
+          <div>
+            <p className="text-sm font-bold text-on-surface font-headline-sm">
+              Need the printable forecourt paper checklist?
+            </p>
+            <p className="text-xs text-on-surface-variant font-body-md">
+              Print this official A4 checklist to walk the pump islands with your station technician.
+            </p>
+          </div>
+        </div>
+        <a
+          href="/site-survey/download"
+          download="EasyFuel-Pro-Site-Survey-Checklist.pdf"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-ui text-xs font-bold hover:bg-tertiary active:scale-95 transition-all shadow-xs shrink-0 cursor-pointer"
+        >
+          <span className="material-symbols-outlined text-[18px]">file_download</span>
+          <span>Download PDF (A4)</span>
+        </a>
       </div>
 
       {/* Choice Grid */}
@@ -107,14 +128,22 @@ export function SurveyLanding({ onSelectMode }: SurveyLandingProps) {
             </ul>
           </div>
 
-          <div className="pt-8">
+          <div className="pt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="/site-survey/download"
+              download="EasyFuel-Pro-Site-Survey-Checklist.pdf"
+              className="flex-1 py-3 px-4 rounded-xl bg-surface-container-highest text-on-surface hover:bg-surface-container-high font-bold text-xs sm:text-sm font-label-ui transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95 text-center"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">file_download</span>
+              <span>Download Blank PDF</span>
+            </a>
             <button
               type="button"
               onClick={() => onSelectMode('offline_pdf')}
-              className="w-full py-3.5 px-6 rounded-xl bg-surface border border-outline-variant text-on-surface font-bold text-sm font-label-ui hover:bg-surface-container transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-1 py-3 px-4 rounded-xl bg-surface border border-outline-variant text-on-surface font-semibold text-xs sm:text-sm font-label-ui hover:bg-surface-container transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95"
             >
-              <span>Download & Upload Offline</span>
-              <span className="material-symbols-outlined text-[18px]">download</span>
+              <span className="material-symbols-outlined text-[18px]">upload_file</span>
+              <span>Upload Scan</span>
             </button>
           </div>
         </div>

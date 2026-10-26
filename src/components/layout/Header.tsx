@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { siteConfig } from '@/config/site';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -14,31 +15,8 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-[100] bg-surface/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
       data-testid="main-header"
     >
-      {/* ── Mobile Top Booking Banner (hidden on sm+) ─────────────────── */}
-      <div
-        className="sm:hidden w-full bg-gradient-to-r from-primary via-[#007ba8] to-primary text-white border-b border-primary/20 shadow-xs"
-        data-testid="mobile-top-banner"
-      >
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-2 text-xs">
-          <div className="flex items-center gap-1.5 min-w-0">
-            <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse shrink-0" />
-            <span className="font-semibold truncate tracking-tight text-white/95">
-              Get eTIMS Ready
-            </span>
-          </div>
-          <Link
-            href="/#demo-form"
-            onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center gap-1 bg-white text-primary px-3 py-1 rounded-full text-[11px] font-bold shadow-xs hover:bg-surface-container active:scale-95 transition-all shrink-0"
-          >
-            <span>Book a Demo</span>
-            <span className="material-symbols-outlined text-[13px] leading-none">arrow_forward</span>
-          </Link>
-        </div>
-      </div>
-
       {/* ── Main Navigation Bar ───────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-4 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-[68px] sm:h-20 flex items-center justify-between gap-4 lg:gap-8">
         <div className="flex items-center gap-6 lg:gap-10">
           <Link
             href="/"
@@ -50,7 +28,7 @@ export function Header() {
               alt={siteConfig.logo.alt}
               width={siteConfig.logo.width}
               height={siteConfig.logo.height}
-              className="py-1.5 sm:py-2 w-auto object-contain h-14 sm:h-16"
+              className="w-auto object-contain h-12 sm:h-14 lg:h-16 dark-logo-invert transition-[filter,opacity]"
               style={{ width: 'auto' }}
               priority
             />
@@ -68,7 +46,9 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-5">
+        <div className="flex items-center gap-2.5 sm:gap-4">
+          <ThemeToggle className="inline-flex" />
+
           <a
             href={siteConfig.whatsappHref}
             target="_blank"
@@ -115,18 +95,21 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
-          className="lg:hidden absolute top-full left-0 w-full h-[100dvh] bg-[#faf8ff] border-t border-surface-container shadow-2xl overflow-y-auto z-[100]"
+          className="lg:hidden absolute top-full left-0 w-full h-[100dvh] bg-surface border-t border-surface-container shadow-2xl overflow-y-auto overscroll-contain z-[100]"
         >
           <div className="max-w-lg mx-auto px-6 py-6 pb-40 flex flex-col">
 
-            {/* Clean Site Navigation Header */}
-            <div className="pb-3 mb-2 border-b border-surface-container">
-              <p className="text-[14px] font-bold text-on-surface tracking-tight">
-                Site Navigation
-              </p>
-              <p className="text-[11px] text-on-surface-variant font-medium">
-                EasyFuel Pro • eTIMS-Ready Fuel Solution
-              </p>
+            {/* Clean Site Navigation Header & Theme Switcher */}
+            <div className="pb-3 mb-4 border-b border-surface-container flex items-center justify-between gap-4">
+              <div>
+                <p className="text-[14px] font-bold text-on-surface tracking-tight">
+                  Site Navigation
+                </p>
+                <p className="text-[11px] text-on-surface-variant font-medium">
+                  EasyFuel Pro • eTIMS Solution
+                </p>
+              </div>
+              {/* <ThemeToggle showLabel className="px-2.5 py-1.5 bg-surface-container-low" /> */}
             </div>
 
             {/* ── Main Navigation List (Linear, Elegant, Typographic) ── */}
@@ -193,6 +176,7 @@ export function Header() {
                 { label: 'Pricing', href: '/#pricing' },
                 { label: 'FAQ', href: '/faq' },
                 { label: 'Contact', href: '/contact' },
+                { label: 'Request a Site Survey', href: '/site-survey' },
               ].map((item) => (
                 <Link
                   key={item.label}

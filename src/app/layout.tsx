@@ -1,17 +1,34 @@
-import type { Metadata } from "next";
-import { Poppins, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#080c14" },
+  ],
+};
+
+// ── Centralized Global Font Configuration ─────────────────────────────────────
+// To swap the global font (e.g. to Geist or Roboto), change this single import
+// and variable. All typography tokens in globals.css map to var(--font-sans).
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -156,13 +173,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* ── Material Symbols Outlined Icons ── */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           rel="stylesheet"
         />
         <script
@@ -171,9 +189,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} font-body-md bg-background text-on-surface antialiased min-h-screen`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-background text-on-surface antialiased min-h-screen`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
+          <ScrollToTop />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { PricingStructure } from './PricingStructure';
 
@@ -37,5 +37,30 @@ describe('PricingStructure Component', () => {
     const { container } = render(<PricingStructure />);
     const section = container.querySelector('#pricing');
     expect(section).not.toBeNull();
+  });
+
+  it('updates mobile ordering classes so active tier renders first (order-1)', () => {
+    const { getByRole, getByText } = render(<PricingStructure />);
+
+    const semiCard = getByText('Option 1: Semi-Automated').closest('div[class*="rounded-3xl"]');
+    const fullCard = getByText('Option 2: Full Automation').closest('div[class*="rounded-3xl"]');
+
+    // Default is Full Automation (Option 2 order-1, Option 1 order-2)
+    expect(fullCard?.className).toContain('order-1');
+    expect(semiCard?.className).toContain('order-2');
+
+    // Switch to Semi-Automated
+    const semiTab = getByRole('tab', { name: /semi-automated/i });
+    fireEvent.click(semiTab);
+
+    expect(semiCard?.className).toContain('order-1');
+    expect(fullCard?.className).toContain('order-2');
+
+    // Switch back to Full Automation
+    const fullTab = getByRole('tab', { name: /full automation/i });
+    fireEvent.click(fullTab);
+
+    expect(fullCard?.className).toContain('order-1');
+    expect(semiCard?.className).toContain('order-2');
   });
 });

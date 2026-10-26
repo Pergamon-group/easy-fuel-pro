@@ -1,57 +1,130 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-poppins: var(--font-sans);
+  --font-jetbrains-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Custom Easing per emil-design-eng */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Light Theme Palette - Clean, Crisp Whitespace, High Contrast Slate */
+  --theme-bg: #ffffff;
+  --theme-on-bg: #090e17;
+  --theme-surface: #ffffff;
+  --theme-on-surface: #090e17;
+  --theme-surface-container-lowest: #ffffff;
+  --theme-surface-container-low: #f8fafc;
+  --theme-surface-container: #f1f5f9;
+  --theme-surface-container-high: #e2e8f0;
+  --theme-surface-container-highest: #cbd5e1;
+  --theme-surface-dim: #f1f5f9;
+  --theme-surface-bright: #ffffff;
+  --theme-on-surface-variant: #475569;
+  --theme-outline: #94a3b8;
+  --theme-outline-variant: #e2e8f0;
+
+  /* Brand Primary & Accents */
+  --theme-primary: #00658d;
+  --theme-on-primary: #ffffff;
+  --theme-primary-container: #17afed;
+  --theme-on-primary-container: #002438; /* WCAG AAA 7.4:1 contrast on #17afed */
+  --theme-primary-fixed: #c6e7ff;
+  --theme-primary-fixed-dim: #81cfff;
+
+  /* Secondary & Tertiary */
+  --theme-secondary: #475569;
+  --theme-secondary-container: #f1f5f9;
+  --theme-on-secondary-container: #334155;
+  --theme-tertiary: #006591;
+  --theme-tertiary-container: #00a2e6;
+  --theme-on-tertiary: #ffffff;
+  --theme-on-tertiary-container: #002b40;
+
+  /* Status */
+  --theme-error: #ba1a1a;
+  --theme-error-container: #ffdad6;
+  --theme-on-error: #ffffff;
+  --theme-kra-red: #eb2128;
+}
+
+.dark {
+  /* Dark Theme Palette - Deep Obsidian with Atmospheric Depth & Layered Elevation */
+  --theme-bg: #07090f;
+  --theme-on-bg: #f8fafc;
+  --theme-surface: #07090f;
+  --theme-on-surface: #f8fafc;
+  --theme-surface-container-lowest: #0a0e18;
+  --theme-surface-container-low: #0f1524;
+  --theme-surface-container: #141d30;
+  --theme-surface-container-high: #1c2842;
+  --theme-surface-container-highest: #253658;
+  --theme-surface-dim: #07090f;
+  --theme-surface-bright: #141d30;
+  --theme-on-surface-variant: #94a3b8;
+  --theme-outline: #475a7c;
+  --theme-outline-variant: #1a2538;
+
+  /* Brand Primary & Accents */
+  --theme-primary: #38bdf8;
+  --theme-on-primary: #001e2e;
+  --theme-primary-container: #17afed;
+  --theme-on-primary-container: #001824; /* WCAG AAA on electric cyan */
+  --theme-primary-fixed: #004c6b;
+  --theme-primary-fixed-dim: #00354b;
+
+  /* Secondary & Tertiary */
+  --theme-secondary: #94a3b8;
+  --theme-secondary-container: #1e293b;
+  --theme-on-secondary-container: #cbd5e1;
+  --theme-tertiary: #38bdf8;
+  --theme-tertiary-container: #0284c7;
+  --theme-on-tertiary: #001e2e;
+  --theme-on-tertiary-container: #e0f2fe;
+
+  /* Status */
+  --theme-error: #ffb4ab;
+  --theme-error-container: #93000a;
+  --theme-on-error: #690005;
+  --theme-kra-red: #eb2128;
+}
+
 @theme {
-  /* Colors */
-  --color-secondary: #565d79;
-  --color-tertiary-container: #00a2e6;
-  --color-on-tertiary-fixed-variant: #004c6e;
-  --color-on-tertiary-fixed: #001e2f;
-  --color-error: #ba1a1a;
-  --color-on-primary-container: #00354b;
-  --color-tertiary: #006591;
-  --color-inverse-primary: #81cfff;
-  --color-tertiary-fixed: #c9e6ff;
-  --color-on-tertiary-container: #00344e;
-  --color-surface-container: #eaedff;
-  --color-error-container: #ffdad6;
-  --color-tertiary-fixed-dim: #89ceff;
-  --color-surface-container-high: #e2e7ff;
-  --color-surface-dim: #d2d9f4;
-  --color-secondary-fixed-dim: #bec5e5;
-  --color-outline: #6e7881;
-  --color-on-primary-fixed-variant: #004c6b;
-  --color-surface-container-lowest: #ffffff;
-  --color-on-primary-fixed: #001e2d;
-  --color-secondary-container: #d8deff;
-  --color-on-error-container: #93000a;
-  --color-inverse-on-surface: #eef0ff;
-  --color-primary: #00658d;
-  --color-on-secondary-fixed-variant: #3e4660;
-  --color-surface-variant: #dae2fd;
-  --color-primary-fixed-dim: #81cfff;
-  --color-on-surface: #131b2e;
-  --color-on-secondary-fixed: #131a33;
-  --color-primary-container: #17afed;
-  --color-on-secondary: #ffffff;
-  --color-surface-bright: #faf8ff;
-  --color-primary-fixed: #c6e7ff;
-  --color-surface-container-low: #f2f3ff;
-  --color-on-secondary-container: #5a627e;
-  --color-background: #faf8ff;
-  --color-on-background: #131b2e;
-  --color-surface: #faf8ff;
-  --color-outline-variant: #bdc8d1;
-  --color-on-error: #ffffff;
-  --color-on-primary: #ffffff;
-  --color-on-surface-variant: #3e4850;
-  --color-on-tertiary: #ffffff;
-  --color-inverse-surface: #283044;
-  --color-secondary-fixed: #dbe1ff;
-  --color-surface-tint: #00658d;
-  --color-surface-container-highest: #dae2fd;
-
-
-  --color-kra-red: #eb2128;
+  /* Dynamic Theme Colors mapped to CSS Custom Properties */
+  --color-secondary: var(--theme-secondary);
+  --color-tertiary-container: var(--theme-tertiary-container);
+  --color-tertiary: var(--theme-tertiary);
+  --color-surface-container: var(--theme-surface-container);
+  --color-surface-container-high: var(--theme-surface-container-high);
+  --color-surface-dim: var(--theme-surface-dim);
+  --color-outline: var(--theme-outline);
+  --color-surface-container-lowest: var(--theme-surface-container-lowest);
+  --color-secondary-container: var(--theme-secondary-container);
+  --color-primary: var(--theme-primary);
+  --color-on-surface: var(--theme-on-surface);
+  --color-primary-container: var(--theme-primary-container);
+  --color-on-primary-container: var(--theme-on-primary-container);
+  --color-on-secondary: var(--theme-on-primary);
+  --color-surface-bright: var(--theme-surface-bright);
+  --color-primary-fixed: var(--theme-primary-fixed);
+  --color-surface-container-low: var(--theme-surface-container-low);
+  --color-on-secondary-container: var(--theme-on-secondary-container);
+  --color-background: var(--theme-bg);
+  --color-on-background: var(--theme-on-bg);
+  --color-surface: var(--theme-surface);
+  --color-outline-variant: var(--theme-outline-variant);
+  --color-on-error: var(--theme-on-error);
+  --color-on-primary: var(--theme-on-primary);
+  --color-on-surface-variant: var(--theme-on-surface-variant);
+  --color-on-tertiary: var(--theme-on-tertiary);
+  --color-surface-container-highest: var(--theme-surface-container-highest);
+  --color-kra-red: var(--theme-kra-red);
+  --color-error: var(--theme-error);
+  --color-error-container: var(--theme-error-container);
 
   /* Border Radius */
   --radius: 0.125rem;
@@ -73,23 +146,23 @@
   --spacing-margin-mobile: 1rem;
   --spacing-space-sm: 0.5rem;
 
-  /* Fonts */
-  --font-sans: var(--font-poppins, "Poppins", sans-serif);
-  --font-mono: var(--font-jetbrains-mono, "JetBrains Mono", monospace);
-  --font-poppins: var(--font-poppins, "Poppins", sans-serif);
-  --font-jetbrains-mono: var(--font-jetbrains-mono, "JetBrains Mono", monospace);
-  --font-headline-sm: var(--font-poppins, "Poppins", sans-serif);
-  --font-body-md: var(--font-poppins, "Poppins", sans-serif);
-  --font-display-hero: var(--font-poppins, "Poppins", sans-serif);
-  --font-headline-lg-mobile: var(--font-poppins, "Poppins", sans-serif);
-  --font-body-sm: var(--font-poppins, "Poppins", sans-serif);
-  --font-label-ui: var(--font-poppins, "Poppins", sans-serif);
-  --font-headline-lg: var(--font-poppins, "Poppins", sans-serif);
-  --font-headline-md: var(--font-poppins, "Poppins", sans-serif);
-  --font-label-mono: var(--font-jetbrains-mono, "JetBrains Mono", monospace);
-  --font-display-hero-mobile: var(--font-poppins, "Poppins", sans-serif);
-  --font-stat-counter: var(--font-poppins, "Poppins", sans-serif);
-  --font-body-lg: var(--font-poppins, "Poppins", sans-serif);
+  /* Centralized Typography tokens - change font in 1 place */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-poppins: var(--font-sans);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
+  --font-headline-sm: var(--font-sans);
+  --font-body-md: var(--font-sans);
+  --font-display-hero: var(--font-sans);
+  --font-headline-lg-mobile: var(--font-sans);
+  --font-body-sm: var(--font-sans);
+  --font-label-ui: var(--font-sans);
+  --font-headline-lg: var(--font-sans);
+  --font-headline-md: var(--font-sans);
+  --font-label-mono: var(--font-jetbrains-mono);
+  --font-display-hero-mobile: var(--font-sans);
+  --font-stat-counter: var(--font-sans);
+  --font-body-lg: var(--font-sans);
 
   /* Font Sizes */
   --text-headline-sm: 18px;
@@ -153,31 +226,79 @@
   --text-body-lg--font-weight: 400;
 }
 
-:root {
-  --font-poppins: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-jetbrains-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
 @layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior: none;
+    scroll-padding-top: 72px; /* Mobile header: 64px bar + 8px breathing offset */
+  }
 
-  html,
+  @media (min-width: 640px) {
+    html {
+      scroll-padding-top: 88px; /* Desktop/tablet header: 80px bar + 8px breathing offset */
+    }
+  }
+
+  .dark .dark-logo-invert {
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+
   body {
     margin: 0;
     padding: 0;
-    font-family: var(--font-poppins);
-  }
-
-  body {
+    font-family: var(--font-sans);
     overscroll-behavior: none;
     background-color: var(--color-background);
     color: var(--color-on-surface);
+    transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
   }
 
-  main> :first-child {
+  .dark body {
+    background-image: 
+      radial-gradient(ellipse 85% 55% at 50% -12%, rgba(23, 175, 237, 0.08), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 100% 40%, rgba(0, 101, 141, 0.04), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .dark .rounded-3xl,
+  .dark .rounded-2xl {
+    box-shadow: 
+      0 1px 2px 0 rgba(0, 0, 0, 0.5),
+      0 12px 32px -4px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.09);
+  }
+
+  .dark .rounded-xl {
+    box-shadow: 
+      0 1px 2px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  }
+
+  input, textarea, select {
+    font-size: 16px;
+  }
+
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+
+  button, [role="button"], .tab, .chip, .drag-handle {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  button:active, [role="button"]:active {
+    transform: scale(0.97);
+  }
+
+  main > :first-child {
     margin-top: 0 !important;
   }
 
-  main> :last-child {
+  main > :last-child {
     margin-bottom: 0 !important;
   }
 

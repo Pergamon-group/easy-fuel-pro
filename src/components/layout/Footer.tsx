@@ -21,7 +21,7 @@ export function Footer() {
                 alt="Pergamon Group Logo"
                 width={369}
                 height={144}
-                className="h-18 w-auto object-contain aspect-[206/80"
+                className="h-18 w-auto object-contain aspect-[206/80] dark-logo-invert transition-[filter,opacity]"
               />
             </a>
             {/* <div className="flex items-center gap-3">

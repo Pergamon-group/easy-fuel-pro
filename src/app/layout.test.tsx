@@ -4,8 +4,8 @@ import RootLayout from './layout';
 
 // Mock next/font/google
 vi.mock('next/font/google', () => ({
-  Poppins: () => ({
-    variable: '--font-poppins',
+  Inter: () => ({
+    variable: '--font-sans',
   }),
   JetBrains_Mono: () => ({
     variable: '--font-jetbrains-mono',
@@ -13,7 +13,7 @@ vi.mock('next/font/google', () => ({
 }));
 
 describe('RootLayout Component', () => {
-  it('configures Poppins font variable on the body element', () => {
+  it('configures Inter font variable on the body element', () => {
     render(
       <RootLayout>
         <div>Content</div>
@@ -21,6 +21,6 @@ describe('RootLayout Component', () => {
     );
 
     const bodyElement = document.querySelector('body');
-    expect(bodyElement?.className || document.body.className).toContain('--font-poppins');
+    expect(bodyElement?.className || document.body.className).toContain('--font-sans');
   });
 });

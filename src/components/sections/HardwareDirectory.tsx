@@ -74,9 +74,9 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
           onClick={(e) => {
             if (e.target === e.currentTarget) setIsOpen(false);
           }}
-          className="fixed inset-0 z-[150] flex flex-col justify-end sm:justify-center items-center p-0 sm:p-4 md:p-6 bg-on-surface/60 backdrop-blur-xs animate-in fade-in duration-200"
+          className="fixed inset-0 z-[150] flex flex-col justify-end sm:justify-center items-center p-0 sm:p-4 md:p-6 bg-black/50 dark:bg-black/75 backdrop-blur-sm animate-in fade-in duration-150"
         >
-          <div className="relative w-full sm:max-w-4xl h-[92dvh] sm:h-auto sm:max-h-[88vh] bg-surface-container-lowest rounded-t-3xl sm:rounded-2xl shadow-2xl border-t sm:border border-outline-variant/40 flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-200">
+          <div className="relative w-full sm:max-w-4xl h-[92dvh] sm:h-auto sm:max-h-[88vh] bg-surface-container-lowest rounded-t-3xl sm:rounded-2xl shadow-2xl border-t sm:border border-outline-variant/40 flex flex-col overflow-hidden overscroll-contain animate-in slide-in-from-bottom-6 sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-150">
             {/* Mobile Sheet Handle Bar */}
             <div className="pt-2.5 pb-1 sm:hidden flex justify-center shrink-0">
               <span className="w-10 h-1 bg-outline-variant/70 rounded-full" aria-hidden="true" />
@@ -120,7 +120,7 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search dispenser or ATG probe brand (e.g. Gilbarco, Wayne, Tatsuno, Fafnir, OPW)..."
-                  className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-[13px] sm:text-body-md focus:outline-hidden focus:ring-2 focus:ring-primary shadow-xs border border-transparent focus:border-primary transition-all placeholder:text-on-surface-variant/60"
+                  className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-[16px] sm:text-body-md focus:outline-hidden focus:ring-2 focus:ring-primary shadow-xs border border-transparent focus:border-primary transition-all placeholder:text-on-surface-variant/60"
                 />
                 {searchQuery && (
                   <button

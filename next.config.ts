@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   experimental: {
     agentUpgrade: "security",
   },
-  allowedDevOrigins: ['easy-fuel-pro.vercel.app', 'easyfuelpro.co.ke'],
+  allowedDevOrigins: ['luckless-connected-lagoon.ngrok-free.dev', 'easy-fuel-pro.vercel.app', 'easyfuelpro.co.ke'],
   turbopack: {
     rules: {
       "*.css": {

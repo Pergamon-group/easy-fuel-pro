@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { siteConfig, type PartnerItem } from '@/config/site';
 import { HardwareDirectory } from './HardwareDirectory';
@@ -39,9 +39,6 @@ export function PartnerCard({
             width={40}
             height={40}
             className={`max-w-full max-h-full object-contain transition-all duration-300 ${
-              // !isDark
-              //   ? 'grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100'
-              //   : 'opacity-90 group-hover:opacity-100'
               !isDark
                 ? ' opacity-70 group-hover:opacity-100'
                 : 'opacity-90 group-hover:opacity-100'
@@ -64,27 +61,7 @@ export function PartnerCard({
 export function Partners() {
   const clientsTrackRef = useRef<HTMLDivElement>(null);
   const partnersTrackRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    el.dataset.isDragging = 'true';
-    el.dataset.startX = String(e.clientX);
-    el.dataset.startScroll = String(el.scrollLeft);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    if (el.dataset.isDragging !== 'true') return;
-    e.preventDefault();
-    const startX = parseFloat(el.dataset.startX || '0');
-    const startScroll = parseFloat(el.dataset.startScroll || '0');
-    const walk = (e.clientX - startX) * 1.4;
-    el.scrollLeft = startScroll - walk;
-  };
-
-  const stopDragging = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.dataset.isDragging = 'false';
-  };
+  const isInteractingRef = useRef(false);
 
   const scrollTrack = (
     ref: React.RefObject<HTMLDivElement | null>,
@@ -111,6 +88,48 @@ export function Partners() {
         el.scrollBy({ left: -step, behavior: 'smooth' });
       }
     }
+  };
+
+  // Continuous auto-advance interval (pauses on hover or touch)
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      if (isInteractingRef.current) return;
+      scrollTrack(clientsTrackRef, 'right');
+      scrollTrack(partnersTrackRef, 'right');
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    isInteractingRef.current = true;
+    const el = e.currentTarget;
+    el.dataset.isDragging = 'true';
+    el.dataset.startX = String(e.clientX);
+    el.dataset.startScroll = String(el.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    if (el.dataset.isDragging !== 'true') return;
+    e.preventDefault();
+    const startX = parseFloat(el.dataset.startX || '0');
+    const startScroll = parseFloat(el.dataset.startScroll || '0');
+    const walk = (e.clientX - startX) * 1.4;
+    el.scrollLeft = startScroll - walk;
+  };
+
+  const stopDragging = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.dataset.isDragging = 'false';
+    isInteractingRef.current = false;
   };
 
   const { partners } = siteConfig;
@@ -174,10 +193,13 @@ export function Partners() {
               ref={clientsTrackRef}
               id="clients-track"
               data-testid="clients-track"
+              onMouseEnter={() => { isInteractingRef.current = true; }}
+              onMouseLeave={(e) => { isInteractingRef.current = false; stopDragging(e); }}
+              onTouchStart={() => { isInteractingRef.current = true; }}
+              onTouchEnd={() => { isInteractingRef.current = false; }}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
               onMouseUp={stopDragging}
-              onMouseLeave={stopDragging}
               className="overflow-x-auto flex items-center gap-4 py-2 scroll-smooth select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none]"
             >
               {(partners.networksCategory.items as readonly PartnerItem[]).map((item) => (
@@ -229,10 +251,13 @@ export function Partners() {
               ref={partnersTrackRef}
               id="partners-track"
               data-testid="partners-track"
+              onMouseEnter={() => { isInteractingRef.current = true; }}
+              onMouseLeave={(e) => { isInteractingRef.current = false; stopDragging(e); }}
+              onTouchStart={() => { isInteractingRef.current = true; }}
+              onTouchEnd={() => { isInteractingRef.current = false; }}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
               onMouseUp={stopDragging}
-              onMouseLeave={stopDragging}
               className="overflow-x-auto flex items-center gap-4 py-2 scroll-smooth select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none]"
             >
               {(partners.hardwareCategory.items as readonly PartnerItem[]).map((item) => (

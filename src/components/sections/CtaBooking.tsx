@@ -30,7 +30,8 @@ export function CtaBooking() {
   };
 
   return (
-    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface scroll-mt-24" id="demo-section" data-testid="cta-section">
+    <section className="w-full py-space-2xl lg:py-space-3xl bg-surface scroll-mt-[108px] sm:scroll-mt-[88px]" id="demo-section" data-testid="cta-section">
+      <span id="demo-form" className="sr-only" />
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
 
         {/* Primary Pathway: Full Forecourt Site Survey Gateway */}
@@ -76,13 +77,14 @@ export function CtaBooking() {
                   arrow_forward
                 </span>
               </Link>
-              <Link
-                href="/site-survey"
-                className="w-full py-3 px-5 rounded-2xl bg-surface border border-outline-variant/60 text-on-surface font-label-ui font-semibold text-xs sm:text-sm hover:bg-surface-container transition-all flex items-center justify-center gap-2 text-center"
+              <a
+                href="/site-survey/download"
+                download="EasyFuel-Pro-Site-Survey-Checklist.pdf"
+                className="w-full py-3 px-5 rounded-2xl bg-surface border border-outline-variant/60 text-on-surface font-label-ui font-semibold text-xs sm:text-sm hover:bg-surface-container active:scale-95 transition-all flex items-center justify-center gap-2 text-center shadow-xs cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[18px]">file_download</span>
-                <span>Download Printable PDF</span>
-              </Link>
+                <span className="material-symbols-outlined text-[18px] text-primary">file_download</span>
+                <span>Download Printable PDF (A4)</span>
+              </a>
             </div>
           </div>
         </div>
@@ -153,7 +155,7 @@ export function CtaBooking() {
             </div>
 
             {/* Right Column: General Contact Us Form */}
-            <div id="demo-form" className="scroll py-20 scroll-mt-20 lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-5">
+            <div id="inquiry-form" className="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-5">
               {!success ? (
                 <>
                   <div className="flex flex-col gap-1">

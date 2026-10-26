@@ -30,34 +30,39 @@ export function Hero() {
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
               {siteConfig.description}
             </p>
-            <div className="hero-etims relative w-full p-4 rounded-xl bg-surface-container-lowest border border-primary/2 shadow-xs mb-8">
+            <div className="hero-etims relative w-full p-4 sm:p-5 rounded-2xl bg-surface-container-low/70 border border-outline-variant/50 shadow-xs mb-8 flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="hero-fiscal-printer hero-fiscal-printer--mobile" aria-label="Interactive fiscal printer">
                 <FiscalPrinter />
               </div>
-              <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-[var(--color-kra-red)] text-[22px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-                {/* <div className="hero-etims-badge ">
-                  <Image
-                    src={siteConfig.etimsIntegrator.src}
-                    alt={siteConfig.etimsIntegrator.alt}
-                    width={siteConfig.etimsIntegrator.width}
-                    height={siteConfig.etimsIntegrator.height}
-                    className='object-contain'
-                  />
-                </div> */}
-                <p
-                  className="font-body-sm text-body-sm text-on-surface font-medium leading-relaxed"
-                  dangerouslySetInnerHTML={{
-                    __html: siteConfig.hero.etimsNote.replace('eTIMS-ready technology', '<b class="font-semibold text-primary">eTIMS-ready technology</b>')
-                  }}
+              <div className="bg-transparent rounded-xl px-0 py-2 shadow-none border border-outline-variant/20 shrink-0 self-start sm:self-start flex items-center justify-center">
+                <Image
+                  src={siteConfig.etimsIntegrator.src}
+                  alt={siteConfig.etimsIntegrator.alt}
+                  width={110}
+                  height={38}
+                  className="h-8 sm:h-9 w-auto object-contain"
                 />
               </div>
+              <p
+                className="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: siteConfig.hero.etimsNote.replace('eTIMS-ready technology', '<b class="font-semibold text-on-surface">eTIMS-ready technology</b>')
+                }}
+              />
             </div>
             <div className="flex flex-wrap items-center gap-4 mb-6">
-              <Link href={siteConfig.hero.primaryCta.href} className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-[#17afed] text-white font-label-ui  text-[15px] text-[15px] font-semibold shadow-md hover:bg-primary transition-all duration-200">
+              <Link
+                href={siteConfig.hero.primaryCta.href}
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-primary-container text-on-primary-container font-label-ui text-[15px] font-bold shadow-md hover:brightness-105 active:scale-95 transition-all duration-120"
+              >
                 {siteConfig.hero.primaryCta.label}
               </Link>
-              <a href={siteConfig.hero.secondaryCta.href} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-transparent border border-outline-variant hover:border-primary text-on-surface hover:text-primary font-label-ui text-[15px] font-semibold transition-all duration-200">
+              <a
+                href={siteConfig.hero.secondaryCta.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-primary text-on-surface hover:text-primary font-label-ui text-[15px] font-semibold active:scale-95 transition-all duration-120"
+              >
                 {siteConfig.hero.secondaryCta.label}
               </a>
             </div>
@@ -76,7 +81,7 @@ export function Hero() {
           <div className="lg:col-span-6 relative">
             <div className="flex flex-col gap-4 w-full">
               {/* <div className="relative rounded-2xl overflow-hidden shadow-none border border-slate-200/80 bg-white h-[360px] w-full"> */}
-              <div className="hero-image relative rounded-2xl overflow-visible shadow-none border border-slate-200/80 bg-white aspect-[887/467] w-full">
+              <div className="hero-image relative rounded-2xl overflow-visible shadow-none border border-outline-variant/60 bg-surface-container-lowest aspect-[887/467] w-full">
                 <div className="hero-fiscal-printer hero-fiscal-printer--desktop" aria-label="Interactive fiscal printer">
                   <FiscalPrinter />
                 </div>
@@ -88,14 +93,6 @@ export function Hero() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover grayscale-15 hover:grayscale-0 transition-all duration-500"
                     priority
-                  />
-                  {/* ABSOLUTE, CENTERED ON THE HERO IMAGE */}
-                  <Image
-                    src={siteConfig.etimsIntegrator.src}
-                    alt={siteConfig.etimsIntegrator.alt}
-                    width={siteConfig.etimsIntegrator.width}
-                    height={siteConfig.etimsIntegrator.height}
-                    className='object-contain bg-white p-2 rounded-full border border-slate-200/80 shadow-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32'
                   />
                 </div>
                 {/* <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-on-surface font-label-mono text-[11px] font-semibold">

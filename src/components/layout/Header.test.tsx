@@ -18,12 +18,9 @@ describe('Header Component', () => {
     expect(demoLink.className).toContain('hidden sm:inline-flex');
   });
 
-  it('renders full mobile top banner for booking a demo on mobile', () => {
+  it('omits the top booking banner on mobile to keep the header clean and uncluttered', () => {
     render(<Header />);
-    const banner = screen.getByTestId('mobile-top-banner');
-    expect(banner).toBeDefined();
-    expect(banner.className).toContain('sm:hidden');
-    expect(within(banner).getByText('Book a Demo')).toBeDefined();
+    expect(screen.queryByTestId('mobile-top-banner')).toBeNull();
   });
 
   it('renders the mobile menu toggle button with defined text initially showing Menu', () => {
