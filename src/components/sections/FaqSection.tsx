@@ -108,7 +108,7 @@ export function FaqSection() {
             </span>
           </div>
           <a
-            href="#demo-section"
+            href="#demo-form"
             className="px-5 py-2.5 rounded-xl bg-primary hover:bg-tertiary text-on-primary font-label-ui text-[13px] font-semibold transition-colors shrink-0"
           >
             Speak to a Specialist

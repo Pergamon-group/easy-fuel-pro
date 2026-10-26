@@ -18,9 +18,9 @@ export function Hero() {
             <h1 className="font-display-hero text-headline-lg lg:text-display-hero text-on-surface tracking-tight font-extrabold mb-6 leading-tight">
               {siteConfig.tagline}
             </h1>
-            <p className="text-lg lg:text-xl font-bold text-on-surface tracking-tight leading-snug mb-3">
+            {/* <p className="text-lg lg:text-xl font-bold text-on-surface tracking-tight leading-snug mb-3">
               {siteConfig.hero.subheadline}
-            </p>
+            </p> */}
             {/* <h1 className="font-display-hero text-headline-lg lg:text-display-hero text-on-surface tracking-tight font-extrabold mb-6 leading-tight">
               {siteConfig.hero.subheadline}
             </h1>
@@ -35,7 +35,16 @@ export function Hero() {
                 <FiscalPrinter />
               </div>
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-[22px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+                <span className="material-symbols-outlined text-[var(--color-kra-red)] text-[22px] mt-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+                {/* <div className="hero-etims-badge ">
+                  <Image
+                    src={siteConfig.etimsIntegrator.src}
+                    alt={siteConfig.etimsIntegrator.alt}
+                    width={siteConfig.etimsIntegrator.width}
+                    height={siteConfig.etimsIntegrator.height}
+                    className='object-contain'
+                  />
+                </div> */}
                 <p
                   className="font-body-sm text-body-sm text-on-surface font-medium leading-relaxed"
                   dangerouslySetInnerHTML={{
@@ -77,8 +86,16 @@ export function Hero() {
                     alt={siteConfig.hero.image.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover grayscale-25 hover:grayscale-0 transition-all duration-500"
+                    className="object-cover grayscale-15 hover:grayscale-0 transition-all duration-500"
                     priority
+                  />
+                  {/* ABSOLUTE, CENTERED ON THE HERO IMAGE */}
+                  <Image
+                    src={siteConfig.etimsIntegrator.src}
+                    alt={siteConfig.etimsIntegrator.alt}
+                    width={siteConfig.etimsIntegrator.width}
+                    height={siteConfig.etimsIntegrator.height}
+                    className='object-contain bg-white p-2 rounded-full border border-slate-200/80 shadow-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32'
                   />
                 </div>
                 {/* <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs text-on-surface font-label-mono text-[11px] font-semibold">
@@ -86,7 +103,7 @@ export function Hero() {
                   <span>{siteConfig.hero.image.badge}</span>
                 </div> */}
               </div>
-              <div className="bg-white rounded-2xl p-5 shadow-none border border-slate-200/80 flex flex-col gap-4">
+              {/* <div className="bg-white rounded-2xl p-5 shadow-none border border-slate-200/80 flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 pb-3 border-b border-surface-container">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 shrink-0 rounded-lg bg-primary/0 flex items-center justify-center text-primary">
@@ -97,9 +114,9 @@ export function Hero() {
                       <span className="font-label-mono text-[10px] sm:text-[11px] text-on-surface-variant leading-tight">{siteConfig.hero.liveMetrics.controllerId}</span>
                     </div>
                   </div>
-                  {/* <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/90 border border-primary/20 text-white font-label-mono text-[10px] sm:text-[11px] font-bold">
+                  <div className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/90 border border-primary/20 text-white font-label-mono text-[10px] sm:text-[11px] font-bold">
                     <span>{siteConfig.hero.liveMetrics.status}</span>
-                  </div> */}
+                  </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3 text-center">
                   <div className="p-3 rounded-xl bg-surface-container-low/5 flex flex-col gap-0.5 justify-between">
@@ -117,7 +134,7 @@ export function Hero() {
                     <span className="font-headline-sm text-headline-sm font-bold text-on-surface">{siteConfig.hero.liveMetrics.metrics[2].value}</span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

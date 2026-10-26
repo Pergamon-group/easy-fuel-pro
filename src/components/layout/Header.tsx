@@ -27,7 +27,7 @@ export function Header() {
             </span>
           </div>
           <Link
-            href="/#demo-section"
+            href="/#demo-form"
             onClick={() => setMobileOpen(false)}
             className="inline-flex items-center gap-1 bg-white text-primary px-3 py-1 rounded-full text-[11px] font-bold shadow-xs hover:bg-surface-container active:scale-95 transition-all shrink-0"
           >
@@ -80,7 +80,7 @@ export function Header() {
 
           {/* Desktop/Tablet CTA Button (Hidden on Mobile <sm, replaced by Top Banner) */}
           <a
-            href="#demo-section"
+            href="#demo-form"
             className="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-primary text-on-primary text-[13px] sm:text-[14px] text-center font-semibold shadow-sm hover:bg-tertiary transition-all"
           >
             Request a Demo
@@ -132,6 +132,18 @@ export function Header() {
             {/* ── Main Navigation List (Linear, Elegant, Typographic) ── */}
             <nav className="flex flex-col divide-y divide-surface-container/70" aria-label="Mobile Navigation Links">
 
+              <Link
+                key={'Architecture'}
+                href={'/#architecture'}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-between py-3.5 text-[17px] font-semibold text-on-surface hover:text-primary transition-colors"
+              >
+                <span>Architecture</span>
+                <span className="material-symbols-outlined text-[18px] text-on-surface-variant/40">
+                  arrow_forward
+                </span>
+              </Link>
+
               {/* Solutions Accordion */}
               <div className="py-1">
                 <button
@@ -176,7 +188,7 @@ export function Header() {
 
               {/* Core Nav Links */}
               {[
-                { label: 'Architecture', href: '/#architecture' },
+                // { label: 'Architecture', href: '/#architecture' },
                 { label: 'Partners', href: '/#about' },
                 { label: 'Pricing', href: '/#pricing' },
                 { label: 'FAQ', href: '/faq' },
@@ -233,7 +245,7 @@ export function Header() {
             {/* ── Primary Action CTA ── */}
             <div className="mt-6 pt-2">
               <Link
-                href="/#demo-section"
+                href="/#demo-form"
                 onClick={() => setMobileOpen(false)}
                 className="block w-full py-3.5 px-6 rounded-xl bg-primary text-on-primary text-center font-bold text-[15px] shadow-sm hover:bg-tertiary active:scale-[0.99] transition-all"
               >

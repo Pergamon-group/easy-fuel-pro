@@ -140,11 +140,10 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
                   type="button"
                   aria-label="Filter by All"
                   onClick={() => setActiveCategory('all')}
-                  className={`px-3 py-1.5 rounded-lg text-[12px] font-label-ui font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
-                    activeCategory === 'all'
+                  className={`px-3 py-1.5 rounded-lg text-[12px] font-label-ui font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${activeCategory === 'all'
                       ? 'bg-surface-container-lowest text-primary shadow-xs'
                       : 'text-on-surface-variant hover:text-on-surface'
-                  }`}
+                    }`}
                 >
                   All ({TOTAL_DISPENSER_COUNT + TOTAL_ATG_COUNT})
                 </button>
@@ -152,11 +151,10 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
                   type="button"
                   aria-label="Filter by Fuel Dispensers"
                   onClick={() => setActiveCategory('dispenser')}
-                  className={`px-3 py-1.5 rounded-lg text-[12px] font-label-ui font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
-                    activeCategory === 'dispenser'
+                  className={`px-3 py-1.5 rounded-lg text-[12px] font-label-ui font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${activeCategory === 'dispenser'
                       ? 'bg-surface-container-lowest text-primary shadow-xs'
                       : 'text-on-surface-variant hover:text-on-surface'
-                  }`}
+                    }`}
                 >
                   Fuel Dispensers ({TOTAL_DISPENSER_COUNT})
                 </button>
@@ -164,11 +162,10 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
                   type="button"
                   aria-label="Filter by ATG Probes"
                   onClick={() => setActiveCategory('atg')}
-                  className={`px-3 py-1.5 rounded-lg text-[12px] font-label-ui font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
-                    activeCategory === 'atg'
+                  className={`px-3 py-1.5 rounded-lg text-[12px] font-label-ui font-semibold whitespace-nowrap transition-colors cursor-pointer shrink-0 ${activeCategory === 'atg'
                       ? 'bg-surface-container-lowest text-primary shadow-xs'
                       : 'text-on-surface-variant hover:text-on-surface'
-                  }`}
+                    }`}
                 >
                   ATG Probes ({TOTAL_ATG_COUNT})
                 </button>
@@ -218,11 +215,10 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
                           </span>
                         )}
                         <span
-                          className={`px-1.5 py-0.5 rounded text-[9px] font-label-mono font-semibold uppercase ${
-                            brand.category === 'dispenser'
+                          className={`px-1.5 py-0.5 rounded text-[9px] font-label-mono font-semibold uppercase ${brand.category === 'dispenser'
                               ? 'bg-primary/10 text-primary'
                               : 'bg-secondary/15 text-secondary'
-                          }`}
+                            }`}
                         >
                           {brand.category === 'dispenser' ? 'Dispenser' : 'ATG'}
                         </span>
@@ -261,7 +257,7 @@ export function HardwareDirectory({ defaultOpen = false }: HardwareDirectoryProp
                   Close
                 </button>
                 <a
-                  href="#demo-section"
+                  href="#demo-form"
                   onClick={() => setIsOpen(false)}
                   className="flex-1 sm:flex-initial px-4 py-2.5 sm:py-2 rounded-lg bg-primary hover:bg-tertiary text-on-primary font-label-ui text-[12px] font-semibold transition-colors shrink-0 text-center"
                 >

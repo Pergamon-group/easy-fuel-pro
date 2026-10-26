@@ -153,7 +153,7 @@ export function CtaBooking() {
             </div>
 
             {/* Right Column: General Contact Us Form */}
-            <div className="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-5">
+            <div id="demo-form" className="scroll py-20 scroll-mt-20 lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border border-outline-variant/30 shadow-sm flex flex-col gap-5">
               {!success ? (
                 <>
                   <div className="flex flex-col gap-1">

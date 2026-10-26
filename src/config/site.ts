@@ -17,6 +17,12 @@ export const siteConfig = {
   website: "easyfuelpro.com",
   ogImage: "/res/EasyFuel Pro logo.jpg",
   ogImageSquare: "/res/Logo 1.png",
+  etimsIntegrator: {
+    src: "/images/etims-integrator-logo.png",
+    alt: "ETIMS Ready Logo",
+    width: 325,
+    height: 225,
+  },
   logo: {
     src: "/res/EasyFuel_Pro logo_transparent_475.png",
     alt: "EasyFuel Pro Logo",
@@ -48,16 +54,16 @@ export const siteConfig = {
   // ── Contact ───────────────────────────────────────────────────────────────
   phone: "+254 111 050 950",
   phoneHref: "tel:+254111050950",
-  whatsapp: "+254 111 050 950", // Display format
-  whatsappHref: "https://wa.me/254111050950",
+  whatsapp: "+254 112 817 917", // Display format
+  whatsappHref: "https://wa.me/254112817917",
   email: "info@pergamongroup.com", // Main business dispatch
   websiteDomain: "easyfuelpro.com",
 
   // ── Navigation ────────────────────────────────────────────────────────────
   navLinks: [
-    { label: "Solutions", href: "/#solutions" },
+    // { label: "Partners", href: "/#about" },
     { label: "Architecture", href: "/#architecture" },
-    { label: "Partners", href: "/#about" },
+    { label: "Solutions", href: "/#solutions" },
     { label: "Pricing", href: "/#pricing" },
     { label: "Site Survey", href: "/site-survey" },
     { label: "FAQ", href: "/faq" },
@@ -86,7 +92,7 @@ export const siteConfig = {
     badge: "EASYFUEL PRO • BY PERGAMON GROUP",
     subheadline: "Run your fuel station smarter, faster, and with greater control.",
     etimsNote: "With eTIMS-ready technology, EasyFuel Pro helps fuel stations manage their operations efficiently while staying compliant with Kenya’s digital tax requirements as enforced by the Kenya Revenue Authority (KRA).",
-    primaryCta: { label: "Request a Demo", href: "#demo-section" },
+    primaryCta: { label: "Request a Demo", href: "#demo-form" },
     secondaryCta: { label: "Talk to Us", href: "https://wa.me/254111050950" },
     image: {
       // src: "/res/filling-station-upperhill.jpg",
@@ -463,7 +469,7 @@ export const siteConfig = {
     ],
     hubsLabel: "Regional Network Operations",
     hubs: [
-      { name: "Nairobi HQ & Showroom", desc: "Springette Office Park, Spring Valley , Lower Kabete Road, Block B1\nShowroom: Lonrho House, Standard St, Email: info@pergamongroup.com" },
+      { name: "Nairobi HQ & Showroom", desc: "Springette Office Park, Spring Valley , Lower Kabete Road, Block B1\nShowroom: Lonrho House, Standard St, Email: info@pergamongroup.com\nPhone: +254 111 050 950, Whatsapp: +254 112 817 917" },
       { name: "Kenya Branches", desc: "Eldoret: Laneen Centre, Utalii St, Opposite Sirikwa Hotel\nKisii: Magsons Plaza: Off Hospital Rd\nMombasa: Digo Rd, 3rd Floor\nEmail: info@pergamongroup.com" },
       { name: "Tanzania (Dar es Salaam)", desc: "Misasani, Mikocheni A, Old Bagamoyo Rd, PLOT 101\nTel: +255 22 277 5626, Mobile: +255 782 572 670, +255 716 684 002,\n\Email: info@pergamontz.com" },
       { name: "Rwanda (Kigali)", desc: "Nobiscum House, 1st Floor, Remera Kisimenti\nTel: +250 786 381 374, +250 786 654 154, Email: info.rwanda@pergamongroup.com" }

@@ -50,6 +50,9 @@
   --color-surface-tint: #00658d;
   --color-surface-container-highest: #dae2fd;
 
+
+  --color-kra-red: #eb2128;
+
   /* Border Radius */
   --radius: 0.125rem;
   --radius-lg: 0.25rem;
